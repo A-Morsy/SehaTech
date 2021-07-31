@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'signup1.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(SignUpOne());
 }
 
 class MyApp extends StatelessWidget {
@@ -9,10 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      //title: 'Flutter Demo',
+      //theme: ThemeData(
+      //primarySwatch: Colors.blue,
+      //),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -21,7 +22,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
-
   final String title;
 
   @override
@@ -29,102 +29,83 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // login() {
 
-  login() {
+  // }
 
-  }
+  // signUp() {
 
-  signUp() {
-
-  }
-
+  // }
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(
       children: [
-          Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        color: Color(0xFFE3FBF3),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          color: Color(0xFFE7F8F5),
         ),
         Center(
-        child: Column(
-        mainAxisAlignment: MainAxisAlignment.center ,
-        children: [
-          Container(
-          width: MediaQuery.of(context).size.width * 0.6,
-          child:
-          RaisedButton(
-            child: Text("Log In"),
-            textColor: Colors.white,
-            color: Color(0xFF1DCCBC),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-            elevation: 2.0,
-            onPressed: login() ,
-            )
-          ),
-
-          Container(
-          width: MediaQuery.of(context).size.width * 0.6,
-          child:RaisedButton(
-            child: Text("Sign Up"),
-            textColor: Colors.white,
-            color: Color(0xFFFB940C),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-            elevation: 2.0,
-            onPressed:signUp(),
-            )
-          ),
-
-          Padding(padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
-          child : Center(
-            child:
-            Row(
-
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
-            MaterialButton(
-            onPressed: () {},
-            color: Colors.white,
-            child: Icon(
-              Icons.facebook_sharp,
-              size: 22,
-            ),
-            padding: EdgeInsets.all(10),
-            shape: CircleBorder(),
-          ),
-
-            MaterialButton(
-            onPressed: () {},
-            color: Colors.white,
-            child: Icon(
-              Icons.facebook_sharp,
-              size: 22,
-            ),
-            padding: EdgeInsets.all(10),
-            shape: CircleBorder(),
-          ),
-
-            MaterialButton(
-            onPressed: () {},
-            color:Colors.white,
-            child: Icon(
-              Icons.facebook_sharp,
-              size: 22,
-            ),
-            padding: EdgeInsets.all(10),
-            shape: CircleBorder(),
-          ),
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  child: RaisedButton(
+                    child: Text("Log In"),
+                    textColor: Colors.white,
+                    color: Color(0xFF1CC9BC),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0)),
+                    elevation: 2.0,
+                    onPressed: () {},
+                    //onPressed: login() ,
+                  )),
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  child: RaisedButton(
+                    child: Text("Sign Up"),
+                    textColor: Colors.white,
+                    color: Color(0xFFFB940C),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0)),
+                    elevation: 2.0,
+                    onPressed: () {},
+                    //onPressed:signUp(),
+                  )),
+              Padding(
+                  padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MaterialButton(
+                          onPressed: () {},
+                          color: Colors.white,
+                          child: Image.asset('assets/images/google.png'),
+                          padding: EdgeInsets.all(10),
+                          shape: CircleBorder(),
+                        ),
+                        MaterialButton(
+                          onPressed: () {},
+                          color: Colors.white,
+                          child: Image.asset('assets/images/facebook.png'),
+                          padding: EdgeInsets.all(10),
+                          shape: CircleBorder(),
+                        ),
+                        MaterialButton(
+                          onPressed: () {},
+                          color: Colors.white,
+                          child: Image.asset('assets/images/apple.png'),
+                          padding: EdgeInsets.all(10),
+                          shape: CircleBorder(),
+                        ),
+                      ],
+                    ),
+                  )),
             ],
           ),
-          )
-          )
-          ,
-        ],
-        ) ,
         )
       ],
     );
