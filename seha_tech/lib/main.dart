@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'views/auth/signup1.dart';
+import 'views/signup/signup1.dart';
 
 void main() {
-  runApp(SignUpOne());
+  // runApp(SignUpOne());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       // primarySwatch: Colors.blue,
       // ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home : SignUpOne (key: key,)
     );
   }
 }
