@@ -9,33 +9,45 @@ class EmailBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
-        child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        height: MediaQuery.of(context).size.height / 5,
+        alignment: Alignment.center,
+        padding: new EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 15,
+            25, 10, MediaQuery.of(context).size.width / 15),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CustomText(text: 'E-mail:', size: 15.0, color: Palette.forthColor),
-            TextBox(message: 'Enter A Valid E-mail', obscureText: false)
+            Container(
+                height: MediaQuery.of(context).size.height / 5,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      CustomText(
+                          text: 'E-mail:',
+                          size: 15.0,
+                          color: Palette.forthColor),
+                      CustomText(
+                          text: 'Password:',
+                          size: 15.0,
+                          color: Palette.forthColor),
+                      CustomText(
+                          text: 'Confirm Password:',
+                          size: 15.0,
+                          color: Palette.forthColor),
+                    ])),
+            Container(
+                height: MediaQuery.of(context).size.height / 5,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TextBox(
+                          message: 'Enter A Valid E-mail', obscureText: false),
+                      TextBox(
+                          message: 'Enter A Valid Password', obscureText: true),
+                      TextBox(
+                          message: 'Confirm Your Password', obscureText: true)
+                    ]))
           ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            CustomText(
-                text: 'Password:', size: 15.0, color: Palette.forthColor),
-            TextBox(message: 'Enter A Valid Password', obscureText: true)
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            CustomText(
-                text: 'Confirm Password:', size: 15.0, color: Palette.forthColor),
-            TextBox(message: 'Confirm Your Password', obscureText: true)
-          ],
-        )
-      ],
-    ));
+        ));
   }
 }

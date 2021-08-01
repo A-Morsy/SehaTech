@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'widgets/customDivider.dart';
 import 'widgets/firstBlock.dart';
 import 'widgets/secondBlock.dart';
+import 'widgets/thirdBlock.dart';
 
 class SignUpOne extends StatefulWidget {
   SignUpOne({Key? key}) : super(key: key);
@@ -49,12 +50,13 @@ class _SignUpOneState extends State<SignUpOne> {
                     ),
                     color: Colors.white,
                   ),
-                  child: Column(
+                  child: ListView(
                     children: [
                       NamePhotoBlock(),
                       CustomDivider(),
                       EmailBlock(),
                       CustomDivider(),
+                      OtherInfoBlock()
                     ],
                   ),
                 ))));

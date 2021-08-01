@@ -21,7 +21,7 @@ class NamePhotoBlock extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(25, 25, 25, 0),
+            padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
             child: Container(
                 child: Row(
               children: [
@@ -40,12 +40,8 @@ class NamePhotoBlock extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(20, 5, 10, 0),
                   child: new Column(
                     children: <Widget>[
-                      TextBox(
-                        message: 'First Name', obscureText : false
-                      ),
-                      TextBox(
-                        message: 'Second Name', obscureText : false
-                      ),
+                      TextBox(message: 'First Name', obscureText: false),
+                      TextBox(message: 'Second Name', obscureText: false),
                     ],
                   ),
                 ),
