@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'views/signup/signup1.dart';
+import 'views/signup/signUpOne.dart';
 
 void main() {
-  // runApp(SignUpOne());
   runApp(MyApp());
 }
 

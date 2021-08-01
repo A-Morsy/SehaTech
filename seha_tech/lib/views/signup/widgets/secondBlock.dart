@@ -16,7 +16,7 @@ class EmailBlock extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomText(text: 'E-mail:', size: 15.0, color: Palette.forthColor),
-            TextBox(message: 'Enter A Valid E-mail', obscureText: false)
+            TextBox(message: 'Enter A Valid E-mail', obscureText: false, width: 200, height: 40,keyboardType: TextInputType.emailAddress)
           ],
         ),
         Row(
@@ -24,7 +24,7 @@ class EmailBlock extends StatelessWidget {
           children: [
             CustomText(
                 text: 'Password:', size: 15.0, color: Palette.forthColor),
-            TextBox(message: 'Enter A Valid Password', obscureText: true)
+            TextBox(message: 'Enter A Valid Password', obscureText: true,width: 200, height: 40,keyboardType: TextInputType.visiblePassword)
           ],
         ),
         Row(
@@ -32,7 +32,7 @@ class EmailBlock extends StatelessWidget {
           children: [
             CustomText(
                 text: 'Confirm Password:', size: 15.0, color: Palette.forthColor),
-            TextBox(message: 'Confirm Your Password', obscureText: true)
+            TextBox(message: 'Confirm Your Password', obscureText: true,width: 200, height: 40,keyboardType: TextInputType.visiblePassword)
           ],
         )
       ],

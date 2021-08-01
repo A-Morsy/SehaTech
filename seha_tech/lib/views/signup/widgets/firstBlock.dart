@@ -41,10 +41,18 @@ class NamePhotoBlock extends StatelessWidget {
                   child: new Column(
                     children: <Widget>[
                       TextBox(
-                        message: 'First Name', obscureText : false
+                        message: 'First Name',
+                        obscureText: false,
+                        width: 200,
+                        height: 40,
+                        keyboardType: TextInputType.name
                       ),
                       TextBox(
-                        message: 'Second Name', obscureText : false
+                        message: 'Second Name',
+                        obscureText: false,
+                        width: 200,
+                        height: 40,
+                        keyboardType: TextInputType.name
                       ),
                     ],
                   ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'widgets/customDivider.dart';
 import 'widgets/firstBlock.dart';
 import 'widgets/secondBlock.dart';
+import 'widgets/thirdBlock.dart';
 
 class SignUpOne extends StatefulWidget {
   SignUpOne({Key? key}) : super(key: key);
@@ -13,13 +14,6 @@ class SignUpOne extends StatefulWidget {
 class _SignUpOneState extends State<SignUpOne> {
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp(
-    //     debugShowCheckedModeBanner: false,
-    //     theme: ThemeData(
-    //       primaryColor: Colors.blue,
-    //     ),
-    //     home: _buildContent());
-
     return _buildContent();
   }
 
@@ -55,6 +49,7 @@ class _SignUpOneState extends State<SignUpOne> {
                       CustomDivider(),
                       EmailBlock(),
                       CustomDivider(),
+                      PersonalInfoBlock()
                     ],
                   ),
                 ))));
