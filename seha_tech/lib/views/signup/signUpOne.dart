@@ -14,13 +14,6 @@ class SignUpOne extends StatefulWidget {
 class _SignUpOneState extends State<SignUpOne> {
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp(
-    //     debugShowCheckedModeBanner: false,
-    //     theme: ThemeData(
-    //       primaryColor: Colors.blue,
-    //     ),
-    //     home: _buildContent());
-
     return _buildContent();
   }
 

@@ -41,11 +41,23 @@ class EmailBlock extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       TextBox(
-                          message: 'Enter A Valid E-mail', obscureText: false),
+                          message: 'Enter A Valid E-mail',
+                          width: 200,
+                          height: 40,
+                          obscureText: false,
+                          keyboardType: TextInputType.name),
                       TextBox(
-                          message: 'Enter A Valid Password', obscureText: true),
+                          message: 'Enter A Valid Password',
+                          width: 200,
+                          height: 40,
+                          obscureText: true,
+                          keyboardType: TextInputType.name),
                       TextBox(
-                          message: 'Confirm Your Password', obscureText: true)
+                          message: 'Confirm Your Password',
+                          width: 200,
+                          height: 40,
+                          obscureText: true,
+                          keyboardType: TextInputType.name)
                     ]))
           ],
         ));

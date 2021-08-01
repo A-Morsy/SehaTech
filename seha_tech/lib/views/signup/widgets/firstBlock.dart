@@ -40,8 +40,18 @@ class NamePhotoBlock extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(20, 5, 10, 0),
                   child: new Column(
                     children: <Widget>[
-                      TextBox(message: 'First Name', obscureText: false),
-                      TextBox(message: 'Second Name', obscureText: false),
+                      TextBox(
+                          message: 'First Name',
+                          obscureText: false,
+                          width: 200,
+                          height: 40,
+                          keyboardType: TextInputType.name),
+                      TextBox(
+                          message: 'Second Name',
+                          obscureText: false,
+                          width: 200,
+                          height: 40,
+                          keyboardType: TextInputType.name),
                     ],
                   ),
                 ),

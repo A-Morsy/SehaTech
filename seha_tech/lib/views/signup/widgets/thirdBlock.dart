@@ -50,7 +50,12 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TextBox(message: 'Enter Your Address', obscureText: false),
+                  TextBox(
+                      message: 'Enter Your Address',
+                      width: 200,
+                      height: 40,
+                      obscureText: false,
+                      keyboardType: TextInputType.name),
                   Container(
                     width: 200,
                     child: DateTimePicker(
