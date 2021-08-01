@@ -12,7 +12,7 @@ class EmailBlock extends StatelessWidget {
         height: MediaQuery.of(context).size.height / 5,
         alignment: Alignment.center,
         padding: new EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 15,
-            25, 10, MediaQuery.of(context).size.width / 15),
+            20, 15, MediaQuery.of(context).size.width / 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -42,20 +42,20 @@ class EmailBlock extends StatelessWidget {
                     children: [
                       TextBox(
                           message: 'Enter A Valid E-mail',
-                          width: 200,
-                          height: 40,
+                          width: MediaQuery.of(context).size.width / 2.5,
+                          height: 30,
                           obscureText: false,
                           keyboardType: TextInputType.name),
                       TextBox(
                           message: 'Enter A Valid Password',
-                          width: 200,
-                          height: 40,
+                          width: MediaQuery.of(context).size.width / 2.5,
+                          height: 30,
                           obscureText: true,
                           keyboardType: TextInputType.name),
                       TextBox(
                           message: 'Confirm Your Password',
-                          width: 200,
-                          height: 40,
+                          width: MediaQuery.of(context).size.width / 2.5,
+                          height: 30,
                           obscureText: true,
                           keyboardType: TextInputType.name)
                     ]))

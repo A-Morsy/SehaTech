@@ -3,6 +3,8 @@ import 'widgets/customDivider.dart';
 import 'widgets/firstBlock.dart';
 import 'widgets/secondBlock.dart';
 import 'widgets/thirdBlock.dart';
+import '../../Reusable/palette.dart';
+import '../../Reusable/reusableWidgets.dart';
 
 class SignUpOne extends StatefulWidget {
   SignUpOne({Key? key}) : super(key: key);
@@ -29,13 +31,28 @@ class _SignUpOneState extends State<SignUpOne> {
           backgroundColor: Color.fromRGBO(28, 201, 188, 1),
           elevation: 0.0,
         ),
-        body: Container(
+        body: Column(children: [
+          Container(
+            color: Palette.primaryColor,
+            width: MediaQuery.of(context).size.width,
+            height: 16,
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Smalecircle(color: Colors.orange),
+                // Smalecircle(color: Colors.white),
+                // Smalecircle(color: Colors.orange),
+              ],
+            ),
+          ),
+          Expanded(
+              child: Container(
             color: Color.fromRGBO(28, 201, 188, 1),
             child: Padding(
-                padding: EdgeInsets.fromLTRB(20, 80, 20, 0),
+                padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: double.infinity,
+                  height: MediaQuery.of(context).size.height,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20.0),
@@ -52,6 +69,21 @@ class _SignUpOneState extends State<SignUpOne> {
                       OtherInfoBlock()
                     ],
                   ),
-                ))));
+                )),
+          )),
+        ]),
+        floatingActionButton: SizedBox(
+            height: 50.0,
+            width: 50.0,
+            child: FittedBox(
+              child: FloatingActionButton(
+                onPressed: () {},
+                child: const Icon(
+                  Icons.keyboard_arrow_right_rounded,
+                  size: 35,
+                ),
+                backgroundColor: Palette.primaryColor,
+              ),
+            )));
   }
 }

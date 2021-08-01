@@ -8,15 +8,14 @@ class TextBox extends StatelessWidget {
 
   final TextInputType keyboardType;
 
-  const TextBox(
-      {Key? key,
-      required this.message,
-      required this.obscureText,
-      required this.width,
-      required this.height,
-      required this.keyboardType,
-      })
-      : super(key: key);
+  const TextBox({
+    Key? key,
+    required this.message,
+    required this.obscureText,
+    required this.width,
+    required this.height,
+    required this.keyboardType,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,11 @@ class TextBox extends StatelessWidget {
         child: TextField(
             keyboardType: keyboardType,
             obscureText: obscureText,
-            decoration:
-                InputDecoration(border: InputBorder.none, hintText: message)));
+            style: TextStyle(fontSize: 12),
+            decoration: InputDecoration(
+              border: UnderlineInputBorder(
+                  borderSide: new BorderSide(color: Colors.purple)),
+              hintText: message,
+            )));
   }
 }

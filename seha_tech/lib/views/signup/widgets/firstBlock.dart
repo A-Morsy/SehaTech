@@ -21,11 +21,15 @@ class NamePhotoBlock extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
+            padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 15,
+                25, 10, MediaQuery.of(context).size.width / 15),
             child: Container(
                 child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
+                  width: 80,
+                  height: 80,
                   decoration: BoxDecoration(
                     borderRadius:
                         const BorderRadius.all(const Radius.circular(50)),

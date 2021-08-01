@@ -22,4 +22,18 @@ class CustomText extends StatelessWidget {
   }
 }
 
+class Smalecircle extends StatelessWidget {
+  final Color color;
 
+  const Smalecircle({Key? key, required this.color}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      decoration: new BoxDecoration(
+        color: Colors.orange,
+        shape: BoxShape.circle,
+      ),
+    );
+  }
+}

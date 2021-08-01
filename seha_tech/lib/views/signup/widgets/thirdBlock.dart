@@ -12,7 +12,9 @@ class OtherInfoBlock extends StatefulWidget {
 
 class _OtherInfoBlock extends State<OtherInfoBlock> {
   late String _selectedDate;
-  var gender;
+  var gender = 'Male';
+  var maleColor = Color.fromRGBO(255, 255, 255, 0);
+  var femaleColor = Color.fromRGBO(255, 255, 255, 0);
   var martialStatusDD = 'Single';
 
   @override
@@ -47,17 +49,19 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                   ])),
           Container(
             height: MediaQuery.of(context).size.height / 3,
+            width: MediaQuery.of(context).size.width / 2.5,
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   TextBox(
                       message: 'Enter Your Address',
-                      width: 200,
-                      height: 40,
+                      width: 170,
+                      height: 30,
                       obscureText: false,
                       keyboardType: TextInputType.name),
                   Container(
-                    width: 200,
+                    width: 170,
+                    height: 30,
                     child: DateTimePicker(
                       initialValue:
                           '', // initialValue or controller.text can be null, empty or a DateTime string otherwise it will throw an error.
@@ -80,46 +84,59 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                     ),
                   ),
                   Container(
+                      width: MediaQuery.of(context).size.width / 2.5,
                       child: Row(
-                    children: [
-                      TextButton(
-                          onPressed: () {
-                            setState(() {
-                              gender = 'Male';
-                            });
-                          },
-                          child: Text('Male')),
-                      TextButton(
-                          onPressed: () {
-                            setState(() {
-                              gender = 'Female';
-                            });
-                          },
-                          child: Text('Female'))
-                    ],
-                  )),
-                  DropdownButton<String>(
-                    value: martialStatusDD,
-                    icon: const Icon(Icons.arrow_drop_down_sharp),
-                    iconSize: 24,
-                    elevation: 16,
-                    style: TextStyle(color: Palette.primaryColor),
-                    underline: Container(
-                      height: 2,
-                      color: Palette.primaryColor,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          TextButton(
+                              style: ButtonStyle(
+                                  // backgroundColor: maleColor,
+                                  ),
+                              onPressed: () {
+                                setState(() {
+                                  gender = 'Male';
+                                  maleColor = Palette.secondaryColor;
+                                });
+                              },
+                              child: Text('Male')),
+                          TextButton(
+                              style: ButtonStyle(
+                                  // backgroundColor: maleColor,
+                                  ),
+                              onPressed: () {
+                                setState(() {
+                                  gender = 'Female';
+                                  femaleColor = Palette.secondaryColor;
+                                });
+                              },
+                              child: Text('Female'))
+                        ],
+                      )),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 2.5,
+                    child: DropdownButton<String>(
+                      value: martialStatusDD,
+                      icon: const Icon(Icons.arrow_drop_down_sharp),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Palette.primaryColor),
+                      underline: Container(
+                        height: 1,
+                        color: Palette.primaryColor,
+                      ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          martialStatusDD = newValue!;
+                        });
+                      },
+                      items: <String>['Single', 'Married', 'Divorced']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
                     ),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        martialStatusDD = newValue!;
-                      });
-                    },
-                    items: <String>['Single', 'Married', 'Divorced']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
                   )
                 ]),
           )
