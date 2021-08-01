@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seha_tech/Reusable/palette.dart';
 import 'customtextbox.dart';
 
 class NamePhotoBlock extends StatelessWidget {
@@ -12,9 +13,9 @@ class NamePhotoBlock extends StatelessWidget {
           Padding(
             padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
             child: Text(
-              'Personal information',
+              'PERSONAL INFORMATION',
               style: TextStyle(
-                  color: Color.fromRGBO(255, 149, 10, 1),
+                  color: Palette.thirdColor,
                   fontFamily: 'serif',
                   fontSize: 20,
                   decoration: TextDecoration.none),

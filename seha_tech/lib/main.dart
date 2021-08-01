@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'views/signup/signUpOne.dart';
+import 'views/signup/signUpTwo.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,12 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // theme: ThemeData(
-      // primarySwatch: Colors.blue,
-      // ),
-      // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home : SignUpOne (key: key,)
-    );
+        // theme: ThemeData(
+        // primarySwatch: Colors.blue,
+        // ),
+        // home: MyHomePage(title: 'Flutter Demo Home Page'),
+        home: SignUpTwo(
+      key: key,
+    ));
   }
 }
 
