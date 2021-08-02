@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seha_tech/views/signup/signUpTwo.dart';
 import 'widgets/customDivider.dart';
 import 'widgets/firstBlock.dart';
 import 'widgets/secondBlock.dart';
@@ -26,7 +27,9 @@ class _SignUpOneState extends State<SignUpOne> {
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
           backgroundColor: Color.fromRGBO(28, 201, 188, 1),
           elevation: 0.0,
@@ -38,7 +41,7 @@ class _SignUpOneState extends State<SignUpOne> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SignUpStepsWidget(step: 2),
+                  SignUpStepsWidget(step: 1),
                 ],
               )),
           Expanded(
@@ -68,18 +71,20 @@ class _SignUpOneState extends State<SignUpOne> {
                 )),
           )),
         ]),
-        floatingActionButton: SizedBox(
-            height: 50.0,
-            width: 50.0,
-            child: FittedBox(
-              child: FloatingActionButton(
-                onPressed: () {},
+        floatingActionButton:
+          FloatingActionButton(
+                onPressed: () {
+                  Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUpTwo()),
+                      );
+                },
                 child: const Icon(
                   Icons.keyboard_arrow_right_rounded,
                   size: 35,
                 ),
                 backgroundColor: Palette.primaryColor,
               ),
-            )));
+            );
   }
 }

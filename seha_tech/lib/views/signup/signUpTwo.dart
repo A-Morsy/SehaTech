@@ -24,7 +24,9 @@ class _SignUpTwoState extends State<SignUpTwo> {
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.popUntil(context, (route) => route.isFirst);
+            },
           ),
           backgroundColor: Color.fromRGBO(28, 201, 188, 1),
           elevation: 0.0,
@@ -54,26 +56,38 @@ class _SignUpTwoState extends State<SignUpTwo> {
                     ),
                     color: Colors.white,
                   ),
-                  child: ListView(
-                    children: [
+                  child:
                       IdentificationBolck(),
-                    ],
-                  ),
                 )),
           )),
         ]),
-        floatingActionButton: SizedBox(
-            height: 50.0,
-            width: 50.0,
-            child: FittedBox(
-              child: FloatingActionButton(
-                onPressed: () {},
-                child: const Icon(
-                  Icons.keyboard_arrow_right_rounded,
-                  size: 35,
-                ),
-                backgroundColor: Palette.primaryColor,
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.keyboard_arrow_left_rounded,
+                size: 35,
               ),
-            )));
+              backgroundColor: Palette.forthColor,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => SignUpOne()),
+                // );
+              },
+              child: const Icon(
+                Icons.keyboard_arrow_right_rounded,
+                size: 35,
+              ),
+              backgroundColor: Palette.primaryColor,
+            ),
+          ],
+        ));
   }
 }

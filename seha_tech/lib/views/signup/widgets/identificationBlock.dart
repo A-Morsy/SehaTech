@@ -44,10 +44,10 @@ class _IdentificationBolck extends State<IdentificationBolck> {
                         text: 'ID Number:',
                         size: 15.0,
                         color: Palette.forthColor),
-                    CustomText(
-                        text: 'Attachment:',
-                        size: 15.0,
-                        color: Palette.forthColor),
+                    //   CustomText(
+                    //       text: 'Attachment:',
+                    //       size: 15.0,
+                    //       color: Palette.forthColor),
                   ],
                 ),
                 Column(
@@ -86,16 +86,34 @@ class _IdentificationBolck extends State<IdentificationBolck> {
                         height: 30,
                         obscureText: false,
                         keyboardType: TextInputType.name),
-                    Container(
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      child: Icon(Icons.attach_file_sharp,
-                          color: Palette.forthColor),
-                    )
+                    // Container(
+                    //   width: MediaQuery.of(context).size.width / 2.5,
+                    //   child: Icon(Icons.attach_file_sharp,
+                    //       color: Palette.forthColor),
+                    // )
                   ],
                 )
               ],
             ),
           ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width*0.8,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                elevation: 4.0
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                      text: 'Attachment:', size: 15.0, color: Palette.forthColor),
+                  Icon(Icons.attach_file_sharp, color: Palette.forthColor),
+                ],
+              ),
+              onPressed: () {},
+            ),
+          )
         ],
       ),
     );

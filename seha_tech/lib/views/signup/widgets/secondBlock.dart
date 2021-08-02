@@ -43,19 +43,19 @@ class EmailBlock extends StatelessWidget {
                       TextBox(
                           message: 'Enter A Valid E-mail',
                           width: MediaQuery.of(context).size.width / 2.5,
-                          height: 30,
+                          height: MediaQuery.of(context).size.width / 25,
                           obscureText: false,
                           keyboardType: TextInputType.name),
                       TextBox(
                           message: 'Enter A Valid Password',
                           width: MediaQuery.of(context).size.width / 2.5,
-                          height: 30,
+                          height: MediaQuery.of(context).size.width / 25,
                           obscureText: true,
                           keyboardType: TextInputType.name),
                       TextBox(
                           message: 'Confirm Your Password',
                           width: MediaQuery.of(context).size.width / 2.5,
-                          height: 30,
+                          height: MediaQuery.of(context).size.width / 25,
                           obscureText: true,
                           keyboardType: TextInputType.name)
                     ]))

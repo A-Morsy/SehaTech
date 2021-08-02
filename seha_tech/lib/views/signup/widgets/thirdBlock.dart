@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seha_tech/Reusable/palette.dart';
 import '../../../Reusable/reusableWidgets.dart';
 import '../../../Reusable/palette.dart';
 import 'customtextbox.dart';
@@ -11,10 +12,10 @@ class OtherInfoBlock extends StatefulWidget {
 }
 
 class _OtherInfoBlock extends State<OtherInfoBlock> {
-  late String _selectedDate;
+  late String _selectedDate = '';
   var gender = 'Male';
-  var maleColor = Color.fromRGBO(255, 255, 255, 0);
-  var femaleColor = Color.fromRGBO(255, 255, 255, 0);
+  bool maleColor = false;
+  bool femaleColor = false;
   var martialStatusDD = 'Single';
 
   @override
@@ -27,25 +28,39 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(
-              height: MediaQuery.of(context).size.height / 3,
+              height: MediaQuery.of(context).size.height / 2,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    CustomText(
-                        text: 'Address:',
-                        size: 15.0,
-                        color: Palette.forthColor),
-                    CustomText(
-                        text: 'Date of Birth:',
-                        size: 15.0,
-                        color: Palette.forthColor),
-                    CustomText(
-                        text: 'Gender:', size: 15.0, color: Palette.forthColor),
-                    CustomText(
-                        text: 'Marital Status:',
-                        size: 15.0,
-                        color: Palette.forthColor),
+                    Container(
+                      height: MediaQuery.of(context).size.width / 25,
+                      child: CustomText(
+                          text: 'Address:',
+                          size: 15.0,
+                          color: Palette.forthColor),
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.width / 25,
+                      child: CustomText(
+                          text: 'Date of Birth:',
+                          size: 15.0,
+                          color: Palette.forthColor),
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.width / 10,
+                      child: CustomText(
+                          text: 'Gender:',
+                          size: 15.0,
+                          color: Palette.forthColor),
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.width / 10,
+                      child: CustomText(
+                          text: 'Marital Status:',
+                          size: 15.0,
+                          color: Palette.forthColor),
+                    ),
                   ])),
           Container(
             height: MediaQuery.of(context).size.height / 3,
@@ -55,18 +70,18 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                 children: [
                   TextBox(
                       message: 'Enter Your Address',
-                      width: 170,
-                      height: 30,
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      height: MediaQuery.of(context).size.width / 25,
                       obscureText: false,
                       keyboardType: TextInputType.name),
                   Container(
-                    width: 170,
-                    height: 30,
+                    width: MediaQuery.of(context).size.width / 2.5,
+                    height: MediaQuery.of(context).size.width / 25,
                     child: DateTimePicker(
                       initialValue:
                           '', // initialValue or controller.text can be null, empty or a DateTime string otherwise it will throw an error.
                       type: DateTimePickerType.date,
-                      dateLabelText: 'Select Date',
+                      // dateLabelText: 'Select Date',
                       firstDate: DateTime(1995),
                       lastDate: DateTime.now().add(Duration(
                           days:
@@ -85,35 +100,59 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                   ),
                   Container(
                       width: MediaQuery.of(context).size.width / 2.5,
+                      height: MediaQuery.of(context).size.width / 10,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          TextButton(
-                              style: ButtonStyle(
-                                  // backgroundColor: maleColor,
-                                  ),
-                              onPressed: () {
-                                setState(() {
-                                  gender = 'Male';
-                                  maleColor = Palette.secondaryColor;
-                                });
-                              },
-                              child: Text('Male')),
-                          TextButton(
-                              style: ButtonStyle(
-                                  // backgroundColor: maleColor,
-                                  ),
-                              onPressed: () {
-                                setState(() {
-                                  gender = 'Female';
-                                  femaleColor = Palette.secondaryColor;
-                                });
-                              },
-                              child: Text('Female'))
+                          SizedBox(
+                            // height: MediaQuery.of(context).size.width / 25,
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: maleColor
+                                      ? Palette.primaryColor
+                                      : Colors.transparent,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    gender = 'Male';
+                                    maleColor = !maleColor;
+                                    if (maleColor) {
+                                      femaleColor = false;
+                                    } else {
+                                      maleColor = true;
+                                    }
+                                  });
+
+                                },
+                                child: Text('Male')),
+                          ),
+                          SizedBox(
+                            // height: MediaQuery.of(context).size.width / 25,
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: femaleColor
+                                      ? Palette.primaryColor
+                                      : Colors.transparent,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    gender = 'Female';
+                                    femaleColor = !femaleColor;
+                                    if (femaleColor) {
+                                      maleColor = false;
+                                    } else {
+                                      femaleColor = true;
+                                    }
+
+                                  });
+                                },
+                                child: Text('Female')),
+                          )
                         ],
                       )),
                   Container(
-                    width: MediaQuery.of(context).size.width / 2.5,
+                    // width: MediaQuery.of(context).size.width / 2.5,
+                    height: MediaQuery.of(context).size.width / 10,
                     child: DropdownButton<String>(
                       value: martialStatusDD,
                       icon: const Icon(Icons.arrow_drop_down_sharp),

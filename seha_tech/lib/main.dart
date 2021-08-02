@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seha_tech/Reusable/palette.dart';
 import 'views/signup/signUpTwo.dart';
 import 'views/signup/signUpOne.dart';
 
@@ -15,9 +16,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.blue,
         // ),
         // home: MyHomePage(title: 'Flutter Demo Home Page'),
-        home: SignUpTwo(
-      key: key,
-    ));
+        home: MyHomePage(title: ''));
   }
 }
 
@@ -54,26 +53,43 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Container(
                   width: MediaQuery.of(context).size.width * 0.6,
-                  child: RaisedButton(
-                    child: Text("Log In"),
-                    textColor: Colors.white,
-                    color: Color(0xFF1CC9BC),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
-                    elevation: 2.0,
+                  child: ElevatedButton(
+                    child: Text(
+                      "Log In",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Palette.primaryColor,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
+                      elevation: 2.0,
+                    ),
                     onPressed: () {},
                     //onPressed: login() ,
                   )),
               Container(
                   width: MediaQuery.of(context).size.width * 0.6,
-                  child: RaisedButton(
-                    child: Text("Sign Up"),
-                    textColor: Colors.white,
-                    color: Color(0xFFFB940C),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
-                    elevation: 2.0,
-                    onPressed: () {},
+                  child: ElevatedButton(
+                    child: Text(
+                      "Sign Up",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Palette.thirdColor,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
+                      elevation: 2.0,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUpOne()),
+                      );
+                    },
                     //onPressed:signUp(),
                   )),
               Padding(
