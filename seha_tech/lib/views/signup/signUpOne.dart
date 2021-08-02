@@ -3,8 +3,8 @@ import 'widgets/customDivider.dart';
 import 'widgets/firstBlock.dart';
 import 'widgets/secondBlock.dart';
 import 'widgets/thirdBlock.dart';
+import './widgets/signUpStepWedgit.dart';
 import '../../Reusable/palette.dart';
-import '../../Reusable/reusableWidgets.dart';
 
 class SignUpOne extends StatefulWidget {
   SignUpOne({Key? key}) : super(key: key);
@@ -33,18 +33,14 @@ class _SignUpOneState extends State<SignUpOne> {
         ),
         body: Column(children: [
           Container(
-            color: Palette.primaryColor,
-            width: MediaQuery.of(context).size.width,
-            height: 16,
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Smalecircle(color: Colors.orange),
-                // Smalecircle(color: Colors.white),
-                // Smalecircle(color: Colors.orange),
-              ],
-            ),
-          ),
+              color: Palette.primaryColor,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SignUpStepsWidget(step: 2),
+                ],
+              )),
           Expanded(
               child: Container(
             color: Color.fromRGBO(28, 201, 188, 1),
@@ -63,9 +59,9 @@ class _SignUpOneState extends State<SignUpOne> {
                   child: ListView(
                     children: [
                       NamePhotoBlock(),
-                      CustomDivider(),
+                      CustomDivider(dividerColor: Palette.primaryColor),
                       EmailBlock(),
-                      CustomDivider(),
+                      CustomDivider(dividerColor: Palette.primaryColor),
                       OtherInfoBlock()
                     ],
                   ),

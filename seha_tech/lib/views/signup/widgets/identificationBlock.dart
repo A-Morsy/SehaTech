@@ -59,7 +59,7 @@ class _IdentificationBolck extends State<IdentificationBolck> {
                       child: DropdownButton<String>(
                         value: IDTypeDD,
                         icon: const Icon(Icons.arrow_drop_down_sharp),
-                        iconSize: 24,
+                        iconSize: 20,
                         elevation: 16,
                         style: TextStyle(color: Palette.primaryColor),
                         underline: Container(

@@ -30,8 +30,10 @@ class Smalecircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
+      width: 15,
+      height: 15,
       decoration: new BoxDecoration(
-        color: Colors.orange,
+        color: color,
         shape: BoxShape.circle,
       ),
     );

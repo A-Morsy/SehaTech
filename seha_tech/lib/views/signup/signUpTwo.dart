@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../Reusable/palette.dart';
-import '../../Reusable/reusableWidgets.dart';
 import './widgets/identificationBlock.dart';
+import './widgets/customDivider.dart';
+import './widgets/signUpStepWedgit.dart';
 
 class SignUpTwo extends StatefulWidget {
   SignUpTwo({Key? key}) : super(key: key);
@@ -30,18 +31,14 @@ class _SignUpTwoState extends State<SignUpTwo> {
         ),
         body: Column(children: [
           Container(
-            color: Palette.primaryColor,
-            width: MediaQuery.of(context).size.width,
-            height: 16,
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Smalecircle(color: Colors.orange),
-                // Smalecircle(color: Colors.white),
-                // Smalecircle(color: Colors.orange),
-              ],
-            ),
-          ),
+              color: Palette.primaryColor,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SignUpStepsWidget(step: 2),
+                ],
+              )),
           Expanded(
               child: Container(
             color: Palette.primaryColor,
@@ -58,7 +55,9 @@ class _SignUpTwoState extends State<SignUpTwo> {
                     color: Colors.white,
                   ),
                   child: ListView(
-                    children: [IdentificationBolck()],
+                    children: [
+                      IdentificationBolck(),
+                    ],
                   ),
                 )),
           )),
