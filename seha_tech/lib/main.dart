@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
-import 'views/signup/signUpTwo.dart';
 import 'views/signup/signUpOne.dart';
-
+// import 'package:scoped_model/scoped_model.dart';
+// import 'models/userModel.dart';
 void main() {
   runApp(MyApp());
 }
 
+// UserModel userModel = UserModel ();
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        // theme: ThemeData(
-        // primarySwatch: Colors.blue,
-        // ),
-        // home: MyHomePage(title: 'Flutter Demo Home Page'),
         home: MyHomePage(title: ''));
+
+
+        // ScopedModel<UserModel>(
+        // model: userModel,
+        // child: MaterialApp(home: MyHomePage(title: ''))
+        // );
   }
 }
 
@@ -51,6 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(
+                child :Image.asset('assets/images/SehaTech-Logo-Vertical-FullColor.png')
+              ),
               Container(
                   width: MediaQuery.of(context).size.width * 0.6,
                   child: ElevatedButton(

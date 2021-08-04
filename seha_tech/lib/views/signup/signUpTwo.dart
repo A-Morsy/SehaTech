@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../Reusable/palette.dart';
 import './widgets/identificationBlock.dart';
-import './widgets/customDivider.dart';
 import './widgets/signUpStepWedgit.dart';
+import 'widgets/customDivider.dart';
+import 'widgets/identificationBlockFirst.dart';
 
 class SignUpTwo extends StatefulWidget {
   SignUpTwo({Key? key}) : super(key: key);
@@ -28,10 +29,10 @@ class _SignUpTwoState extends State<SignUpTwo> {
               Navigator.popUntil(context, (route) => route.isFirst);
             },
           ),
-          backgroundColor: Color.fromRGBO(28, 201, 188, 1),
+          backgroundColor: Palette.primaryColor,
           elevation: 0.0,
         ),
-        body: Column(children: [
+        body: ListView(children: [
           Container(
               color: Palette.primaryColor,
               width: MediaQuery.of(context).size.width,
@@ -56,8 +57,13 @@ class _SignUpTwoState extends State<SignUpTwo> {
                     ),
                     color: Colors.white,
                   ),
-                  child:
+                  child: Column(
+                    children: [
+                      IdentificationFirstBolck(),
+                      CustomDivider(dividerColor: Palette.primaryColor),
                       IdentificationBolck(),
+                    ],
+                  ),
                 )),
           )),
         ]),

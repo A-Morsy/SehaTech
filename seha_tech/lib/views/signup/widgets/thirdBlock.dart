@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/views/signup/signUpOne.dart';
 import '../../../Reusable/reusableWidgets.dart';
 import '../../../Reusable/palette.dart';
 import 'customtextbox.dart';
@@ -12,11 +13,12 @@ class OtherInfoBlock extends StatefulWidget {
 }
 
 class _OtherInfoBlock extends State<OtherInfoBlock> {
-  late String _selectedDate = '';
+  // ignore: unused_field
+
   var gender = 'Male';
   bool maleColor = false;
   bool femaleColor = false;
-  var martialStatusDD = 'Single';
+  String martialStatusDD = 'Single';
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +35,13 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      height: MediaQuery.of(context).size.width / 25,
-                      child: CustomText(
-                          text: 'Address:',
-                          size: 15.0,
-                          color: Palette.forthColor),
-                    ),
+                    // Container(
+                    //   height: MediaQuery.of(context).size.width / 25,
+                    //   child: CustomText(
+                    //       text: 'Address:',
+                    //       size: 15.0,
+                    //       color: Palette.forthColor),
+                    // ),
                     Container(
                       height: MediaQuery.of(context).size.width / 25,
                       child: CustomText(
@@ -68,12 +70,12 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TextBox(
-                      message: 'Enter Your Address',
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      height: MediaQuery.of(context).size.width / 25,
-                      obscureText: false,
-                      keyboardType: TextInputType.name),
+                  // TextBox(
+                  //     message: 'Enter Your Address',
+                  //     width: MediaQuery.of(context).size.width / 2.5,
+                  //     height: MediaQuery.of(context).size.width / 25,
+                  //     obscureText: false,
+                  //     keyboardType: TextInputType.name),
                   Container(
                     width: MediaQuery.of(context).size.width / 2.5,
                     height: MediaQuery.of(context).size.width / 25,
@@ -92,7 +94,8 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                       onChanged: (value) {
                         if (value.isNotEmpty) {
                           setState(() {
-                            _selectedDate = value;
+                            signUpModel.setDateOfBirth = value;
+                            print(signUpModel.getDateOfBirth);
                           });
                         }
                       },
@@ -122,7 +125,6 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                                       maleColor = true;
                                     }
                                   });
-
                                 },
                                 child: Text('Male')),
                           ),
@@ -143,7 +145,6 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                                     } else {
                                       femaleColor = true;
                                     }
-
                                   });
                                 },
                                 child: Text('Female')),
@@ -166,6 +167,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                       onChanged: (String? newValue) {
                         setState(() {
                           martialStatusDD = newValue!;
+                          signUpModel.setMaritalStatus = martialStatusDD;
                         });
                       },
                       items: <String>['Single', 'Married', 'Divorced']

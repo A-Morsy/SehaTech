@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/views/signup/signUpOne.dart';
 import 'customtextbox.dart';
 
-class NamePhotoBlock extends StatelessWidget {
+class NamePhotoBlock extends StatefulWidget {
   const NamePhotoBlock({Key? key}) : super(key: key);
 
+  @override
+  _NamePhotoBlockState createState() => _NamePhotoBlockState();
+}
+
+class _NamePhotoBlockState extends State<NamePhotoBlock> {
+  final textController1 = TextEditingController();
+  final textController2 = TextEditingController();
+  final textController3 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,17 +55,35 @@ class NamePhotoBlock extends StatelessWidget {
                   child: new Column(
                     children: <Widget>[
                       TextBox(
-                          message: 'First Name',
-                          obscureText: false,
-                          width: 200,
-                          height: 40,
-                          keyboardType: TextInputType.name),
+                        myController: textController1,
+                        message: 'First Name',
+                        obscureText: false,
+                        width: 200,
+                        height: 40,
+                        keyboardType: TextInputType.name,
+                        callBackMethod: () => signUpModel.setFirstName =
+                            signUpModel.getStringValue,
+                      ),
                       TextBox(
-                          message: 'Second Name',
-                          obscureText: false,
-                          width: 200,
-                          height: 40,
-                          keyboardType: TextInputType.name),
+                        myController: textController2,
+                        message: 'Middle Name',
+                        obscureText: false,
+                        width: 200,
+                        height: 40,
+                        keyboardType: TextInputType.name,
+                        callBackMethod: () => signUpModel.setMiddleName =
+                            signUpModel.getStringValue,
+                      ),
+                      TextBox(
+                        myController: textController3,
+                        message: 'Last Name',
+                        obscureText: false,
+                        width: 200,
+                        height: 40,
+                        keyboardType: TextInputType.name,
+                        callBackMethod: () => signUpModel.setLastName =
+                            signUpModel.getStringValue,
+                      ),
                     ],
                   ),
                 ),

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../../Reusable/reusableWidgets.dart';
 import '../../../Reusable/palette.dart';
+import '../signUpOne.dart';
 import 'customtextbox.dart';
 
 class IdentificationBolck extends StatefulWidget {
@@ -11,8 +12,9 @@ class IdentificationBolck extends StatefulWidget {
 }
 
 class _IdentificationBolck extends State<IdentificationBolck> {
-  var IDTypeDD = 'National ID';
-
+  String idType = 'National ID';
+  final myController1 = TextEditingController();
+  final myController2 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,12 +23,12 @@ class _IdentificationBolck extends State<IdentificationBolck> {
           10, MediaQuery.of(context).size.width / 15),
       child: Column(
         children: [
-          Text('IDENTIFICATION',
-              style: TextStyle(
-                  color: Palette.thirdColor,
-                  fontFamily: 'serif',
-                  fontSize: 20,
-                  decoration: TextDecoration.none)),
+          // Text('IDENTIFICATION',
+          //     style: TextStyle(
+          //         color: Palette.thirdColor,
+          //         fontFamily: 'serif',
+          //         fontSize: 20,
+          //         decoration: TextDecoration.none)),
           Container(
             height: MediaQuery.of(context).size.height / 4.2,
             child: Row(
@@ -36,6 +38,10 @@ class _IdentificationBolck extends State<IdentificationBolck> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
+                    // CustomText(
+                    //     text: 'Phone Number:',
+                    //     size: 15.0,
+                    //     color: Palette.forthColor),
                     CustomText(
                         text: 'ID Type:',
                         size: 15.0,
@@ -44,20 +50,26 @@ class _IdentificationBolck extends State<IdentificationBolck> {
                         text: 'ID Number:',
                         size: 15.0,
                         color: Palette.forthColor),
-                    //   CustomText(
-                    //       text: 'Attachment:',
-                    //       size: 15.0,
-                    //       color: Palette.forthColor),
+                    CustomText(
+                        text: 'Nationality:',
+                        size: 15.0,
+                        color: Palette.forthColor),
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
+                    // TextBox(
+                    //     message: 'Enter ID/Passport Number',
+                    //     width: MediaQuery.of(context).size.width / 2.5,
+                    //     height: 30,
+                    //     obscureText: false,
+                    //     keyboardType: TextInputType.number),
                     Container(
                       width: MediaQuery.of(context).size.width / 2.5,
                       child: DropdownButton<String>(
-                        value: IDTypeDD,
+                        value: idType,
                         icon: const Icon(Icons.arrow_drop_down_sharp),
                         iconSize: 20,
                         elevation: 16,
@@ -68,10 +80,11 @@ class _IdentificationBolck extends State<IdentificationBolck> {
                         ),
                         onChanged: (String? newValue) {
                           setState(() {
-                            IDTypeDD = newValue!;
+                            idType = newValue!;
+                            signUpModel.setIdType = idType ;
                           });
                         },
-                        items: <String>['National ID', 'Pasport']
+                        items: <String>['National ID', 'Passport']
                             .map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
@@ -81,33 +94,38 @@ class _IdentificationBolck extends State<IdentificationBolck> {
                       ),
                     ),
                     TextBox(
+                        myController: myController1,
                         message: 'Enter ID/Passport Number',
                         width: MediaQuery.of(context).size.width / 2.5,
                         height: 30,
                         obscureText: false,
-                        keyboardType: TextInputType.name),
-                    // Container(
-                    //   width: MediaQuery.of(context).size.width / 2.5,
-                    //   child: Icon(Icons.attach_file_sharp,
-                    //       color: Palette.forthColor),
-                    // )
+                        keyboardType: TextInputType.number,
+                          callBackMethod:() =>signUpModel.setIdNumber = signUpModel.getStringValue ,),
+                    TextBox(
+                        myController: myController2,
+                        message: 'Enter Your Nationality',
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        height: 30,
+                        obscureText: false,
+                        keyboardType: TextInputType.name,
+                        callBackMethod:() =>signUpModel.setNationality = signUpModel.getStringValue ,)
                   ],
                 )
               ],
             ),
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width*0.8,
+            width: MediaQuery.of(context).size.width * 0.8,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                elevation: 4.0
-              ),
+                  primary: Colors.white, elevation: 4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(
-                      text: 'Attachment:', size: 15.0, color: Palette.forthColor),
+                      text: 'Attachment:',
+                      size: 15.0,
+                      color: Palette.forthColor),
                   Icon(Icons.attach_file_sharp, color: Palette.forthColor),
                 ],
               ),
