@@ -121,6 +121,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                                     maleColor = !maleColor;
                                     if (maleColor) {
                                       femaleColor = false;
+                                      signUpModel.setGender = 'Male';
                                     } else {
                                       maleColor = true;
                                     }
@@ -142,6 +143,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                                     femaleColor = !femaleColor;
                                     if (femaleColor) {
                                       maleColor = false;
+                                      signUpModel.setGender = 'Female';
                                     } else {
                                       femaleColor = true;
                                     }
