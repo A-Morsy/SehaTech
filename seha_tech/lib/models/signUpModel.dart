@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:scoped_model/scoped_model.dart';
 
 class SignUpModel extends Model {
@@ -21,8 +22,6 @@ class SignUpModel extends Model {
       province = '',
       country = '',
       stringValue = '';
-
-
 
   get getMiddleName => this.middleName;
 

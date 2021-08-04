@@ -30,7 +30,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(
-              height: MediaQuery.of(context).size.height / 2,
+              height: MediaQuery.of(context).size.height / 3,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -43,21 +43,21 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                     //       color: Palette.forthColor),
                     // ),
                     Container(
-                      height: MediaQuery.of(context).size.width / 25,
+                      height: MediaQuery.of(context).size.height / 20,
                       child: CustomText(
                           text: 'Date of Birth:',
                           size: 15.0,
                           color: Palette.forthColor),
                     ),
                     Container(
-                      height: MediaQuery.of(context).size.width / 10,
+                      height: MediaQuery.of(context).size.height / 20,
                       child: CustomText(
                           text: 'Gender:',
                           size: 15.0,
                           color: Palette.forthColor),
                     ),
                     Container(
-                      height: MediaQuery.of(context).size.width / 10,
+                      height: MediaQuery.of(context).size.height / 20,
                       child: CustomText(
                           text: 'Marital Status:',
                           size: 15.0,
@@ -68,6 +68,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
             height: MediaQuery.of(context).size.height / 3,
             width: MediaQuery.of(context).size.width / 2.5,
             child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   // TextBox(
@@ -78,7 +79,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                   //     keyboardType: TextInputType.name),
                   Container(
                     width: MediaQuery.of(context).size.width / 2.5,
-                    height: MediaQuery.of(context).size.width / 25,
+                    height: MediaQuery.of(context).size.height / 45,
                     child: DateTimePicker(
                       initialValue:
                           '', // initialValue or controller.text can be null, empty or a DateTime string otherwise it will throw an error.
@@ -103,7 +104,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                   ),
                   Container(
                       width: MediaQuery.of(context).size.width / 2.5,
-                      height: MediaQuery.of(context).size.width / 10,
+                      height: MediaQuery.of(context).size.height / 20,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -155,7 +156,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                       )),
                   Container(
                     // width: MediaQuery.of(context).size.width / 2.5,
-                    height: MediaQuery.of(context).size.width / 10,
+                    height: MediaQuery.of(context).size.height / 20,
                     child: DropdownButton<String>(
                       value: martialStatusDD,
                       icon: const Icon(Icons.arrow_drop_down_sharp),

@@ -15,24 +15,29 @@ class _EmailBlockState extends State<EmailBlock> {
   final textController1 = TextEditingController();
   final textController2 = TextEditingController();
   final textController3 = TextEditingController();
+  final textController4 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery.of(context).size.height / 5,
+        height: MediaQuery.of(context).size.height / 4,
         alignment: Alignment.center,
         padding: new EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 15,
-            20, 15, MediaQuery.of(context).size.width / 15),
+            15, 10, MediaQuery.of(context).size.width / 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-                height: MediaQuery.of(context).size.height / 5,
+                height: MediaQuery.of(context).size.height / 4,
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       CustomText(
                           text: 'E-mail:',
+                          size: 15.0,
+                          color: Palette.forthColor),
+                      CustomText(
+                          text: 'Phone Number:',
                           size: 15.0,
                           color: Palette.forthColor),
                       CustomText(
@@ -45,7 +50,7 @@ class _EmailBlockState extends State<EmailBlock> {
                           color: Palette.forthColor),
                     ])),
             Container(
-                height: MediaQuery.of(context).size.height / 5,
+                height: MediaQuery.of(context).size.height / 4,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -53,7 +58,7 @@ class _EmailBlockState extends State<EmailBlock> {
                         myController: textController1,
                         message: 'Enter A Valid E-mail',
                         width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.width / 25,
+                        height: MediaQuery.of(context).size.height / 25,
                         obscureText: false,
                         keyboardType: TextInputType.name,
                         callBackMethod: () =>
@@ -61,9 +66,19 @@ class _EmailBlockState extends State<EmailBlock> {
                       ),
                       TextBox(
                         myController: textController2,
+                        message: 'Enter Phone Number',
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        height: MediaQuery.of(context).size.height / 25,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                        callBackMethod: () => signUpModel.setPhoneNumber =
+                            signUpModel.getStringValue,
+                      ),
+                      TextBox(
+                        myController: textController3,
                         message: 'Enter A Valid Password',
                         width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.width / 25,
+                        height: MediaQuery.of(context).size.height / 25,
                         obscureText: true,
                         keyboardType: TextInputType.name,
                         callBackMethod: () => signUpModel.setPassword =
@@ -71,9 +86,9 @@ class _EmailBlockState extends State<EmailBlock> {
                       ),
                       SizedBox(
                           width: MediaQuery.of(context).size.width / 2.5,
-                          height: MediaQuery.of(context).size.width / 25,
+                          height: MediaQuery.of(context).size.height / 25,
                           child: TextField(
-                              controller: textController3,
+                              controller: textController4,
                               // onSubmitted: (var value) {
                               // },
                               keyboardType: TextInputType.name,

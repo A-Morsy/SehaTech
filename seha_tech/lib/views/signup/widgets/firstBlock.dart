@@ -38,8 +38,8 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width: 80,
-                  height: 80,
+                  width: 90,
+                  height: 90,
                   decoration: BoxDecoration(
                     borderRadius:
                         const BorderRadius.all(const Radius.circular(50)),
@@ -58,8 +58,8 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                         myController: textController1,
                         message: 'First Name',
                         obscureText: false,
-                        width: 200,
-                        height: 40,
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        height: MediaQuery.of(context).size.height / 20,
                         keyboardType: TextInputType.name,
                         callBackMethod: () => signUpModel.setFirstName =
                             signUpModel.getStringValue,
@@ -68,8 +68,8 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                         myController: textController2,
                         message: 'Middle Name',
                         obscureText: false,
-                        width: 200,
-                        height: 40,
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        height: MediaQuery.of(context).size.height / 20,
                         keyboardType: TextInputType.name,
                         callBackMethod: () => signUpModel.setMiddleName =
                             signUpModel.getStringValue,
@@ -78,8 +78,8 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                         myController: textController3,
                         message: 'Last Name',
                         obscureText: false,
-                        width: 200,
-                        height: 40,
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        height: MediaQuery.of(context).size.height / 20,
                         keyboardType: TextInputType.name,
                         callBackMethod: () => signUpModel.setLastName =
                             signUpModel.getStringValue,

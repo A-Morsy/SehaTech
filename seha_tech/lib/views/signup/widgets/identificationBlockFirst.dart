@@ -13,7 +13,7 @@ class IdentificationFirstBolck extends StatefulWidget {
 
 class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
   String idType = 'National ID';
-  final textController1 = TextEditingController();
+
   final textController2 = TextEditingController();
   final textController3 = TextEditingController();
   final textController4 = TextEditingController();
@@ -22,7 +22,7 @@ class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 25, 20,
+      padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 15, 25,
           10, MediaQuery.of(context).size.width / 15),
       child: Column(
         children: [
@@ -33,6 +33,7 @@ class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
                   fontSize: 20,
                   decoration: TextDecoration.none)),
           Container(
+            padding: EdgeInsets.only(top: 20),
             height: MediaQuery.of(context).size.height / 4.2,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,10 +42,6 @@ class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    CustomText(
-                        text: 'Phone Number:',
-                        size: 15.0,
-                        color: Palette.forthColor),
                     CustomText(
                         text: 'Country:',
                         size: 15.0,
@@ -65,16 +62,6 @@ class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    TextBox(
-                      myController: textController1,
-                      message: 'Enter Phone Number',
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      height: 30,
-                      obscureText: false,
-                      keyboardType: TextInputType.number,
-                      callBackMethod: () =>
-                          signUpModel.setPhoneNumber = signUpModel.getStringValue,
-                    ),
                     TextBox(
                       myController: textController2,
                       message: '',
