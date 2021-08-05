@@ -1,0 +1,10 @@
+{
+    "signInText": "Sign In",
+    "@signInText": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "signUpText": "Sign Up",
+    "@signUpText": {
+      "description": "The greeting"
+    }
+}

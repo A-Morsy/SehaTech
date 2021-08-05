@@ -1,0 +1,10 @@
+{
+    "signInText": "تسجيل الدخول",
+    "@signInText": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "signUpText": "انشاء حساب",
+    "@signUpText": {
+      "description": "The greeting"
+    }
+}
