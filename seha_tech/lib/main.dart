@@ -3,6 +3,9 @@ import 'package:seha_tech/Reusable/palette.dart';
 import 'views/signup/signUpOne.dart';
 // import 'package:scoped_model/scoped_model.dart';
 // import 'models/userModel.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -10,16 +13,23 @@ void main() {
 // UserModel userModel = UserModel ();
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: MyHomePage(title: ''));
+    return MaterialApp(localizationsDelegates: [
+      AppLocalizations.delegate, // Add this line
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ], supportedLocales: [
+      Locale('en', ''), // English, no country code
+      Locale('ar', ''), // Spanish, no country code
+    ], home: MyHomePage(title: ''));
 
-
-        // ScopedModel<UserModel>(
-        // model: userModel,
-        // child: MaterialApp(home: MyHomePage(title: ''))
-        // );
+    // ScopedModel<UserModel>(
+    // model: userModel,
+    // child: MaterialApp(home: MyHomePage(title: ''))
+    // );
   }
 }
 
@@ -55,13 +65,13 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                child :Image.asset('assets/images/SehaTech-Logo-Vertical-FullColor.png')
-              ),
+                  child: Image.asset(
+                      'assets/images/SehaTech-Logo-Vertical-FullColor.png')),
               Container(
                   width: MediaQuery.of(context).size.width * 0.6,
                   child: ElevatedButton(
                     child: Text(
-                      "Log In",
+                      AppLocalizations.of(context)!.signInText,
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -79,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: MediaQuery.of(context).size.width * 0.6,
                   child: ElevatedButton(
                     child: Text(
-                      "Sign Up",
+                      AppLocalizations.of(context)!.signUpText,
                       style: TextStyle(
                         color: Colors.white,
                       ),
