@@ -7,7 +7,7 @@ class CustomField extends StatefulWidget {
   final Color fillColor;
   final String text;
   final bool obscureText;
-  final VoidCallback callBackMethod ;
+  final VoidCallback callBackMethod;
 
   CustomField(
       {Key? key,
@@ -30,7 +30,7 @@ class _CustomFieldState extends State<CustomField> {
     return TextField(
         controller: widget.textController,
         onChanged: (var value) {
-          signInModel.setTemp = value ;
+          signInModel.setTemp = value;
           widget.callBackMethod();
         },
         obscureText: widget.obscureText,

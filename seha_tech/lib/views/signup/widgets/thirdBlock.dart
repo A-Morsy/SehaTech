@@ -25,8 +25,8 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
     return Container(
         height: MediaQuery.of(context).size.height / 3,
         alignment: Alignment.center,
-        padding: new EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 15,
-            25, 10, MediaQuery.of(context).size.width / 15),
+        padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 25, 25,
+            MediaQuery.of(context).size.width / 25, 25),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(
@@ -110,6 +110,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                         children: [
                           SizedBox(
                             // height: MediaQuery.of(context).size.width / 25,
+                            width: MediaQuery.of(context).size.width / 5,
                             child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   primary: maleColor
@@ -128,10 +129,14 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                                     }
                                   });
                                 },
-                                child: Text('Male')),
+                                child: Text(
+                                  'Male',
+                                  style: TextStyle(fontSize: 11.5),
+                                )),
                           ),
                           SizedBox(
                             // height: MediaQuery.of(context).size.width / 25,
+                            width: MediaQuery.of(context).size.width / 5,
                             child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   primary: femaleColor
@@ -150,7 +155,10 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                                     }
                                   });
                                 },
-                                child: Text('Female')),
+                                child: Text(
+                                  'Female',
+                                  style: TextStyle(fontSize: 11.5),
+                                )),
                           )
                         ],
                       )),

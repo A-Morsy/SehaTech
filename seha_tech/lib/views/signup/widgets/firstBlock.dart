@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/views/signup/signUpOne.dart';
 import 'customtextbox.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NamePhotoBlock extends StatefulWidget {
   const NamePhotoBlock({Key? key}) : super(key: key);
@@ -17,25 +18,24 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 25, 25,
+          MediaQuery.of(context).size.width / 25, 25),
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-            child: Text(
-              'PERSONAL INFORMATION',
-              style: TextStyle(
-                  color: Palette.thirdColor,
-                  // fontFamily: 'serif',
-                  fontSize: 20,
-                  decoration: TextDecoration.none),
-            ),
+          Text(
+            AppLocalizations.of(context)!.signUpFirstPage_Title,
+            style: TextStyle(
+                color: Palette.thirdColor,
+                // fontFamily: 'serif',
+                fontSize: 20,
+                decoration: TextDecoration.none),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 15,
-                25, 10, MediaQuery.of(context).size.width / 15),
+            padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
             child: Container(
                 child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   width: 90,
@@ -51,12 +51,13 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(20, 5, 10, 0),
+                  padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
                   child: new Column(
                     children: <Widget>[
                       TextBox(
                         myController: textController1,
-                        message: 'First Name',
+                        message: AppLocalizations.of(context)!
+                            .signUpFirstPage_firstBlock_namePH,
                         obscureText: false,
                         width: MediaQuery.of(context).size.width / 2.5,
                         height: MediaQuery.of(context).size.height / 20,
@@ -66,7 +67,8 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                       ),
                       TextBox(
                         myController: textController2,
-                        message: 'Middle Name',
+                        message: AppLocalizations.of(context)!
+                            .signUpFirstPage_firstBlock_secondNamePH,
                         obscureText: false,
                         width: MediaQuery.of(context).size.width / 2.5,
                         height: MediaQuery.of(context).size.height / 20,
@@ -76,7 +78,8 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                       ),
                       TextBox(
                         myController: textController3,
-                        message: 'Last Name',
+                        message: AppLocalizations.of(context)!
+                            .signUpFirstPage_firstBlock_thirdNamePH,
                         obscureText: false,
                         width: MediaQuery.of(context).size.width / 2.5,
                         height: MediaQuery.of(context).size.height / 20,

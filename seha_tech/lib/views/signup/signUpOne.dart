@@ -8,6 +8,7 @@ import 'widgets/secondBlock.dart';
 import 'widgets/thirdBlock.dart';
 import './widgets/signUpStepWedgit.dart';
 import '../../Reusable/palette.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpOne extends StatefulWidget {
   SignUpOne({Key? key}) : super(key: key);
@@ -16,7 +17,8 @@ class SignUpOne extends StatefulWidget {
   _SignUpOneState createState() => _SignUpOneState();
 }
 
-SignUpModel signUpModel = SignUpModel() ;
+SignUpModel signUpModel = SignUpModel();
+
 class _SignUpOneState extends State<SignUpOne> {
   @override
   Widget build(BuildContext context) {
@@ -24,77 +26,81 @@ class _SignUpOneState extends State<SignUpOne> {
   }
 
   Widget _buildContent() {
-    return ScopedModelDescendant<SignUpModel>(
-      builder:(context,child,model) {
-        return Scaffold(
-          resizeToAvoidBottomInset: false,
-            appBar: AppBar(
-            title: Text('Sign Up'),
-            centerTitle: true,
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            backgroundColor: Palette.primaryColor,
-            elevation: 0.0,
-          ),
-          body: Column(children: [
-            Container(
-                color: Palette.primaryColor,
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SignUpStepsWidget(step: 1),
-                  ],
-                )
-                ),
-            Expanded(
-                child: Container(
-              color: Color.fromRGBO(28, 201, 188, 1),
-              child: Padding(
-                  padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(20.0),
-                        topRight: Radius.circular(20.0),
-                      ),
-                      color: Colors.white,
-                    ),
-                    child: ListView(
-                      children: [
-                        NamePhotoBlock(),
-                        CustomDivider(dividerColor: Palette.primaryColor),
-                        EmailBlock(),
-                        CustomDivider(dividerColor: Palette.primaryColor),
-                        OtherInfoBlock()
-                      ],
-                    ),
-                  )),
-            )),
-          ]),
-          floatingActionButton:
-            FloatingActionButton(
+    return ScopedModelDescendant<SignUpModel>(builder: (context, child, model) {
+      return Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          title: Text(AppLocalizations.of(context)!.signUpText),
+          centerTitle: true,
+          //this part need to render defferently in each lang
+          // the arrow doesnt want to change direction
+          leading: AppLocalizations.of(context)!.localeName == 'en'
+              ? IconButton(
+                  icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
                   onPressed: () {
-                    Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUpTwo()),
-                        );
+                    Navigator.pop(context);
                   },
-                  child: const Icon(
-                    Icons.keyboard_arrow_right_rounded,
-                    size: 35,
-                  ),
-                  backgroundColor: Palette.primaryColor,
+                )
+              : IconButton(
+                  icon: Icon(Icons.arrow_back_ios_new, color: Colors.red),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
-              ) ;
-      }
-
-    );
+          backgroundColor: Palette.primaryColor,
+          elevation: 0.0,
+        ),
+        body: Column(children: [
+          Container(
+              color: Palette.primaryColor,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SignUpStepsWidget(step: 1),
+                ],
+              )),
+          Expanded(
+              child: Container(
+            color: Color.fromRGBO(28, 201, 188, 1),
+            child: Padding(
+                padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(20.0),
+                      topRight: Radius.circular(20.0),
+                    ),
+                    color: Colors.white,
+                  ),
+                  child: ListView(
+                    children: [
+                      NamePhotoBlock(),
+                      CustomDivider(dividerColor: Palette.primaryColor),
+                      EmailBlock(),
+                      CustomDivider(dividerColor: Palette.primaryColor),
+                      OtherInfoBlock()
+                    ],
+                  ),
+                )),
+          )),
+        ]),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SignUpTwo()),
+            );
+          },
+          child: const Icon(
+            Icons.keyboard_arrow_right_rounded,
+            size: 35,
+          ),
+          backgroundColor: Palette.primaryColor,
+        ),
+      );
+    });
   }
 }

@@ -8,11 +8,67 @@
       "description": "The greeting"
     },
     "emailSignIn": "E-mail",
-    "@signUpText": {
+    "@emailSignIn": {
       "description": "The greeting"
     },
     "passwordSignIn": "Password",
-    "@signUpText": {
+    "@passwordSignIn": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_Title": "PERSONAL INFORMATION",
+    "@signUpFirstPage_Title": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_firstBlock_namePH": "First Name",
+    "@signUpFirstPage_firstBlock_namePH": {
+      "description": "The greeting"
+    },"signUpFirstPage_firstBlock_secondNamePH": "Middle Name",
+    "@signUpFirstPage_firstBlock_secondNamePH": {
+      "description": "The greeting"
+    },"signUpFirstPage_firstBlock_thirdNamePH": "Last Name",
+    "@signUpFirstPage_firstBlock_thirdNamePH": {
+      "description": "The greeting"
+    },
+    
+    "signUpFirstPage_SecondBlock_Email": "E-mail",
+    "@signUpFirstPage_SecondBlock_Email": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_SecondBlock_phoneNumber": "Phone Number",
+    "@signUpFirstPage_SecondBlock_phoneNumber": {
+      "description": "The greeting"
+    },"signUpFirstPage_SecondBlock_password": "Password",
+    "@signUpFirstPage_SecondBlock_password": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_SecondBlock_confirmPassword": "Confirm Password",
+    "@signUpFirstPage_SecondBlock_confirmPassword": {
+      "description": "The greeting"
+    },
+
+
+    "signUpFirstPage_SecondBlock_EmailPH": "Enter A Valid E-mail",
+    "@signUpFirstPage_SecondBlock_EmailPH": {
+      "description": "The greeting"
+    },"signUpFirstPage_SecondBlock_phoneNumberPH": "Enter Your Phone Number",
+    "@signUpFirstPage_SecondBlock_phoneNumberPH": {
+      "description": "The greeting"
+    },"signUpFirstPage_SecondBlock_passwordPH": "Enter A Valid Password",
+    "@signUpFirstPage_SecondBlock_passwordPH": {
+      "description": "The greeting"
+    },"signUpFirstPage_SecondBlock_confirmPasswordPH": "Confirm Your Password",
+    "@signUpFirstPage_SecondBlock_confirmPasswordPH": {
+      "description": "The greeting"
+    },
+
+
+
+
+
+
+
+    "signUpSecondPage_Title": "IDENTIFICATION",
+    "@signUpSecondPage_Title": {
       "description": "The greeting"
     }
 }

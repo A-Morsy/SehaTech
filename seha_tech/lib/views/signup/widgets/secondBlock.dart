@@ -3,6 +3,7 @@ import '../../../Reusable/reusableWidgets.dart';
 import '../../../Reusable/palette.dart';
 import '../signUpOne.dart';
 import 'customtextbox.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EmailBlock extends StatefulWidget {
   const EmailBlock({Key? key}) : super(key: key);
@@ -21,8 +22,8 @@ class _EmailBlockState extends State<EmailBlock> {
     return Container(
         height: MediaQuery.of(context).size.height / 4,
         alignment: Alignment.center,
-        padding: new EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 15,
-            15, 10, MediaQuery.of(context).size.width / 15),
+        padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 25, 25,
+            MediaQuery.of(context).size.width / 25, 25),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -33,19 +34,27 @@ class _EmailBlockState extends State<EmailBlock> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       CustomText(
-                          text: 'E-mail:',
+                          text: AppLocalizations.of(context)!
+                                  .signUpFirstPage_SecondBlock_Email +
+                              ':',
                           size: 15.0,
                           color: Palette.forthColor),
                       CustomText(
-                          text: 'Phone Number:',
+                          text: AppLocalizations.of(context)!
+                                  .signUpFirstPage_SecondBlock_phoneNumber +
+                              ':',
                           size: 15.0,
                           color: Palette.forthColor),
                       CustomText(
-                          text: 'Password:',
+                          text: AppLocalizations.of(context)!
+                                  .signUpFirstPage_SecondBlock_password +
+                              ':',
                           size: 15.0,
                           color: Palette.forthColor),
                       CustomText(
-                          text: 'Confirm Password:',
+                          text: AppLocalizations.of(context)!
+                                  .signUpFirstPage_SecondBlock_confirmPassword +
+                              ':',
                           size: 15.0,
                           color: Palette.forthColor),
                     ])),
@@ -56,7 +65,8 @@ class _EmailBlockState extends State<EmailBlock> {
                     children: [
                       TextBox(
                         myController: textController1,
-                        message: 'Enter A Valid E-mail',
+                        message: AppLocalizations.of(context)!
+                            .signUpFirstPage_SecondBlock_EmailPH,
                         width: MediaQuery.of(context).size.width / 2.5,
                         height: MediaQuery.of(context).size.height / 25,
                         obscureText: false,
@@ -66,7 +76,8 @@ class _EmailBlockState extends State<EmailBlock> {
                       ),
                       TextBox(
                         myController: textController2,
-                        message: 'Enter Phone Number',
+                        message: AppLocalizations.of(context)!
+                            .signUpFirstPage_SecondBlock_phoneNumberPH,
                         width: MediaQuery.of(context).size.width / 2.5,
                         height: MediaQuery.of(context).size.height / 25,
                         obscureText: false,
@@ -76,7 +87,8 @@ class _EmailBlockState extends State<EmailBlock> {
                       ),
                       TextBox(
                         myController: textController3,
-                        message: 'Enter A Valid Password',
+                        message: AppLocalizations.of(context)!
+                            .signUpFirstPage_SecondBlock_passwordPH,
                         width: MediaQuery.of(context).size.width / 2.5,
                         height: MediaQuery.of(context).size.height / 25,
                         obscureText: true,
@@ -98,7 +110,8 @@ class _EmailBlockState extends State<EmailBlock> {
                                 border: UnderlineInputBorder(
                                     borderSide:
                                         new BorderSide(color: Colors.purple)),
-                                hintText: 'Confirm Your Password',
+                                hintText: AppLocalizations.of(context)!
+                                    .signUpFirstPage_SecondBlock_confirmPasswordPH,
                               )))
                       // TextBox(
                       //   myController:myController,

@@ -4,6 +4,7 @@ import '../../../Reusable/reusableWidgets.dart';
 import '../../../Reusable/palette.dart';
 import '../signUpOne.dart';
 import 'customtextbox.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class IdentificationFirstBolck extends StatefulWidget {
   const IdentificationFirstBolck({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
           10, MediaQuery.of(context).size.width / 15),
       child: Column(
         children: [
-          Text('IDENTIFICATION',
+          Text(AppLocalizations.of(context)!.signUpSecondPage_Title,
               style: TextStyle(
                   color: Palette.thirdColor,
                   // fontFamily: 'serif',

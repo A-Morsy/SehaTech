@@ -4,6 +4,7 @@ import './widgets/identificationBlock.dart';
 import './widgets/signUpStepWedgit.dart';
 import 'widgets/customDivider.dart';
 import 'widgets/identificationBlockFirst.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpTwo extends StatefulWidget {
   SignUpTwo({Key? key}) : super(key: key);
@@ -20,9 +21,9 @@ class _SignUpTwoState extends State<SignUpTwo> {
 
   Widget _buildContent() {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text('Sign Up'),
+          title: Text(AppLocalizations.of(context)!.signUpText),
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),

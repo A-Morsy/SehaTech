@@ -6,5 +6,69 @@
     "signUpText": "انشاء حساب",
     "@signUpText": {
       "description": "The greeting"
+    },
+    "emailSignIn": "البريد الالكتروني",
+    "@emailSignIn": {
+      "description": "The greeting"
+    },
+    "passwordSignIn": "كلمة السر",
+    "@passwordSignIn": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_Title": "البيانات الشخصية",
+    "@signUpFirstPage_Title": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_firstBlock_namePH": "First Name",
+    "@signUpFirstPage_firstBlock_namePH": {
+      "description": "The greeting"
+    },"signUpFirstPage_firstBlock_secondNamePH": "Middle Name",
+    "@signUpFirstPage_firstBlock_secondNamePH": {
+      "description": "The greeting"
+    },"signUpFirstPage_firstBlock_thirdNamePH": "Last Name",
+    "@signUpFirstPage_firstBlock_thirdNamePH": {
+      "description": "The greeting"
+    },
+
+    "signUpFirstPage_SecondBlock_Email": "البريد الالكتروني",
+    "@signUpFirstPage_SecondBlock_Email": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_SecondBlock_phoneNumber": "رقم الهاتف",
+    "@signUpFirstPage_SecondBlock_phoneNumber": {
+      "description": "The greeting"
+    },"signUpFirstPage_SecondBlock_password": "الرقم السري",
+    "@signUpFirstPage_SecondBlock_password": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_SecondBlock_confirmPassword": "تأكيد الرقو السري",
+    "@signUpFirstPage_SecondBlock_confirmPassword": {
+      "description": "The greeting"
+    },
+
+
+    "signUpFirstPage_SecondBlock_EmailPH": "ادخل البريد الالكتروني",
+    "@signUpFirstPage_SecondBlock_EmailPH": {
+      "description": "The greeting"
+    },"signUpFirstPage_SecondBlock_phoneNumberPH": "ادخل رقم الهاتف",
+    "@signUpFirstPage_SecondBlock_phoneNumberPH": {
+      "description": "The greeting"
+    },"signUpFirstPage_SecondBlock_passwordPH": "ادخل الرقو السري",
+    "@signUpFirstPage_SecondBlock_passwordPH": {
+      "description": "The greeting"
+    },"signUpFirstPage_SecondBlock_confirmPasswordPH": "اعادة تأكيد الرقم السري",
+    "@signUpFirstPage_SecondBlock_confirmPasswordPH": {
+      "description": "The greeting"
+    },
+
+
+
+
+
+
+
+    "signUpSecondPage_Title": "بيانات الهوة",
+    "@signUpSecondPage_Title": {
+      "description": "The greeting"
     }
 }

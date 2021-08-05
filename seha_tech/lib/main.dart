@@ -18,7 +18,6 @@ void main() {
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(localizationsDelegates: [
@@ -42,8 +41,8 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-
 SignInModel signInModel = SignInModel();
+
 class _MyHomePageState extends State<MyHomePage> {
   final textController1 = TextEditingController();
   final textController2 = TextEditingController();
@@ -78,25 +77,27 @@ class _MyHomePageState extends State<MyHomePage> {
                           textController: textController1,
                           textColor: Palette.forthColor,
                           fillColor: Palette.secondaryColor,
-                          text: "E-mail",
+                          text: AppLocalizations.of(context)!.emailSignIn,
                           obscureText: false,
-                          callBackMethod: () => signInModel.setEmail = signInModel.getTemp),
+                          callBackMethod: () =>
+                              signInModel.setEmail = signInModel.getTemp),
                     );
                   }),
                   ScopedModelDescendant<SignInModel>(
                       builder: (context, child, model) {
-                        return Container(
-                    width: MediaQuery.of(context).size.width * 0.6,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                    child: CustomField(
-                        textController: textController2,
-                        textColor: Palette.forthColor,
-                        fillColor: Palette.secondaryColor,
-                        text: "Password",
-                        obscureText: true,
-                        callBackMethod: () => signInModel.setPassword = signInModel.getTemp),
-                  );
-                      }),
+                    return Container(
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      height: MediaQuery.of(context).size.height * 0.1,
+                      child: CustomField(
+                          textController: textController2,
+                          textColor: Palette.forthColor,
+                          fillColor: Palette.secondaryColor,
+                          text: AppLocalizations.of(context)!.passwordSignIn,
+                          obscureText: true,
+                          callBackMethod: () =>
+                              signInModel.setPassword = signInModel.getTemp),
+                    );
+                  }),
                   Container(
                       width: MediaQuery.of(context).size.width * 0.6,
                       child: CustomButton(
@@ -116,7 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         callBackMethod: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => SignUpOne()),
+                            MaterialPageRoute(
+                                builder: (context) => SignUpOne()),
                           );
                         },
                       )),
