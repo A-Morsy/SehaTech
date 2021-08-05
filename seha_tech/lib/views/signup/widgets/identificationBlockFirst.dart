@@ -29,7 +29,7 @@ class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
           Text('IDENTIFICATION',
               style: TextStyle(
                   color: Palette.thirdColor,
-                  fontFamily: 'serif',
+                  // fontFamily: 'serif',
                   fontSize: 20,
                   decoration: TextDecoration.none)),
           Container(

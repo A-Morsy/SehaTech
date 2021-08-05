@@ -20,6 +20,7 @@ class _SignUpTwoState extends State<SignUpTwo> {
 
   Widget _buildContent() {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text('Sign Up'),
           centerTitle: true,

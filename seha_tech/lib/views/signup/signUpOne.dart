@@ -27,6 +27,7 @@ class _SignUpOneState extends State<SignUpOne> {
     return ScopedModelDescendant<SignUpModel>(
       builder:(context,child,model) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
             appBar: AppBar(
             title: Text('Sign Up'),
             centerTitle: true,

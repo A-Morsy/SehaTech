@@ -11,7 +11,7 @@ class TextBox extends StatefulWidget {
   TextInputType keyboardType;
   TextEditingController myController;
 
-  final VoidCallback callBackMethod ;
+  VoidCallback callBackMethod ;
 
 TextBox({
     Key? key,
@@ -39,8 +39,7 @@ class _TextBoxState extends State<TextBox> {
             onChanged: (var value) {
 
               signUpModel.setStringValue = value ;
-              widget.callBackMethod () ;
-
+              widget.callBackMethod ();
             },
             keyboardType: widget.keyboardType,
             obscureText: widget.obscureText,

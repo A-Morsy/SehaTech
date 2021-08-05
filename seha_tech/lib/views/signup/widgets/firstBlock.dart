@@ -25,7 +25,7 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
               'PERSONAL INFORMATION',
               style: TextStyle(
                   color: Palette.thirdColor,
-                  fontFamily: 'serif',
+                  // fontFamily: 'serif',
                   fontSize: 20,
                   decoration: TextDecoration.none),
             ),
