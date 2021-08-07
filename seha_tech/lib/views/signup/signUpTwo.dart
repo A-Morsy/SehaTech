@@ -6,6 +6,7 @@ import './widgets/signUpStepWedgit.dart';
 import 'widgets/customDivider.dart';
 import 'widgets/identificationBlockFirst.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../profile/userProfile.dart';
 
 class SignUpTwo extends StatefulWidget {
   SignUpTwo({Key? key}) : super(key: key);
@@ -43,33 +44,36 @@ class _SignUpTwoState extends State<SignUpTwo> {
             IdentificationBolck(),
           ],
         ),
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            FloatingActionButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(
-                Icons.keyboard_arrow_left_rounded,
-                size: 35,
+        floatingActionButton: Container(
+          padding: EdgeInsets.only(left: 40, right: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              FloatingActionButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Icon(
+                  Icons.keyboard_arrow_left_rounded,
+                  size: 35,
+                ),
+                backgroundColor: Palette.forthColor,
               ),
-              backgroundColor: Palette.forthColor,
-            ),
-            FloatingActionButton(
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => SignUpOne()),
-                // );
-              },
-              child: const Icon(
-                Icons.keyboard_arrow_right_rounded,
-                size: 35,
+              FloatingActionButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => UserProfile()),
+                  );
+                },
+                child: const Icon(
+                  Icons.keyboard_arrow_right_rounded,
+                  size: 35,
+                ),
+                backgroundColor: Palette.primaryColor,
               ),
-              backgroundColor: Palette.primaryColor,
-            ),
-          ],
+            ],
+          ),
         ));
   }
 }

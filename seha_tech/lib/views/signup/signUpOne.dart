@@ -61,18 +61,21 @@ class _SignUpOneState extends State<SignUpOne> {
             OtherInfoBlock()
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SignUpTwo()),
-            );
-          },
-          child: const Icon(
-            Icons.keyboard_arrow_right_rounded,
-            size: 35,
+        floatingActionButton: Container(
+          padding: EdgeInsets.only(right: 10),
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpTwo()),
+              );
+            },
+            child: const Icon(
+              Icons.keyboard_arrow_right_rounded,
+              size: 35,
+            ),
+            backgroundColor: Palette.primaryColor,
           ),
-          backgroundColor: Palette.primaryColor,
         ),
       );
     });
