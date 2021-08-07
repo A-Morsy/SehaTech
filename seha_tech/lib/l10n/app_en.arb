@@ -62,13 +62,55 @@
     },
 
 
+    "signUpFirstPage_thirdBlock_BD": "Date Of Birth",
+    "@signUpFirstPage_thirdBlock_BD": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_thirdBlock_gender": "Gender",
+    "@signUpFirstPage_thirdBlock_gender": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_marital": "Marital Status",
+    "@signUpFirstPage_thirdBlock_marital": {
+      "description": "The greeting"
+    },
 
-
+    "signUpFirstPage_thirdBlock_genderMale": "Male",
+    "@signUpFirstPage_thirdBlock_genderMale": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_genderFemale": "Female",
+    "@signUpFirstPage_thirdBlock_genderFemale": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_maritalFirst": "Single",
+    "@signUpFirstPage_thirdBlock_maritalFirst": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_maritalSecond": "Married",
+    "@signUpFirstPage_thirdBlock_maritalSecond": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_maritalThird": "Divorced",
+    "@signUpFirstPage_thirdBlock_maritalThird": {
+      "description": "The greeting"
+    },
+    
 
 
 
     "signUpSecondPage_Title": "IDENTIFICATION",
     "@signUpSecondPage_Title": {
       "description": "The greeting"
+    },
+    
+    "signUpSecondPage_firstBlock_country": "Country",
+    "@signUpSecondPage_firstBlock_country": {
+      "description": "The greeting"
+    },"signUpSecondPage_firstBlock_area": "Province",
+    "@signUpSecondPage_firstBlock_area": {
+      "description": "The greeting"
+    },"signUpSecondPage_firstBlock_city": "City",
+    "@signUpSecondPage_firstBlock_city": {
+      "description": "The greeting"
+    },"signUpSecondPage_firstBlock_streetName": "Street Name",
+    "@signUpSecondPage_firstBlock_streetName": {
+      "description": "The greeting"
     }
+
 }

@@ -3,8 +3,8 @@ import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/views/signup/signUpOne.dart';
 import '../../../Reusable/reusableWidgets.dart';
 import '../../../Reusable/palette.dart';
-import 'customtextbox.dart';
 import 'package:date_time_picker/date_time_picker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OtherInfoBlock extends StatefulWidget {
   const OtherInfoBlock({Key? key}) : super(key: key);
@@ -35,31 +35,30 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    // Container(
-                    //   height: MediaQuery.of(context).size.width / 25,
-                    //   child: CustomText(
-                    //       text: 'Address:',
-                    //       size: 15.0,
-                    //       color: Palette.forthColor),
-                    // ),
                     Container(
                       height: MediaQuery.of(context).size.height / 20,
                       child: CustomText(
-                          text: 'Date of Birth:',
+                          text: AppLocalizations.of(context)!
+                                  .signUpFirstPage_thirdBlock_BD +
+                              ':',
                           size: 15.0,
                           color: Palette.forthColor),
                     ),
                     Container(
                       height: MediaQuery.of(context).size.height / 20,
                       child: CustomText(
-                          text: 'Gender:',
+                          text: AppLocalizations.of(context)!
+                                  .signUpFirstPage_thirdBlock_gender +
+                              ':',
                           size: 15.0,
                           color: Palette.forthColor),
                     ),
                     Container(
                       height: MediaQuery.of(context).size.height / 20,
                       child: CustomText(
-                          text: 'Marital Status:',
+                          text: AppLocalizations.of(context)!
+                                  .signUpFirstPage_thirdBlock_marital +
+                              ':',
                           size: 15.0,
                           color: Palette.forthColor),
                     ),
@@ -130,7 +129,8 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                                   });
                                 },
                                 child: Text(
-                                  'Male',
+                                  AppLocalizations.of(context)!
+                                      .signUpFirstPage_thirdBlock_genderMale,
                                   style: TextStyle(fontSize: 11.5),
                                 )),
                           ),
@@ -156,7 +156,8 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                                   });
                                 },
                                 child: Text(
-                                  'Female',
+                                  AppLocalizations.of(context)!
+                                      .signUpFirstPage_thirdBlock_genderFemale,
                                   style: TextStyle(fontSize: 11.5),
                                 )),
                           )

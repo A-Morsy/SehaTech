@@ -44,17 +44,27 @@ class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     CustomText(
-                        text: 'Country:',
+                        text: AppLocalizations.of(context)!
+                                .signUpSecondPage_firstBlock_country +
+                            ':',
                         size: 15.0,
                         color: Palette.forthColor),
                     CustomText(
-                        text: 'Province:',
+                        text: AppLocalizations.of(context)!
+                                .signUpSecondPage_firstBlock_area +
+                            ':',
                         size: 15.0,
                         color: Palette.forthColor),
                     CustomText(
-                        text: 'City:', size: 15.0, color: Palette.forthColor),
+                        text: AppLocalizations.of(context)!
+                                .signUpSecondPage_firstBlock_city +
+                            ':',
+                        size: 15.0,
+                        color: Palette.forthColor),
                     CustomText(
-                        text: 'Street Name:',
+                        text: AppLocalizations.of(context)!
+                                .signUpSecondPage_firstBlock_streetName +
+                            ':',
                         size: 15.0,
                         color: Palette.forthColor),
                   ],

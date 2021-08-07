@@ -19,13 +19,13 @@
     "@signUpFirstPage_Title": {
       "description": "The greeting"
     },
-    "signUpFirstPage_firstBlock_namePH": "First Name",
+    "signUpFirstPage_firstBlock_namePH": "الاسم الخاص",
     "@signUpFirstPage_firstBlock_namePH": {
       "description": "The greeting"
-    },"signUpFirstPage_firstBlock_secondNamePH": "Middle Name",
+    },"signUpFirstPage_firstBlock_secondNamePH": "الاسم الأوسط",
     "@signUpFirstPage_firstBlock_secondNamePH": {
       "description": "The greeting"
-    },"signUpFirstPage_firstBlock_thirdNamePH": "Last Name",
+    },"signUpFirstPage_firstBlock_thirdNamePH": "اسم العائلة",
     "@signUpFirstPage_firstBlock_thirdNamePH": {
       "description": "The greeting"
     },
@@ -62,13 +62,55 @@
     },
 
 
+    "signUpFirstPage_thirdBlock_BD": "تريج الميلاد",
+    "@signUpFirstPage_thirdBlock_BD": {
+      "description": "The greeting"
+    },
+    "signUpFirstPage_thirdBlock_gender": "الجنس",
+    "@signUpFirstPage_thirdBlock_gender": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_marital": "الحالة الزوجية",
+    "@signUpFirstPage_thirdBlock_marital": {
+      "description": "The greeting"
+    },
 
+    "signUpFirstPage_thirdBlock_genderMale": "ذكر",
+    "@signUpFirstPage_thirdBlock_genderMale": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_genderFemale": "انثى",
+    "@signUpFirstPage_thirdBlock_genderFemale": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_maritalFirst": "اعزب",
+    "@signUpFirstPage_thirdBlock_maritalFirst": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_maritalSecond": "متزوج",
+    "@signUpFirstPage_thirdBlock_maritalSecond": {
+      "description": "The greeting"
+    },"signUpFirstPage_thirdBlock_maritalThird": "مطلق",
+    "@signUpFirstPage_thirdBlock_maritalThird": {
+      "description": "The greeting"
+    },
 
 
 
 
     "signUpSecondPage_Title": "بيانات الهوة",
     "@signUpSecondPage_Title": {
+      "description": "The greeting"
+    },
+    
+    
+    "signUpSecondPage_firstBlock_country": "البلد",
+    "@signUpSecondPage_firstBlock_country": {
+      "description": "The greeting"
+    },"signUpSecondPage_firstBlock_area": "المحافظة",
+    "@signUpSecondPage_firstBlock_area": {
+      "description": "The greeting"
+    },"signUpSecondPage_firstBlock_city": "المدينة",
+    "@signUpSecondPage_firstBlock_city": {
+      "description": "The greeting"
+    },"signUpSecondPage_firstBlock_streetName": "اسم الشارع",
+    "@signUpSecondPage_firstBlock_streetName": {
       "description": "The greeting"
     }
 }

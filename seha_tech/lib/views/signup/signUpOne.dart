@@ -9,6 +9,7 @@ import 'widgets/thirdBlock.dart';
 import './widgets/signUpStepWedgit.dart';
 import '../../Reusable/palette.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import './widgets/mainSignUpContainer.dart';
 
 class SignUpOne extends StatefulWidget {
   SignUpOne({Key? key}) : super(key: key);
@@ -50,43 +51,16 @@ class _SignUpOneState extends State<SignUpOne> {
           backgroundColor: Palette.primaryColor,
           elevation: 0.0,
         ),
-        body: Column(children: [
-          Container(
-              color: Palette.primaryColor,
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SignUpStepsWidget(step: 1),
-                ],
-              )),
-          Expanded(
-              child: Container(
-            color: Color.fromRGBO(28, 201, 188, 1),
-            child: Padding(
-                padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20.0),
-                      topRight: Radius.circular(20.0),
-                    ),
-                    color: Colors.white,
-                  ),
-                  child: ListView(
-                    children: [
-                      NamePhotoBlock(),
-                      CustomDivider(dividerColor: Palette.primaryColor),
-                      EmailBlock(),
-                      CustomDivider(dividerColor: Palette.primaryColor),
-                      OtherInfoBlock()
-                    ],
-                  ),
-                )),
-          )),
-        ]),
+        body: SignUpContainer(
+          signUpStep: 1,
+          widgetsList: [
+            NamePhotoBlock(),
+            CustomDivider(dividerColor: Palette.primaryColor),
+            EmailBlock(),
+            CustomDivider(dividerColor: Palette.primaryColor),
+            OtherInfoBlock()
+          ],
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(
