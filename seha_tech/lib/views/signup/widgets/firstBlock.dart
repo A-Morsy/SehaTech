@@ -38,8 +38,8 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 90,
-                  height: 90,
+                  // width: 90,
+                  // height: 90,
                   decoration: BoxDecoration(
                     borderRadius:
                         const BorderRadius.all(const Radius.circular(50)),
@@ -47,7 +47,7 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                   ),
                   child: Icon(
                     Icons.add,
-                    size: 60,
+                    size: MediaQuery.of(context).size.width*0.25,
                   ),
                 ),
                 Padding(

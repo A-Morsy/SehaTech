@@ -4,11 +4,13 @@ import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/signInModel.dart';
 import 'package:seha_tech/views/signIn/mainPageButton.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
+import 'package:seha_tech/views/signup/widgets/signUpText.dart';
 import 'views/signup/signUpOne.dart';
 // import 'package:scoped_model/scoped_model.dart';
 // import 'models/userModel.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'views/signup/widgets/customDivider.dart';
 
 void main() {
   runApp(MyApp());
@@ -49,113 +51,112 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      backgroundColor: Palette.fifthColor,
       body: ScopedModel<SignInModel>(
         model: signInModel,
-        child: Stack(
+        child: ListView(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              color: Color(0xFFE7F8F5),
-            ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      height: MediaQuery.of(context).size.height * 0.5,
-                      child: Image.asset(
-                          'assets/images/SehaTech-Logo-Vertical-FullColor.png')),
-                  ScopedModelDescendant<SignInModel>(
-                      builder: (context, child, model) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      height: MediaQuery.of(context).size.height * 0.1,
-                      child: CustomField(
-                          textController: textController1,
-                          textColor: Palette.forthColor,
-                          fillColor: Palette.secondaryColor,
-                          text: AppLocalizations.of(context)!.emailSignIn,
-                          obscureText: false,
-                          callBackMethod: () =>
-                              signInModel.setEmail = signInModel.getTemp),
-                    );
-                  }),
-                  ScopedModelDescendant<SignInModel>(
-                      builder: (context, child, model) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      height: MediaQuery.of(context).size.height * 0.1,
-                      child: CustomField(
-                          textController: textController2,
-                          textColor: Palette.forthColor,
-                          fillColor: Palette.secondaryColor,
-                          text: AppLocalizations.of(context)!.passwordSignIn,
-                          obscureText: true,
-                          callBackMethod: () =>
-                              signInModel.setPassword = signInModel.getTemp),
-                    );
-                  }),
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: CustomButton(
-                          message: AppLocalizations.of(context)!.signInText,
-                          color: Palette.primaryColor,
-                          callBackMethod: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(builder: (context) => ),
-                            // );
-                          })),
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: CustomButton(
-                        message: AppLocalizations.of(context)!.signUpText,
-                        color: Palette.thirdColor,
-                        callBackMethod: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpOne()),
-                          );
-                        },
-                      )),
-                  Padding(
-                      padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
-                      child: Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            MaterialButton(
-                              onPressed: () {},
-                              color: Colors.white,
-                              child: Image.asset('assets/images/google.png'),
-                              padding: EdgeInsets.all(10),
-                              shape: CircleBorder(),
-                            ),
-                            MaterialButton(
-                              onPressed: () {},
-                              color: Colors.white,
-                              child: Image.asset('assets/images/facebook.png'),
-                              padding: EdgeInsets.all(10),
-                              shape: CircleBorder(),
-                            ),
-                            MaterialButton(
-                              onPressed: () {},
-                              color: Colors.white,
-                              child: Image.asset('assets/images/apple.png'),
-                              padding: EdgeInsets.all(10),
-                              shape: CircleBorder(),
-                            ),
-                          ],
+              Center(
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          //width: MediaQuery.of(context).size.width * 0.6,
+                          height: MediaQuery.of(context).size.height * 0.5,
+                          child: Image.asset(
+                              'assets/images/SehaTech-Logo-Vertical-FullColor.png')),
+                         Container(
+                          margin: EdgeInsets.only(bottom: 5),
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          height: 40,
+                          child: CustomField(
+                              textController: textController1,
+                              textColor: Palette.forthColor,
+                              fillColor: Colors.white,
+                              text: AppLocalizations.of(context)!.emailSignIn,
+                              obscureText: false,
+                              callBackMethod: () =>
+                                  signInModel.setEmail = signInModel.getTemp),
                         ),
-                      )),
-                ],
-              ),
-            )
-          ],
+
+                      // SOOORA
+                      ScopedModelDescendant<SignInModel>(
+                          builder: (context, child, model) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 10),
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          height: 40,
+                          child: CustomField(
+                              textController: textController2,
+                              textColor: Palette.forthColor,
+                              fillColor: Colors.white,
+                              text: AppLocalizations.of(context)!.passwordSignIn,
+                              obscureText: true,
+                              callBackMethod: () =>
+                                  signInModel.setPassword = signInModel.getTemp),
+                        );
+                      }),
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          child: CustomButton(
+                              message: AppLocalizations.of(context)!.signInText,
+                              color: Palette.primaryColor,
+                              callBackMethod: () {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(builder: (context) => ),
+                                // );
+                              })),
+
+                                Padding(
+                          padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                MaterialButton(
+                                  onPressed: () {},
+                                  color: Colors.white,
+                                  child: Image.asset('assets/images/google.png'),
+                                  padding: EdgeInsets.all(10),
+                                  shape: CircleBorder(),
+                                ),
+                                MaterialButton(
+                                  onPressed: () {},
+                                  color: Colors.white,
+                                  child: Image.asset('assets/images/facebook.png'),
+                                  padding: EdgeInsets.all(10),
+                                  shape: CircleBorder(),
+                                ),
+                                MaterialButton(
+                                  onPressed: () {},
+                                  color: Colors.white,
+                                  child: Image.asset('assets/images/apple.png'),
+                                  padding: EdgeInsets.all(10),
+                                  shape: CircleBorder(),
+                                ),
+                              ],
+                            ),
+                          )),
+                          Container(
+                             margin: EdgeInsets.only(top: 10),
+                             width: MediaQuery.of(context).size.width*0.7,
+                            child: CustomDivider(dividerColor: Colors.grey[400]),
+                          ),
+
+                      Container(
+                        alignment: Alignment.center,
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          margin: EdgeInsets.only(top: 15),
+                          child:SignUpText()),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          
         ),
       ),
     );

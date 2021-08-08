@@ -29,7 +29,7 @@
     "@signUpFirstPage_firstBlock_thirdNamePH": {
       "description": "The greeting"
     },
-    
+
     "signUpFirstPage_SecondBlock_Email": "E-mail",
     "@signUpFirstPage_SecondBlock_Email": {
       "description": "The greeting"
@@ -90,7 +90,7 @@
     "@signUpFirstPage_thirdBlock_maritalThird": {
       "description": "The greeting"
     },
-    
+
 
 
 
@@ -98,7 +98,7 @@
     "@signUpSecondPage_Title": {
       "description": "The greeting"
     },
-    
+
     "signUpSecondPage_firstBlock_country": "Country",
     "@signUpSecondPage_firstBlock_country": {
       "description": "The greeting"
@@ -111,6 +111,47 @@
     },"signUpSecondPage_firstBlock_streetName": "Street Name",
     "@signUpSecondPage_firstBlock_streetName": {
       "description": "The greeting"
+    },
+
+
+
+    "medicalProfile_firstBlock_age": "Age",
+    "@medicalProfile_firstBlock_age": {
+      "description": "Medical Profile First Page Info"
+    },
+    "medicalProfile_firstBlock_height": "Height",
+    "@medicalProfile_firstBlock_height": {
+      "description": "Medical Profile First Page Info"
+    },
+    "medicalProfile_firstBlock_weight": "Weight",
+    "@medicalProfile_firstBlock_weight": {
+      "description": "Medical Profile First Page Info"
+    },
+    "medicalProfile_firstBlock_bmi": "BMI",
+    "@medicalProfile_firstBlock_bmi": {
+      "description": "Medical Profile First Page Info"
+    },
+
+
+    "medicalProfile_secondBlock_PastMedicalHistory": "Past Medical History",
+    "@medicalProfile_secondBlock_PastMedicalHistory": {
+      "description": "Medical Profile First Page Buttons"
+    },
+    "medicalProfile_secondBlock_Allergies": "Allergies",
+    "@medicalProfile_secondBlock_Allergies": {
+      "description": "Medical Profile First Page Buttons"
+    },
+    "medicalProfile_secondBlock_CurrentMedications": "Current Medications",
+    "@medicalProfile_secondBlock_CurrentMedications": {
+      "description": "Medical Profile First Page Buttons"
+    },
+    "medicalProfile_secondBlock_History_Previous": "History/Previous",
+    "@medicalProfile_secondBlock_History_Previous": {
+      "description": "Medical Profile First Page Buttons"
+    },
+    "medicalProfile_secondBlock_PendingTreatments": "Pending Treatments",
+    "@medicalProfile_secondBlock_PendingTreatments": {
+      "description": "Medical Profile First Page Buttons"
     }
 
 }

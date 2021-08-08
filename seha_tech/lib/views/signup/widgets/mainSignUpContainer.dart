@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/views/signup/widgets/signUpStepWedgit.dart';
 import '../../../Reusable/palette.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../signUpOne.dart';
-import '../signUpTwo.dart';
 
 // ignore: must_be_immutable
 class SignUpContainer extends StatelessWidget {

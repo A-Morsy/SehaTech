@@ -98,8 +98,7 @@
     "@signUpSecondPage_Title": {
       "description": "The greeting"
     },
-    
-    
+
     "signUpSecondPage_firstBlock_country": "البلد",
     "@signUpSecondPage_firstBlock_country": {
       "description": "The greeting"
@@ -112,5 +111,44 @@
     },"signUpSecondPage_firstBlock_streetName": "اسم الشارع",
     "@signUpSecondPage_firstBlock_streetName": {
       "description": "The greeting"
+    },
+
+    "medicalProfile_firstBlock_age": "العمر",
+    "@signUpSecondPage_Title": {
+      "description": "Medical Profile First Page Info"
+    },
+    "medicalProfile_firstBlock_height": "الطول",
+    "@signUpSecondPage_Title": {
+      "description": "Medical Profile First Page Info"
+    },
+    "medicalProfile_firstBlock_weight": "الوزن",
+    "@signUpSecondPage_Title": {
+      "description": "Medical Profile First Page Info"
+    },
+    "medicalProfile_firstBlock_bmi": "BMI",
+    "@signUpSecondPage_Title": {
+      "description": "Medical Profile First Page Info"
+    },
+
+    "medicalProfile_secondBlock_PastMedicalHistory": "التاريخ الطبي السابق",
+    "@signUpSecondPage_Title": {
+      "description": "Medical Profile First Page Buttons"
+    },
+    "medicalProfile_secondBlock_Allergies": "الحساسية",
+    "@signUpSecondPage_Title": {
+      "description": "Medical Profile First Page Buttons"
+    },
+    "medicalProfile_secondBlock_CurrentMedications": "الأدوية الحالية",
+    "@signUpSecondPage_Title": {
+      "description": "Medical Profile First Page Buttons"
+    },
+    "medicalProfile_secondBlock_History_Previous": "التاريخ / السابق",
+    "@signUpSecondPage_Title": {
+      "description": "Medical Profile First Page Buttons"
+    },
+    "medicalProfile_secondBlock_PendingTreatments": "علاجات قيد الانتظار",
+    "@signUpSecondPage_Title": {
+      "description": "Medical Profile First Page Buttons"
     }
+
 }

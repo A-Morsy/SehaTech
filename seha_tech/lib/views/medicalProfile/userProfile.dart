@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/views/medicalProfile/widgets/firstBlock.dart';
+import 'package:seha_tech/views/medicalprofile/widgets/secondBlock.dart';
+import 'package:seha_tech/views/signup/widgets/customDivider.dart';
 import './userProfileMainWidget.dart';
 
 class UserProfile extends StatefulWidget {
@@ -13,7 +15,11 @@ class _UserProfile extends State<UserProfile> {
   Widget build(BuildContext context) {
     return Container(
       child: UserProfileMainWidget(
-          widgetsList: [Container(child: Text('hello'))],
+          widgetsList: [
+          UserInfoBlock(),
+          CustomDivider(dividerColor: Palette.thirdColor),
+          MedicalList()
+      ],
           title: 'Medical Profile'),
     );
   }

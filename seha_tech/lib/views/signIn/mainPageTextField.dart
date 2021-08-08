@@ -36,13 +36,15 @@ class _CustomFieldState extends State<CustomField> {
         obscureText: widget.obscureText,
         style: TextStyle(fontSize: 12),
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(10.0),
           filled: true,
           hintStyle: TextStyle(color: widget.textColor),
           hintText: widget.text,
           //hintText:AppLocalizations.of(context)!.signInText,
           fillColor: widget.fillColor,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30.0),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: const BorderSide(color: Colors.grey, width: 0.0)
           ),
         ));
   }
