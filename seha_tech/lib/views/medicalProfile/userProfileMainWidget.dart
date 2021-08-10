@@ -60,9 +60,10 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
       ),
       bottomNavigationBar: CurvedNavigationBar(
         //key:_bottomNavigationKey,
+
         backgroundColor: Palette.thirdColor,
         color: Colors.white,
-        height: MediaQuery.of(context).size.height * 0.09,
+        // height: MediaQuery.of(context).size.height * 0.09,
         items: <Widget>[
           Icon(
             Icons.event_available,
