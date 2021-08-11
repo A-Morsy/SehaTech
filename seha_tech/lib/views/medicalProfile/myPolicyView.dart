@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:seha_tech/views/medicalProfile/widgets/policyCard.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-// ignore: must_be_immutable
-class UserProfileMainWidget extends StatefulWidget {
-  List<Widget> widgetsList;
-  final String title;
-  UserProfileMainWidget({required this.widgetsList, required this.title});
-
+class MyPolicyView extends StatefulWidget {
   @override
-  _UserProfileMainWidgetState createState() => _UserProfileMainWidgetState();
+  _MyPolicyView createState() => _MyPolicyView();
 }
 
-class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
+class _MyPolicyView extends State<MyPolicyView> {
   @override
   Widget build(BuildContext context) {
-    int _page = 2;
-    // GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('My Policy'),
         centerTitle: true,
         //this part need to render defferently in each lang
         // the arrow doesnt want to change direction
@@ -41,19 +35,10 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
         elevation: 0.0,
       ),
       body: Container(
+        padding: EdgeInsets.fromLTRB(20, 50, 20, 0),
         color: Palette.fifthColor,
-        width: MediaQuery.of(context).size.width,
-        height: double.infinity,
-        child: Container(
-          margin: EdgeInsets.fromLTRB(20, 50, 20, 0),
-          height: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.vertical(
-              top: const Radius.circular(20),
-            ),
-            color: Colors.white,
-          ),
-          child: Column(children: widget.widgetsList),
+        child: ListView(
+          children: [FirstPolicyCard(), SecondPolicyCard(), ThirdPolicyCard()],
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -72,10 +57,9 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
           Icon(Icons.account_circle, size: 30, color: Palette.primaryColor),
         ],
         onTap: (index) {
-          setState(() {
-            _page = index;
-            print(_page);
-          });
+          // setState(() {
+          //     _page = index;
+          //   });
         },
       ),
     );

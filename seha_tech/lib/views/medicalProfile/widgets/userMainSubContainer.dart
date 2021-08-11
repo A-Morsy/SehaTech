@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import '../../signup/widgets/customDivider.dart';
 import '../widgets/secondBlock.dart';
+import '../myPolicyView.dart';
 
 typedef void StringCallback(int val);
 
@@ -85,7 +86,12 @@ class userMainSubContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyPolicyView()));
+                  },
                   child: Container(
                     width: 140,
                     height: 140,

@@ -5,6 +5,7 @@ import 'package:seha_tech/views/medicalprofile/widgets/secondBlock.dart';
 import 'package:seha_tech/views/signup/widgets/customDivider.dart';
 import './userProfileMainWidget.dart';
 import 'widgets/userMainSubContainer.dart';
+import './myPolicyView.dart';
 
 class UserProfile extends StatefulWidget {
   @override
