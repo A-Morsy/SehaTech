@@ -3,11 +3,15 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
+typedef void StringCallback(int val);
+
 // ignore: must_be_immutable
 class UserProfileMainWidget extends StatefulWidget {
   List<Widget> widgetsList;
   final String title;
-  UserProfileMainWidget({required this.widgetsList, required this.title});
+  final StringCallback callback;
+  UserProfileMainWidget(
+      {required this.widgetsList, required this.title, required this.callback});
 
   @override
   _UserProfileMainWidgetState createState() => _UserProfileMainWidgetState();
@@ -26,15 +30,15 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
         // the arrow doesnt want to change direction
         leading: AppLocalizations.of(context)!.localeName == 'en'
             ? IconButton(
-                icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+                icon: Icon(Icons.menu, color: Colors.white),
                 onPressed: () {
-                  Navigator.pop(context);
+                  widget.callback(1);
                 },
               )
             : IconButton(
-                icon: Icon(Icons.arrow_back_ios_new, color: Colors.red),
+                icon: Icon(Icons.menu, color: Colors.red),
                 onPressed: () {
-                  Navigator.pop(context);
+                  widget.callback(1);
                 },
               ),
         backgroundColor: Palette.secondaryColor,

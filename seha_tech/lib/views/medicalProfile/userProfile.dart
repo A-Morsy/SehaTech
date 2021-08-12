@@ -19,15 +19,18 @@ class _UserProfile extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: UserProfileMainWidget(widgetsList: [
-        UserInfoBlock(),
-        CustomDivider(dividerColor: Palette.thirdColor),
-        _viewChange == 1
-            ? userMainSubContainer(
-                callback: (val) => setState(() => _viewChange = val),
-              )
-            : MedicalList()
-      ], title: 'Medical Profile'),
+      child: UserProfileMainWidget(
+          callback: (val) => setState(() => _viewChange = val),
+          widgetsList: [
+            UserInfoBlock(),
+            CustomDivider(dividerColor: Palette.thirdColor),
+            _viewChange == 1
+                ? userMainSubContainer(
+                    callback: (val) => setState(() => _viewChange = val),
+                  )
+                : MedicalList()
+          ],
+          title: 'Medical Profile'),
     );
   }
 }
