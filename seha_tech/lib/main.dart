@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: MediaQuery.of(context).size.height * 0.5,
                           child: Image.asset(
                               'assets/images/SehaTech-Logo-Vertical-FullColor.png')),
-                         Container(
+                        Container(
                           margin: EdgeInsets.only(bottom: 5),
                           width: MediaQuery.of(context).size.width * 0.6,
                           height: 40,
