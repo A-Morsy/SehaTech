@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:seha_tech/views/medicalProfile/widgets/medicalProfileWidget.dart';
-import 'package:seha_tech/views/myRequests/requestsPage.dart';
+
+typedef void StringCallback(int val);
 
 // ignore: must_be_immutable
 class UserProfileMainWidget extends StatefulWidget {
   List<Widget> widgetsList;
   final String title;
-  UserProfileMainWidget({required this.widgetsList, required this.title});
+  final StringCallback callback;
+  UserProfileMainWidget(
+      {required this.widgetsList, required this.title, required this.callback});
 
   @override
   _UserProfileMainWidgetState createState() => _UserProfileMainWidgetState();
@@ -29,28 +31,42 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
         // AppLocalizations.of(context)!.localeName == 'en'
         leading: _page == 2
             ? IconButton(
-                icon: Icon(Icons.reorder, color: Colors.white),
+                icon: Icon(Icons.menu, color: Colors.white),
                 onPressed: () {
-                  //Navigator.pop(context);
+                  widget.callback(1);
                 },
               )
             : IconButton(
-                icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+                icon: Icon(Icons.menu, color: Colors.red),
                 onPressed: () {
-                  Navigator.pop(context);
+                  widget.callback(1);
                 },
               ),
         backgroundColor: Palette.secondaryColor,
         elevation: 0.0,
       ),
-      body: medicalProfilewidget(widgetsList: widget.widgetsList),
+      body: Container(
+        color: Palette.fifthColor,
+        width: MediaQuery.of(context).size.width,
+        height: double.infinity,
+        child: Container(
+          margin: EdgeInsets.fromLTRB(20, 50, 20, 0),
+          height: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.vertical(
+              top: const Radius.circular(20),
+            ),
+            color: Colors.white,
+          ),
+          child: Column(children: widget.widgetsList),
+        ),
+      ),
       bottomNavigationBar: CurvedNavigationBar(
-        buttonBackgroundColor: Colors.white,
-        index: _page,
-        key: _bottomNavigationKey,
+        //key:_bottomNavigationKey,
+
         backgroundColor: Palette.thirdColor,
         color: Colors.white,
-        height: MediaQuery.of(context).size.height * 0.09,
+        // height: MediaQuery.of(context).size.height * 0.09,
         items: <Widget>[
           Icon(
             Icons.event_available,
@@ -66,8 +82,8 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
         ],
         onTap: (index) {
           setState(() {
-            print(_page);
             _page = index;
+            print(_page);
           });
         },
       ),
