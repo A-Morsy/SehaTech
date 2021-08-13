@@ -152,6 +152,54 @@
     "medicalProfile_secondBlock_PendingTreatments": "Pending Treatments",
     "@medicalProfile_secondBlock_PendingTreatments": {
       "description": "Medical Profile First Page Buttons"
+    },
+
+
+    "medicalProfile_userMainSubContainer_medical": "Medical Profile",
+    "@medicalProfile_userMainSubContainer_medical": {
+      "description": "user Profile topLeft Page Buttons"
+    },"medicalProfile_userMainSubContainer_policy": "My Policy",
+    "@medicalProfile_userMainSubContainer_policy": {
+      "description": "Medical Profile topRight Page Buttons"
+    },"medicalProfile_userMainSubContainer_family": "My Family",
+    "@medicalProfile_userMainSubContainer_family": {
+      "description": "Medical Profile bottomLeft Page Buttons"
+    },"medicalProfile_userMainSubContainer_wallet": "My Wallet",
+    "@medicalProfile_userMainSubContainer_wallet": {
+      "description": "Medical Profile bottomRight Page Buttons"
+    },
+
+    "medicalProfile_myPolicyView_firstCard_firstTitle": "TYPE OF INSURANCE",
+    "@medicalProfile_myPolicyView_firstCard_firstTitle": {
+      "description": "policy view first Card TopLeft Title"
+    },"medicalProfile_myPolicyView_firstCard_secondTitle": "POLICY NUMBER",
+    "@medicalProfile_myPolicyView_firstCard_secondTitle": {
+      "description": "policy view first Card bottomLeft Title"
+    },"medicalProfile_myPolicyView_firstCard_thirdTitle": "POLICY STATUS",
+    "@medicalProfile_myPolicyView_firstCard_thirdTitle": {
+      "description": "policy view first Card bottomRight Title"
+    },"medicalProfile_myPolicyView_firstCard_button": "upgrade",
+    "@medicalProfile_myPolicyView_firstCard_button": {
+      "description": "policy view first Card TopRight Button"
+    },
+
+    "medicalProfile_myPolicyView_secondCard_firstTitle": "NUMBER OF COVERED INDIVIDUALS",
+    "@medicalProfile_myPolicyView_secondCard_firstTitle": {
+      "description": "policy view first Card TopLeft Title"
+    },"medicalProfile_myPolicyView_secondCard_secondTitle": "DATE OF RENEWAL",
+    "@medicalProfile_myPolicyView_secondCard_secondTitle": {
+      "description": "policy view first Card bottomLeft Title"
+    },"medicalProfile_myPolicyView_secondCard_button": "add members",
+    "@medicalProfile_myPolicyView_secondCard_button": {
+      "description": "policy view first Card centerRight Button"
+    },
+
+    "medicalProfile_myPolicyView_thirdCard_firstTitle": "AMOUNT CLAIMED",
+    "@medicalProfile_myPolicyView_thirdCard_firstTitle": {
+      "description": "policy view first Card TopRight Title"
+    },"medicalProfile_myPolicyView_thirdCard_secondTitle": "MAXIMUM POLICY COVERAGE",
+    "@medicalProfile_myPolicyView_thirdCard_secondTitle": {
+      "description": "policy view first Card bottomRight Title"
     }
 
 }

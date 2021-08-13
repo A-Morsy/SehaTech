@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FirstPolicyCard extends StatelessWidget {
   @override
@@ -31,14 +33,16 @@ class FirstPolicyCard extends StatelessWidget {
               children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    'TYPE OF INSURENCE',
+                    AppLocalizations.of(context)!
+                        .medicalProfile_myPolicyView_firstCard_firstTitle,
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data'),
                 ]),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    'POLICY NUMBER',
+                    AppLocalizations.of(context)!
+                        .medicalProfile_myPolicyView_firstCard_secondTitle,
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data 2'),
@@ -55,14 +59,16 @@ class FirstPolicyCard extends StatelessWidget {
                 child: Container(
                   margin: EdgeInsets.only(top: 10),
                   child: Text(
-                    'Upgrade',
+                    AppLocalizations.of(context)!
+                        .medicalProfile_myPolicyView_firstCard_button,
                     style: TextStyle(color: Palette.primaryColor),
                   ),
                 ),
               ),
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(
-                  'POLICY STATUS',
+                  AppLocalizations.of(context)!
+                      .medicalProfile_myPolicyView_firstCard_thirdTitle,
                   style: TextStyle(color: Palette.thirdColor),
                 ),
                 Text('test Data 3'),
@@ -104,14 +110,16 @@ class SecondPolicyCard extends StatelessWidget {
               children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    'NUMBER OF COVERED INDEVIDUALS',
+                    AppLocalizations.of(context)!
+                        .medicalProfile_myPolicyView_secondCard_firstTitle,
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data'),
                 ]),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    'DATE OF RENEWAL',
+                    AppLocalizations.of(context)!
+                        .medicalProfile_myPolicyView_secondCard_secondTitle,
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data 2'),
@@ -124,7 +132,8 @@ class SecondPolicyCard extends StatelessWidget {
             child: Container(
               margin: EdgeInsets.only(top: 10),
               child: Text(
-                'add members',
+                AppLocalizations.of(context)!
+                    .medicalProfile_myPolicyView_secondCard_button,
                 style: TextStyle(color: Palette.primaryColor),
               ),
             ),
@@ -174,14 +183,16 @@ class ThirdPolicyCard extends StatelessWidget {
               children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    'AMOUNT CLAIMED',
+                    AppLocalizations.of(context)!
+                        .medicalProfile_myPolicyView_thirdCard_firstTitle,
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data'),
                 ]),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    'MAXIMUM POLICY COVERAGE',
+                    AppLocalizations.of(context)!
+                        .medicalProfile_myPolicyView_thirdCard_firstTitle,
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data 2'),

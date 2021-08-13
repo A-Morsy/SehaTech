@@ -14,7 +14,8 @@ class _MyPolicyView extends State<MyPolicyView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Policy'),
+        title: Text(AppLocalizations.of(context)!
+            .medicalProfile_userMainSubContainer_policy),
         centerTitle: true,
         //this part need to render defferently in each lang
         // the arrow doesnt want to change direction

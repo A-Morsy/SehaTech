@@ -6,7 +6,6 @@ import 'widgets/customDivider.dart';
 import 'widgets/firstBlock.dart';
 import 'widgets/secondBlock.dart';
 import 'widgets/thirdBlock.dart';
-import './widgets/signUpStepWedgit.dart';
 import '../../Reusable/palette.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import './widgets/mainSignUpContainer.dart';

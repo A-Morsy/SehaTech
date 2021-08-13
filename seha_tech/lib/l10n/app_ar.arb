@@ -114,41 +114,88 @@
     },
 
     "medicalProfile_firstBlock_age": "العمر",
-    "@signUpSecondPage_Title": {
+    "@medicalProfile_firstBlock_age": {
       "description": "Medical Profile First Page Info"
     },
     "medicalProfile_firstBlock_height": "الطول",
-    "@signUpSecondPage_Title": {
+    "@medicalProfile_firstBlock_height": {
       "description": "Medical Profile First Page Info"
     },
     "medicalProfile_firstBlock_weight": "الوزن",
-    "@signUpSecondPage_Title": {
+    "@medicalProfile_firstBlock_weight": {
       "description": "Medical Profile First Page Info"
     },
     "medicalProfile_firstBlock_bmi": "BMI",
-    "@signUpSecondPage_Title": {
+    "@medicalProfile_firstBlock_bmi": {
       "description": "Medical Profile First Page Info"
     },
 
     "medicalProfile_secondBlock_PastMedicalHistory": "التاريخ الطبي السابق",
-    "@signUpSecondPage_Title": {
+    "@medicalProfile_secondBlock_PastMedicalHistory": {
       "description": "Medical Profile First Page Buttons"
     },
     "medicalProfile_secondBlock_Allergies": "الحساسية",
-    "@signUpSecondPage_Title": {
+    "@medicalProfile_secondBlock_Allergies": {
       "description": "Medical Profile First Page Buttons"
     },
     "medicalProfile_secondBlock_CurrentMedications": "الأدوية الحالية",
-    "@signUpSecondPage_Title": {
+    "@medicalProfile_secondBlock_CurrentMedications": {
       "description": "Medical Profile First Page Buttons"
     },
     "medicalProfile_secondBlock_History_Previous": "التاريخ / السابق",
-    "@signUpSecondPage_Title": {
+    "@medicalProfile_secondBlock_History_Previous": {
       "description": "Medical Profile First Page Buttons"
     },
     "medicalProfile_secondBlock_PendingTreatments": "علاجات قيد الانتظار",
-    "@signUpSecondPage_Title": {
+    "@medicalProfile_secondBlock_PendingTreatments": {
       "description": "Medical Profile First Page Buttons"
-    }
+    },
 
+    "medicalProfile_userMainSubContainer_medical": "الملف الطبي",
+    "@medicalProfile_userMainSubContainer_medical": {
+      "description": "user Profile topLeft Page Buttons"
+    },"medicalProfile_userMainSubContainer_policy": "بوليصة",
+    "@medicalProfile_userMainSubContainer_policy": {
+      "description": "Medical Profile topRight Page Buttons"
+    },"medicalProfile_userMainSubContainer_family": "العائلة",
+    "@medicalProfile_userMainSubContainer_family": {
+      "description": "Medical Profile bottomLeft Page Buttons"
+    },"medicalProfile_userMainSubContainer_wallet": "المحفظة",
+    "@medicalProfile_userMainSubContainer_wallet": {
+      "description": "Medical Profile bottomRight Page Buttons"
+    },
+
+
+    "medicalProfile_myPolicyView_firstCard_firstTitle": "نوع التأمين",
+    "@medicalProfile_myPolicyView_firstCard_firstTitle": {
+      "description": "policy view first Card TopLeft Title"
+    },"medicalProfile_myPolicyView_firstCard_secondTitle": "رقم التأمين",
+    "@medicalProfile_myPolicyView_firstCard_secondTitle": {
+      "description": "policy view first Card bottomLeft Title"
+    },"medicalProfile_myPolicyView_firstCard_thirdTitle": "حالة التأمين",
+    "@medicalProfile_myPolicyView_firstCard_thirdTitle": {
+      "description": "policy view first Card bottomRight Title"
+    },"medicalProfile_myPolicyView_firstCard_button": "الترقية",
+    "@medicalProfile_myPolicyView_firstCard_button": {
+      "description": "policy view first Card TopRight Button"
+    },
+
+    "medicalProfile_myPolicyView_secondCard_firstTitle": "عدد الأفراد المشمولين",
+    "@medicalProfile_myPolicyView_secondCard_firstTitle": {
+      "description": "policy view first Card TopLeft Title"
+    },"medicalProfile_myPolicyView_secondCard_secondTitle": "تاريخ التجديد",
+    "@medicalProfile_myPolicyView_secondCard_secondTitle": {
+      "description": "policy view first Card bottomLeft Title"
+    },"medicalProfile_myPolicyView_secondCard_button": "إضافة أعضاء",
+    "@medicalProfile_myPolicyView_secondCard_button": {
+      "description": "policy view first Card centerRight Button"
+    },
+
+    "medicalProfile_myPolicyView_thirdCard_firstTitle": "المبلغ المطالب به",
+    "@medicalProfile_myPolicyView_thirdCard_firstTitle": {
+      "description": "policy view first Card TopRight Title"
+    },"medicalProfile_myPolicyView_thirdCard_secondTitle": "التغطية القصوة لالبوليصة",
+    "@medicalProfile_myPolicyView_thirdCard_secondTitle": {
+      "description": "policy view first Card bottomRight Title"
+    }
 }

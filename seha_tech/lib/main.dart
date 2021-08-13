@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/palette.dart';
@@ -5,7 +7,6 @@ import 'package:seha_tech/models/signInModel.dart';
 import 'package:seha_tech/views/signIn/mainPageButton.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
 import 'package:seha_tech/views/signup/widgets/signUpText.dart';
-import 'views/signup/signUpOne.dart';
 // import 'package:scoped_model/scoped_model.dart';
 // import 'models/userModel.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -46,6 +47,26 @@ class MyHomePage extends StatefulWidget {
 SignInModel signInModel = SignInModel();
 
 class _MyHomePageState extends State<MyHomePage> {
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => LandingScreen())));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Palette.fifthColor,
+        child: Image.asset(
+          'assets/images/SehaTech-Logo-Vertical-FullColor.png',
+          height: MediaQuery.of(context).size.height * 0.4,
+        ));
+  }
+}
+
+class LandingScreen extends StatelessWidget {
   final textController1 = TextEditingController();
   final textController2 = TextEditingController();
   @override

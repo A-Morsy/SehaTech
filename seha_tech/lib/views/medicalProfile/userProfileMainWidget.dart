@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:seha_tech/views/treatmentViews/treatmentView.dart';
 
 typedef void StringCallback(int val);
 
@@ -61,8 +62,6 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        //key:_bottomNavigationKey,
-
         backgroundColor: Palette.thirdColor,
         color: Colors.white,
         // height: MediaQuery.of(context).size.height * 0.09,
@@ -76,6 +75,10 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
           Icon(Icons.account_circle, size: 30, color: Palette.primaryColor),
         ],
         onTap: (index) {
+          if (index == 1) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => TreatmentView()));
+          }
           setState(() {
             _page = index;
             print(_page);

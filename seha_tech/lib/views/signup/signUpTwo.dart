@@ -3,7 +3,6 @@ import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import './widgets/mainSignUpContainer.dart';
 import '../../Reusable/palette.dart';
 import './widgets/identificationBlock.dart';
-import './widgets/signUpStepWedgit.dart';
 import 'widgets/customDivider.dart';
 import 'widgets/identificationBlockFirst.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

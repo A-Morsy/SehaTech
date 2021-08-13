@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import '../../signup/widgets/customDivider.dart';
-import '../widgets/secondBlock.dart';
 import '../myPolicyView.dart';
 
 typedef void StringCallback(int val);
@@ -48,7 +47,8 @@ class userMainSubContainer extends StatelessWidget {
                           width: 30,
                           child:
                               CustomDivider(dividerColor: Palette.thirdColor)),
-                      Text('Medical Profile')
+                      Text(AppLocalizations.of(context)!
+                          .medicalProfile_userMainSubContainer_medical)
                     ],
                   ),
                 )),
@@ -77,7 +77,8 @@ class userMainSubContainer extends StatelessWidget {
                           width: 30,
                           child:
                               CustomDivider(dividerColor: Palette.thirdColor)),
-                      Text('My Family')
+                      Text(AppLocalizations.of(context)!
+                          .medicalProfile_userMainSubContainer_family)
                     ],
                   ),
                 ))
@@ -115,7 +116,8 @@ class userMainSubContainer extends StatelessWidget {
                             width: 30,
                             child: CustomDivider(
                                 dividerColor: Palette.thirdColor)),
-                        Text('My Policy')
+                        Text(AppLocalizations.of(context)!
+                            .medicalProfile_userMainSubContainer_policy)
                       ],
                     ),
                   )),
@@ -145,7 +147,8 @@ class userMainSubContainer extends StatelessWidget {
                             child: CustomDivider(
                                 dividerColor: Palette.thirdColor)),
                         Text(
-                          'My Wallet',
+                          AppLocalizations.of(context)!
+                              .medicalProfile_userMainSubContainer_wallet,
                         )
                       ],
                     ),
