@@ -19,17 +19,18 @@ class UserProfileMainWidget extends StatefulWidget {
 }
 
 class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
+  int _page = 2;
+  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    int _page = 2;
-    // GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         centerTitle: true,
         //this part need to render defferently in each lang
         // the arrow doesnt want to change direction
-        leading: AppLocalizations.of(context)!.localeName == 'en'
+        // AppLocalizations.of(context)!.localeName == 'en'
+        leading: _page == 2
             ? IconButton(
                 icon: Icon(Icons.menu, color: Colors.white),
                 onPressed: () {
@@ -69,10 +70,14 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
           Icon(
             Icons.event_available,
             size: 30,
-            color: Palette.primaryColor,
+            color: (_page == 0) ? Palette.thirdColor : Palette.primaryColor,
           ),
-          Icon(Icons.add, size: 30, color: Palette.thirdColor),
-          Icon(Icons.account_circle, size: 30, color: Palette.primaryColor),
+          Icon(Icons.add,
+              size: 30,
+              color: (_page == 1) ? Palette.thirdColor : Palette.primaryColor),
+          Icon(Icons.account_circle,
+              size: 30,
+              color: (_page == 2) ? Palette.thirdColor : Palette.primaryColor),
         ],
         onTap: (index) {
           if (index == 1) {
