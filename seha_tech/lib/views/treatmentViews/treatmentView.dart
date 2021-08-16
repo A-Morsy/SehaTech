@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../signup/widgets/signUpStepWedgit.dart';
 
 class TreatmentView extends StatefulWidget {
   @override
@@ -32,8 +33,30 @@ class _TreatmentView extends State<TreatmentView> {
         backgroundColor: Palette.secondaryColor,
         elevation: 0.0,
       ),
-      body: Container(
-        child: Text('sfssfsf'),
+      body: Column(
+        children: [
+          SignUpStepsWidget(
+            size: 4,
+            step: 1,
+            bgColor: Palette.fifthColor,
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+            width: MediaQuery.of(context).size.width,
+            height: double.infinity,
+            color: Palette.fifthColor,
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.vertical(
+                    top: const Radius.circular(20),
+                  ),
+                  color: Colors.white,
+                ),
+                child: Text('data')),
+          )
+        ],
       ),
     );
   }

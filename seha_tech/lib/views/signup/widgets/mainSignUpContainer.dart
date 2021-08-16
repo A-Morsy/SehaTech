@@ -17,7 +17,11 @@ class SignUpContainer extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SignUpStepsWidget(step: signUpStep),
+              SignUpStepsWidget(
+                step: signUpStep,
+                size: 3,
+                bgColor: Palette.primaryColor,
+              ),
             ],
           )),
       Expanded(
