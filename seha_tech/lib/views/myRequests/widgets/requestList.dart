@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seha_tech/Reusable/palette.dart';
+// import 'package:seha_tech/Reusable/palette.dart';
 
 class RequestsList extends StatefulWidget {
   RequestsList({Key? key}) : super(key: key);

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FirstPolicyCard extends StatelessWidget {
   @override
@@ -21,7 +19,7 @@ class FirstPolicyCard extends StatelessWidget {
           ]),
       padding: EdgeInsets.all(20),
       margin: EdgeInsets.only(bottom: 30),
-      height: MediaQuery.of(context).size.height * 0.15,
+      height: MediaQuery.of(context).size.height * 0.17,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -33,16 +31,14 @@ class FirstPolicyCard extends StatelessWidget {
               children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    AppLocalizations.of(context)!
-                        .medicalProfile_myPolicyView_firstCard_firstTitle,
+                    'TYPE OF INSURENCE',
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data'),
                 ]),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    AppLocalizations.of(context)!
-                        .medicalProfile_myPolicyView_firstCard_secondTitle,
+                    'POLICY NUMBER',
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data 2'),
@@ -54,21 +50,36 @@ class FirstPolicyCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  margin: EdgeInsets.only(top: 10),
+              SizedBox(
+                width: 80.0,
+                height: 30.0,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        //to set border radius to button
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                  onPressed: () {},
                   child: Text(
-                    AppLocalizations.of(context)!
-                        .medicalProfile_myPolicyView_firstCard_button,
-                    style: TextStyle(color: Palette.primaryColor),
+                    'Upgrade',
+                    style: TextStyle(color: Palette.primaryColor, fontSize: 12),
                   ),
                 ),
               ),
+              // GestureDetector(
+              //   onTap: () {},
+              //   child: Container(
+              //     margin: EdgeInsets.only(top: 10),
+              // child: Text(
+              //   'Upgrade',
+              //   style: TextStyle(color: Palette.primaryColor),
+              // ),
+              //   ),
+              // ),
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(
-                  AppLocalizations.of(context)!
-                      .medicalProfile_myPolicyView_firstCard_thirdTitle,
+                  'POLICY STATUS',
                   style: TextStyle(color: Palette.thirdColor),
                 ),
                 Text('test Data 3'),
@@ -98,7 +109,7 @@ class SecondPolicyCard extends StatelessWidget {
           ]),
       padding: EdgeInsets.all(20),
       margin: EdgeInsets.only(bottom: 30),
-      height: MediaQuery.of(context).size.height * 0.15,
+      height: MediaQuery.of(context).size.height * 0.18,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -110,16 +121,14 @@ class SecondPolicyCard extends StatelessWidget {
               children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    AppLocalizations.of(context)!
-                        .medicalProfile_myPolicyView_secondCard_firstTitle,
+                    'NUMBER OF COVERED INDEVIDUALS',
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data'),
                 ]),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    AppLocalizations.of(context)!
-                        .medicalProfile_myPolicyView_secondCard_secondTitle,
+                    'DATE OF RENEWAL',
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data 2'),
@@ -127,17 +136,39 @@ class SecondPolicyCard extends StatelessWidget {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              margin: EdgeInsets.only(top: 10),
-              child: Text(
-                AppLocalizations.of(context)!
-                    .medicalProfile_myPolicyView_secondCard_button,
-                style: TextStyle(color: Palette.primaryColor),
+          SizedBox(
+            width: 130,
+            height: 30.0,
+            child: ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                shape: RoundedRectangleBorder(
+                    //to set border radius to button
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+              onPressed: () {},
+              icon: Icon(
+                Icons.add,
+                color: Palette.primaryColor,
+                size: 12,
+              ),
+              label: Text(
+                'add members',
+                style: TextStyle(color: Palette.primaryColor, fontSize: 12),
               ),
             ),
-          ),
+          )
+          // GestureDetector(
+          //   onTap: () {},
+          //   child: Container(
+          //     margin: EdgeInsets.only(top: 10),
+          //     child:
+          // Text(
+          //       'add members',
+          //       style: TextStyle(color: Palette.primaryColor),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
@@ -168,7 +199,7 @@ class ThirdPolicyCard extends StatelessWidget {
           Container(
               constraints: BoxConstraints(maxWidth: 250),
               child: new CircularPercentIndicator(
-                radius: 120.0,
+                radius: 95.0,
                 lineWidth: 15.0,
                 percent: 0.3,
                 center: new Text("30%"),
@@ -183,16 +214,14 @@ class ThirdPolicyCard extends StatelessWidget {
               children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    AppLocalizations.of(context)!
-                        .medicalProfile_myPolicyView_thirdCard_firstTitle,
+                    'AMOUNT CLAIMED',
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data'),
                 ]),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    AppLocalizations.of(context)!
-                        .medicalProfile_myPolicyView_thirdCard_firstTitle,
+                    'MAXIMUM POLICY COVERAGE',
                     style: TextStyle(color: Palette.thirdColor),
                   ),
                   Text('test Data 2'),

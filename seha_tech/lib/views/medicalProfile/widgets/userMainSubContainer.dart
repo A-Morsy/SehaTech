@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import '../../signup/widgets/customDivider.dart';
-import '../myPolicyView.dart';
+import '../../myPolicy/myPolicyView.dart';
 
 typedef void StringCallback(int val);
 
+// ignore: camel_case_types
 class userMainSubContainer extends StatelessWidget {
   final StringCallback callback;
 
@@ -25,8 +27,8 @@ class userMainSubContainer extends StatelessWidget {
                   callback(2);
                 },
                 child: Container(
-                  width: 140,
-                  height: 140,
+                  width: 120,
+                  height: 120,
                   alignment: Alignment.centerLeft,
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
@@ -47,16 +49,15 @@ class userMainSubContainer extends StatelessWidget {
                           width: 30,
                           child:
                               CustomDivider(dividerColor: Palette.thirdColor)),
-                      Text(AppLocalizations.of(context)!
-                          .medicalProfile_userMainSubContainer_medical)
+                      Text('Medical Profile')
                     ],
                   ),
                 )),
             GestureDetector(
                 onTap: () {},
                 child: Container(
-                  width: 140,
-                  height: 140,
+                  width: 120,
+                  height: 120,
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.centerLeft,
                   decoration: BoxDecoration(
@@ -77,8 +78,7 @@ class userMainSubContainer extends StatelessWidget {
                           width: 30,
                           child:
                               CustomDivider(dividerColor: Palette.thirdColor)),
-                      Text(AppLocalizations.of(context)!
-                          .medicalProfile_userMainSubContainer_family)
+                      Text('My Family')
                     ],
                   ),
                 ))
@@ -94,8 +94,8 @@ class userMainSubContainer extends StatelessWidget {
                             builder: (context) => MyPolicyView()));
                   },
                   child: Container(
-                    width: 140,
-                    height: 140,
+                    width: 120,
+                    height: 120,
                     alignment: Alignment.centerLeft,
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
@@ -116,16 +116,15 @@ class userMainSubContainer extends StatelessWidget {
                             width: 30,
                             child: CustomDivider(
                                 dividerColor: Palette.thirdColor)),
-                        Text(AppLocalizations.of(context)!
-                            .medicalProfile_userMainSubContainer_policy)
+                        Text('My Policy')
                       ],
                     ),
                   )),
               GestureDetector(
                   onTap: () {},
                   child: Container(
-                    width: 140,
-                    height: 140,
+                    width: 120,
+                    height: 120,
                     alignment: Alignment.centerLeft,
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
@@ -147,8 +146,7 @@ class userMainSubContainer extends StatelessWidget {
                             child: CustomDivider(
                                 dividerColor: Palette.thirdColor)),
                         Text(
-                          AppLocalizations.of(context)!
-                              .medicalProfile_userMainSubContainer_wallet,
+                          'My Wallet',
                         )
                       ],
                     ),
