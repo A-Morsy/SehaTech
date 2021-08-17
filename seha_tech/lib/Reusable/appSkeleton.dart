@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/views/MedicalProfile/userProfileMainWidget.dart';
 import 'package:seha_tech/views/medicalProfile/userProfile.dart';
+import 'package:seha_tech/views/myRequests/requestsPage.dart';
+import 'package:seha_tech/views/treatmentViews/treatmentView.dart';
 
 // ignore: must_be_immutable
 class AppSkeleton extends StatefulWidget {
@@ -24,7 +26,7 @@ class AppSkeleton extends StatefulWidget {
 }
 
 class _AppSkeletonState extends State<AppSkeleton> {
-  //final List<Widget> _tabItems = [MyRequests()];
+  //final List<Widget> _tabItems = [MyRequests(),TreatmentView(),UserProfile()];
   @override
   Widget build(BuildContext context) {
     int _page = appModel.getPageNumber;
@@ -75,6 +77,17 @@ class _AppSkeletonState extends State<AppSkeleton> {
           setState(() {
             _page = index;
             appModel.setPageNumber = index;
+            if (_page == 2){
+              Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => UserProfile()),
+                  );
+            }else if (_page == 1){
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TreatmentView()),
+                  );
+            }
             print(_page);
           });
         },
