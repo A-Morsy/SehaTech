@@ -24,7 +24,7 @@ class FirstPolicyCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            constraints: BoxConstraints(maxWidth: 200),
+            constraints: BoxConstraints(maxWidth: 180),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class FirstPolicyCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 80.0,
+                width: 90.0,
                 height: 30.0,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -114,7 +114,7 @@ class SecondPolicyCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            constraints: BoxConstraints(maxWidth: 200),
+            constraints: BoxConstraints(maxWidth: 180),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,7 +137,7 @@ class SecondPolicyCard extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 130,
+            width: 120,
             height: 30.0,
             child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
@@ -150,7 +150,7 @@ class SecondPolicyCard extends StatelessWidget {
               icon: Icon(
                 Icons.add,
                 color: Palette.primaryColor,
-                size: 12,
+                size: 10,
               ),
               label: Text(
                 'add members',
