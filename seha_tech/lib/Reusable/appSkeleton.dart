@@ -30,7 +30,6 @@ class _AppSkeletonState extends State<AppSkeleton> {
   @override
   Widget build(BuildContext context) {
     int _page = appModel.getPageNumber;
-    print(appModel.getPageNumber);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -75,19 +74,24 @@ class _AppSkeletonState extends State<AppSkeleton> {
         ],
         onTap: (index) {
           setState(() {
-            _page = index;
             appModel.setPageNumber = index;
-            if (_page == 2){
+            if (index == 2 && _page!=2) {
               Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => UserProfile()),
-                  );
-            }else if (_page == 1){
-            Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TreatmentView()),
-                  );
+                context,
+                MaterialPageRoute(builder: (context) => UserProfile()),
+              );
+            } else if (index == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TreatmentView()),
+              );
+            } else if (index == 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyRequests()),
+              );
             }
+            _page = index;
             print(_page);
           });
         },
