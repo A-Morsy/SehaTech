@@ -1,23 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 
-class PatientCard extends StatelessWidget {
+class PatientCard extends StatefulWidget {
   final String title;
   final String Img;
   PatientCard({required this.title, required this.Img});
+
+  @override
+  _PatientCardState createState() => _PatientCardState();
+}
+
+class _PatientCardState extends State<PatientCard> {
+  bool selected = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        setState(() {
+          selected = !selected;
+        });
+      },
       child: (Container(
         width: MediaQuery.of(context).size.width,
-        height: 60,
+        height: 53,
         margin: EdgeInsets.only(bottom: 10),
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(
             const Radius.circular(10),
           ),
-          color: Colors.white,
+          color: selected ? Palette.fifthColor : Colors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
@@ -37,10 +48,10 @@ class PatientCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image(
-                    image: NetworkImage(Img),
+                    image: NetworkImage(widget.Img),
                   ),
                 )),
-            Text(title)
+            Text(widget.title)
           ],
         ),
       )),

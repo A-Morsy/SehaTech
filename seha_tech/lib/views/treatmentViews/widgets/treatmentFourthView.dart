@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:seha_tech/views/signup/widgets/customtextbox.dart';
-import 'package:seha_tech/views/treatmentViews/widgets/firstViewPatientCard.dart';
 import '../../signup/widgets/customDivider.dart';
 
 typedef void StringCallback(int val);
@@ -40,7 +38,7 @@ class TreatmentFourthView extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 5),
-                  child: Text('Search for a provider below.',
+                  child: Text('Search for a provider below',
                       style: TextStyle(
                         color: Palette.forthColor,
                         fontSize: 18,
@@ -52,6 +50,21 @@ class TreatmentFourthView extends StatelessWidget {
                     child: CustomDivider(dividerColor: Palette.thirdColor)),
                 Column(
                   children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.only(bottom: 10),
+                      height: 60,
+                      child: DropdownButton<String>(
+                        hint: Text("Surgery"),
+                        items: <String>['A', 'B', 'C', 'D'].map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: new Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (_) {},
+                      ),
+                    ),
                     Container(
                       width: MediaQuery.of(context).size.width,
                       height: 60,

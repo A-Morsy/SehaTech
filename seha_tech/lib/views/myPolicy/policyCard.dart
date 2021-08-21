@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:seha_tech/views/signup/widgets/customDivider.dart';
 
 class FirstPolicyCard extends StatelessWidget {
   @override
@@ -150,25 +151,14 @@ class SecondPolicyCard extends StatelessWidget {
               icon: Icon(
                 Icons.add,
                 color: Palette.primaryColor,
-                size: 10,
+                size: 12,
               ),
               label: Text(
                 'add members',
-                style: TextStyle(color: Palette.primaryColor, fontSize: 12),
+                style: TextStyle(color: Palette.primaryColor, fontSize: 11),
               ),
             ),
           )
-          // GestureDetector(
-          //   onTap: () {},
-          //   child: Container(
-          //     margin: EdgeInsets.only(top: 10),
-          //     child:
-          // Text(
-          //       'add members',
-          //       style: TextStyle(color: Palette.primaryColor),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );
@@ -219,6 +209,10 @@ class ThirdPolicyCard extends StatelessWidget {
                   ),
                   Text('test Data'),
                 ]),
+                Container(
+                width: 90,
+                child: CustomDivider(dividerColor: Palette.forthColor,),
+                ),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
                     'MAXIMUM POLICY COVERAGE',

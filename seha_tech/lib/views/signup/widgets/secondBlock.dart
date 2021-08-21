@@ -113,13 +113,6 @@ class _EmailBlockState extends State<EmailBlock> {
                                 hintText: AppLocalizations.of(context)!
                                     .signUpFirstPage_SecondBlock_confirmPasswordPH,
                               )))
-                      // TextBox(
-                      //   myController:myController,
-                      //     message: 'Confirm Your Password',
-                      //     width: MediaQuery.of(context).size.width / 2.5,
-                      //     height: MediaQuery.of(context).size.width / 25,
-                      //     obscureText: true,
-                      //     keyboardType: TextInputType.name)
                     ]))
           ],
         ));

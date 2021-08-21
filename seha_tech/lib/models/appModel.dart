@@ -1,9 +1,12 @@
 import 'package:scoped_model/scoped_model.dart';
 
 class AppModel extends Model {
-  int pageNumber = 2;
+  int currentPage = 2, previousPage = 0;
+  get getPreviousPage => this.previousPage;
 
-  get getPageNumber => this.pageNumber;
+  set setPreviousPage(previousPage) => this.previousPage = previousPage;
 
-  set setPageNumber(pageNumber) => this.pageNumber = pageNumber;
+  get getPageNumber => this.currentPage;
+
+  set setPageNumber(pageNumber) => this.currentPage = pageNumber;
 }

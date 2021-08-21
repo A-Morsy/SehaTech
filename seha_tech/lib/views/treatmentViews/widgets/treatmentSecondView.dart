@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:seha_tech/Reusable/treatmentContainer.dart';
 import 'package:seha_tech/views/treatmentViews/widgets/firstViewPatientCard.dart';
 import '../../signup/widgets/customDivider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 typedef void StringCallback(int val);
 
@@ -38,33 +40,71 @@ class TreatmentSecondView extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 5),
-                  child: Text('Select treatment you will be needing?',
-                      style: TextStyle(
-                        color: Palette.forthColor,
-                        fontSize: 18,
-                      )),
+                  child:
+                      Text('Select what type of treatment you will be needing?',
+                          style: TextStyle(
+                            color: Palette.forthColor,
+                            fontSize: 18,
+                          )),
                 ),
                 Container(
                     width: MediaQuery.of(context).size.width * 0.1,
                     margin: EdgeInsets.only(bottom: 15),
                     child: CustomDivider(dividerColor: Palette.thirdColor)),
                 Column(children: [
-                  PatientCard(
-                      title: 'Outpatient',
-                      Img:
-                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                  PatientCard(
-                      title: 'Investigation',
-                      Img:
-                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                  PatientCard(
-                      title: 'Emergency',
-                      Img:
-                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                  PatientCard(
-                      title: 'Operations',
-                      Img:
-                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+                  TreatmentContainer(
+                      icon: FaIcon(
+                        FontAwesomeIcons.user,
+                        color: Palette.thirdColor,
+                        size: 30,
+                      ),
+                      text: Text(
+                        "OutPatient",
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Palette.forthColor,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  TreatmentContainer(
+                      icon: FaIcon(
+                        FontAwesomeIcons.search,
+                        color: Palette.thirdColor,
+                        size: 30,
+                      ),
+                      text: Text(
+                        "Investigation",
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Palette.forthColor,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  TreatmentContainer(
+                      icon: FaIcon(
+                        FontAwesomeIcons.search,
+                        color: Palette.thirdColor,
+                        size: 30,
+                      ),
+                      text: Text(
+                        "Emergency",
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Palette.forthColor,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  TreatmentContainer(
+                      icon: FaIcon(
+                        FontAwesomeIcons.search,
+                        color: Palette.thirdColor,
+                        size: 30,
+                      ),
+                      text: Text(
+                        "Operation",
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Palette.forthColor,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  CustomDivider(dividerColor: Palette.primaryColor)
                 ]),
               ],
             ),

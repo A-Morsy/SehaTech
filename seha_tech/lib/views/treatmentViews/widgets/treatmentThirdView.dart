@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:seha_tech/Reusable/treatmentContainer.dart';
 import 'package:seha_tech/views/treatmentViews/widgets/firstViewPatientCard.dart';
 import '../../signup/widgets/customDivider.dart';
 
@@ -38,7 +40,7 @@ class TreatmentThirdView extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 5),
-                  child: Text('Select below your payment method.',
+                  child: Text('Select below your payment method',
                       style: TextStyle(
                         color: Palette.forthColor,
                         fontSize: 18,
@@ -49,18 +51,46 @@ class TreatmentThirdView extends StatelessWidget {
                     margin: EdgeInsets.only(bottom: 15),
                     child: CustomDivider(dividerColor: Palette.thirdColor)),
                 Column(children: [
-                  PatientCard(
-                      title: 'My Wallet',
-                      Img:
-                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                  PatientCard(
-                      title: 'Pre-paid Health insurance',
-                      Img:
-                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                  PatientCard(
-                      title: 'Other Methods',
-                      Img:
-                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+                  TreatmentContainer(
+                      icon: FaIcon(
+                        FontAwesomeIcons.search,
+                        color: Palette.thirdColor,
+                        size: 30,
+                      ),
+                      text: Text(
+                        "My Wallet",
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Palette.forthColor,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  TreatmentContainer(
+                      icon: FaIcon(
+                        FontAwesomeIcons.search,
+                        color: Palette.thirdColor,
+                        size: 30,
+                      ),
+                      text: Text(
+                        "Pre-Paid Health Insurance",
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Palette.forthColor,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  TreatmentContainer(
+                      icon: FaIcon(
+                        FontAwesomeIcons.search,
+                        color: Palette.thirdColor,
+                        size: 30,
+                      ),
+                      text: Text(
+                        "Other Methods",
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Palette.forthColor,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  CustomDivider(dividerColor: Palette.primaryColor)
                 ]),
               ],
             ),

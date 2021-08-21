@@ -44,6 +44,9 @@ class _AppSkeletonState extends State<AppSkeleton> {
               widget.callback(1);
             } else {
               Navigator.pop(context);
+              setState(() {
+                _page = appModel.getPreviousPage;
+              });
             }
           },
         ),
@@ -53,7 +56,7 @@ class _AppSkeletonState extends State<AppSkeleton> {
       body: widget.body, //Body of the view
       bottomNavigationBar: CurvedNavigationBar(
         index: _page,
-
+        animationCurve: Curves.bounceInOut,
         //key:_bottomNavigationKey,
 
         backgroundColor: Palette.thirdColor,
@@ -74,8 +77,9 @@ class _AppSkeletonState extends State<AppSkeleton> {
         ],
         onTap: (index) {
           setState(() {
+            appModel.setPreviousPage = _page;
             appModel.setPageNumber = index;
-            if (index == 2 && _page!=2) {
+            if (index == 2 && _page != 2) {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => UserProfile()),

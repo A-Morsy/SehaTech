@@ -72,7 +72,7 @@ class TreatmentFirstView extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Palette.primaryColor,
+                        primary: Palette.thirdColor,
                         shape: CircleBorder(),
                       ),
                       child: Icon(Icons.add, color: Colors.white),

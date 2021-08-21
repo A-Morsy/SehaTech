@@ -15,7 +15,6 @@ class CustomText extends StatelessWidget {
       text,
       style: TextStyle(
         fontSize: size,
-        //fontFamily: 'serif',
         color: color,
       ),
     );

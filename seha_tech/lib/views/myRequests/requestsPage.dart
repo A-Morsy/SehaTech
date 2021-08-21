@@ -42,7 +42,7 @@ class _MyRequestsState extends State<MyRequests> {
               selectedBackgroundColors: [Colors.white],
               unSelectedBackgroundColors: [Palette.primaryColor],
               //width: MediaQuery.of(context).size.width*0.6,
-              borderRadius: 15,
+              borderRadius: 10,
               initialIndex: 0,
               selectedTextStyle: TextStyle(
                   color: Palette.forthColor,

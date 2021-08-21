@@ -152,7 +152,7 @@ class RequestCard extends StatelessWidget {
                 ,
                 Align(
                 alignment: Alignment.bottomRight,
-                child: Icon(Icons.ac_unit,size: 96,),
+                child: Image.asset('assets/images/quote-request.png'),
                 )
               ],
 
