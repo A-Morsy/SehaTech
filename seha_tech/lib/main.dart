@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/signInModel.dart';
+import 'package:seha_tech/views/forgetPassword/frogetPassFirst.dart';
 import 'package:seha_tech/views/signIn/mainPageButton.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
 import 'package:seha_tech/views/signup/widgets/signUpText.dart';
@@ -120,6 +121,23 @@ class LandingScreen extends StatelessWidget {
                                 signInModel.setPassword = signInModel.getTemp),
                       );
                     }),
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.34,
+                          bottom: 15),
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      child: GestureDetector(
+                        child: Text('Forget Password?',
+                            style: TextStyle(color: Palette.thirdColor)),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ForgetPassFirst()),
+                          );
+                        },
+                      ),
+                    ),
                     Container(
                         width: MediaQuery.of(context).size.width * 0.6,
                         child: CustomButton(

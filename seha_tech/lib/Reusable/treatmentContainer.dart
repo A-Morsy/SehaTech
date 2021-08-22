@@ -33,6 +33,7 @@ class _TreatmentContainerState extends State<TreatmentContainer> {
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 40),
+                  constraints: BoxConstraints(maxWidth: 200),
                   child: widget.text,
                 )
               ],
