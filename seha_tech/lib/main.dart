@@ -150,37 +150,38 @@ class LandingScreen extends StatelessWidget {
                               // );
                             })),
 
-                    Padding(
-                        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                        child: Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              MaterialButton(
-                                onPressed: () {},
-                                color: Colors.white,
-                                child: Image.asset('assets/images/google.png'),
-                                padding: EdgeInsets.all(10),
-                                shape: CircleBorder(),
-                              ),
-                              MaterialButton(
-                                onPressed: () {},
-                                color: Colors.white,
-                                child:
-                                    Image.asset('assets/images/facebook.png'),
-                                padding: EdgeInsets.all(10),
-                                shape: CircleBorder(),
-                              ),
-                              MaterialButton(
-                                onPressed: () {},
-                                color: Colors.white,
-                                child: Image.asset('assets/images/apple.png'),
-                                padding: EdgeInsets.all(10),
-                                shape: CircleBorder(),
-                              ),
-                            ],
+                    Container(
+                      padding: EdgeInsets.only(top: 10),
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      constraints: BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          MaterialButton(
+                            onPressed: () {},
+                            color: Colors.white,
+                            child: Image.asset('assets/images/google.png'),
+                            // padding: EdgeInsets.all(10),
+                            shape: CircleBorder(),
                           ),
-                        )),
+                          MaterialButton(
+                            onPressed: () {},
+                            color: Colors.white,
+                            child: Image.asset('assets/images/facebook.png'),
+                            // padding: EdgeInsets.all(10),
+                            shape: CircleBorder(),
+                          ),
+                          MaterialButton(
+                            onPressed: () {},
+                            color: Colors.white,
+                            child: Image.asset('assets/images/apple.png'),
+                            // padding: EdgeInsets.all(10),
+                            shape: CircleBorder(),
+                          ),
+                        ],
+                      ),
+                    ),
                     Container(
                       margin: EdgeInsets.only(top: 10),
                       width: MediaQuery.of(context).size.width * 0.7,

@@ -110,12 +110,12 @@ class SecondPolicyCard extends StatelessWidget {
           ]),
       padding: EdgeInsets.all(20),
       margin: EdgeInsets.only(bottom: 30),
-      height: MediaQuery.of(context).size.height * 0.18,
+      height: MediaQuery.of(context).size.height * 0.19,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            constraints: BoxConstraints(maxWidth: 180),
+            constraints: BoxConstraints(maxWidth: 170),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,7 +151,7 @@ class SecondPolicyCard extends StatelessWidget {
               icon: Icon(
                 Icons.add,
                 color: Palette.primaryColor,
-                size: 12,
+                size: 11,
               ),
               label: Text(
                 'add members',
@@ -182,7 +182,7 @@ class ThirdPolicyCard extends StatelessWidget {
           ]),
       padding: EdgeInsets.all(20),
       margin: EdgeInsets.only(bottom: 30),
-      height: MediaQuery.of(context).size.height * 0.2,
+      height: MediaQuery.of(context).size.height * 0.215,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -210,8 +210,10 @@ class ThirdPolicyCard extends StatelessWidget {
                   Text('test Data'),
                 ]),
                 Container(
-                width: 90,
-                child: CustomDivider(dividerColor: Palette.forthColor,),
+                  width: 90,
+                  child: CustomDivider(
+                    dividerColor: Palette.forthColor,
+                  ),
                 ),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(

@@ -25,8 +25,8 @@ class TreatmentFirstView extends StatelessWidget {
               ),
               color: Colors.white,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   margin: EdgeInsets.only(bottom: 15),
@@ -47,7 +47,8 @@ class TreatmentFirstView extends StatelessWidget {
                 ),
                 Container(
                     width: MediaQuery.of(context).size.width * 0.1,
-                    margin: EdgeInsets.only(bottom: 15),
+                    //need to fix
+                    margin: EdgeInsets.only(bottom: 15, right: 250),
                     child: CustomDivider(dividerColor: Palette.thirdColor)),
                 Column(children: [
                   PatientCard(
