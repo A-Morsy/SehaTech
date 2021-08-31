@@ -2,9 +2,11 @@
 import 'package:scoped_model/scoped_model.dart';
 
 class SignInModel extends Model {
-  String email = '', password = '', temp = '';
+  String email = '', password = '', temp = '' , url = '';
 
   get getEmail => this.email;
+
+  get getUrl => this.url ;
 
   get getPassword => this.password;
 
@@ -14,4 +16,6 @@ class SignInModel extends Model {
   set setTemp(temp) => this.temp = temp;
 
   set setPassword(password) => this.password = password;
+
+  set seturl (url) => this.url = url ;
 }

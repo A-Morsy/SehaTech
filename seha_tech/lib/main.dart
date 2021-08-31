@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/signInModel.dart';
+import 'package:seha_tech/services/signInService.dart';
+import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import 'package:seha_tech/views/signIn/mainPageButton.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
+import 'package:seha_tech/views/signup/widgets/forgetPassword.dart';
 import 'package:seha_tech/views/signup/widgets/signUpText.dart';
 // import 'package:scoped_model/scoped_model.dart';
 // import 'models/userModel.dart';
@@ -125,11 +128,17 @@ class LandingScreen extends StatelessWidget {
                         child: CustomButton(
                             message: AppLocalizations.of(context)!.signInText,
                             color: Palette.primaryColor,
-                            callBackMethod: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(builder: (context) => ),
-                              // );
+                            callBackMethod: () async {
+                              var response = await signIn(
+                                  signInModel.getEmail,
+                                  signInModel.getPassword,
+                                  "payer1.sehatech.org:3000");
+                              //var responesList = response.values.toList() ;
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => UserProfile()),
+                              );
                             })),
 
                     Padding(
@@ -174,6 +183,11 @@ class LandingScreen extends StatelessWidget {
                         width: MediaQuery.of(context).size.width * 0.6,
                         margin: EdgeInsets.only(top: 15),
                         child: SignUpText()),
+                    Container(
+                        alignment: Alignment.center,
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        margin: EdgeInsets.only(top: 15),
+                        child: ForgetPassword())
                   ],
                 ),
               ),

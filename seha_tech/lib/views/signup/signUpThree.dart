@@ -1,31 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:seha_tech/views/medicalProfile/userProfile.dart';
-import 'package:seha_tech/views/signup/signUpThree.dart';
-import './widgets/mainSignUpContainer.dart';
-import '../../Reusable/palette.dart';
-import './widgets/identificationBlock.dart';
-import 'widgets/customDivider.dart';
-import 'widgets/identificationBlockFirst.dart';
+import 'package:seha_tech/Reusable/palette.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:seha_tech/views/medicalProfile/userProfile.dart';
+import 'package:seha_tech/views/signup/widgets/insuranceEntryWidget.dart';
+import 'package:seha_tech/views/signup/widgets/mainSignUpContainer.dart';
 
-class SignUpTwo extends StatefulWidget {
-  SignUpTwo({Key? key}) : super(key: key);
+class SignUpThree extends StatelessWidget {
+  const SignUpThree({Key? key}) : super(key: key);
 
-  @override
-  _SignUpTwoState createState() => _SignUpTwoState();
-}
-
-class _SignUpTwoState extends State<SignUpTwo> {
   @override
   Widget build(BuildContext context) {
-    return _buildContent();
-  }
-
-  Widget _buildContent() {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.signUpText),
+          //title: Text("SignIn"),
+          title: Text(AppLocalizations.of(context)!.signInText),
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
@@ -37,11 +26,9 @@ class _SignUpTwoState extends State<SignUpTwo> {
           elevation: 0.0,
         ),
         body: SignUpContainer(
-          signUpStep: 2,
+          signUpStep: 3,
           widgetsList: [
-            IdentificationFirstBolck(),
-            CustomDivider(dividerColor: Palette.primaryColor),
-            IdentificationBolck(),
+          InsuranceEntryWidget()
           ],
         ),
         floatingActionButton: Container(
@@ -63,7 +50,7 @@ class _SignUpTwoState extends State<SignUpTwo> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SignUpThree()),
+                    MaterialPageRoute(builder: (context) => UserProfile()),
                   );
                 },
                 child: const Icon(

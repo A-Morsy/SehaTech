@@ -77,7 +77,7 @@ class _AppSkeletonState extends State<AppSkeleton> {
         ],
         onTap: (index) {
           setState(() {
-            appModel.setPreviousPage = _page;
+            //appModel.setPreviousPage = _page;
             appModel.setPageNumber = index;
             if (index == 2 && _page != 2) {
               Navigator.push(
