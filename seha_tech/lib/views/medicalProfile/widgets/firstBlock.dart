@@ -7,7 +7,7 @@ class UserInfoBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String medicalProfile_firstBlock_age;
+    //String medicalProfile_firstBlock_age;
     return Container(
       child: Column(
         children: [
@@ -19,8 +19,6 @@ class UserInfoBlock extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                    // width: MediaQuery.of(context).size.width*0.2,
-                    // height: MediaQuery.of(context).size.height*0.2,
                     child: CircleAvatar(
                   radius: MediaQuery.of(context).size.width * 0.11,
                   backgroundImage: NetworkImage(

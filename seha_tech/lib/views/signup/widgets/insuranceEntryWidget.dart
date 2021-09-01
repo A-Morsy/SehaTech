@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/Reusable/reusableWidgets.dart';
+import 'package:seha_tech/views/signup/signUpOne.dart';
 import 'package:seha_tech/views/signup/widgets/customtextbox.dart';
 
 class InsuranceEntryWidget extends StatefulWidget {
@@ -12,7 +13,7 @@ class InsuranceEntryWidget extends StatefulWidget {
 
 class _InsuranceEntryWidgetState extends State<InsuranceEntryWidget> {
   final textController2 = TextEditingController();
-  String insuranceCompany = 'Insurance Company';
+  String insuranceCompany = "AXA Medical Insurance";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +42,7 @@ class _InsuranceEntryWidgetState extends State<InsuranceEntryWidget> {
                               size: 15.0,
                               color: Palette.forthColor),
                           CustomText(
-                              text: "Choose Your Insurance Owner:",
+                              text: "Choose Your \nInsurance Owner:",
                               size: 15.0,
                               color: Palette.forthColor),
                         ]),
@@ -52,16 +53,18 @@ class _InsuranceEntryWidgetState extends State<InsuranceEntryWidget> {
                           TextBox(
                               message: "",
                               obscureText: false,
-                              width: MediaQuery.of(context).size.width / 4,
+                              width: MediaQuery.of(context).size.width / 2.5,
                               height: 30,
                               keyboardType: TextInputType.text,
                               myController: textController2,
-                              callBackMethod: () {}),
+                              callBackMethod: () =>
+                                  signUpModel.setInsuranceCardId =
+                                      signUpModel.getStringValue),
                           Container(
-                            width: MediaQuery.of(context).size.width / 4,
+                            width: MediaQuery.of(context).size.width / 2.4,
                             height: MediaQuery.of(context).size.height / 20,
                             child: DropdownButton<String>(
-                              //value: insuranceCompany,
+                              value: insuranceCompany,
                               icon: const Icon(Icons.arrow_drop_down_sharp),
                               iconSize: 24,
                               elevation: 16,
@@ -72,15 +75,14 @@ class _InsuranceEntryWidgetState extends State<InsuranceEntryWidget> {
                               ),
                               onChanged: (String? newValue) {
                                 setState(() {
-                                  // insuranceCompany = newValue!;
-                                  // signUpModel.setMaritalStatus =
-                                  //     martialStatusDD;
+                                  insuranceCompany = newValue!;
+                                  signUpModel.setChoosenPayer =
+                                      insuranceCompany;
                                 });
                               },
                               items: <String>[
-                                '1',
-                                '2',
-                                '3'
+                                signUpModel.getPayers[0]["name"],
+                                signUpModel.getPayers[1]["name"],
                               ].map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,

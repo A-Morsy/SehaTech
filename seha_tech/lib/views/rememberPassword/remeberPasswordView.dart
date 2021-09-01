@@ -11,7 +11,8 @@ class RemberPasswordView extends StatefulWidget {
 }
 
 class _RemberPasswordViewState extends State<RemberPasswordView> {
-  final textController = TextEditingController();
+  final textController1 = TextEditingController();
+  final textController2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class _RemberPasswordViewState extends State<RemberPasswordView> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 150 , 0, 10),
                       child: CustomField(
-                          textController: textController,
+                          textController: textController1,
                           textColor: Palette.forthColor,
                           fillColor: Colors.white,
                           text: "New Password",
@@ -37,7 +38,7 @@ class _RemberPasswordViewState extends State<RemberPasswordView> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 50),
                       child: CustomField(
-                          textController: textController,
+                          textController: textController2,
                           textColor: Palette.forthColor,
                           fillColor: Colors.white,
                           text: "Confirm New Password",

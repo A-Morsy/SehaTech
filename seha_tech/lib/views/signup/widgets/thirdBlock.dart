@@ -23,9 +23,9 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery.of(context).size.height / 3,
+        height: MediaQuery.of(context).size.height / 5,
         alignment: Alignment.center,
-        padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 25, 25,
+        padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width / 25, 0,
             MediaQuery.of(context).size.width / 25, 25),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -33,7 +33,7 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
               height: MediaQuery.of(context).size.height / 3,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
                       height: MediaQuery.of(context).size.height / 20,
@@ -53,29 +53,23 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                           size: 15.0,
                           color: Palette.forthColor),
                     ),
-                    Container(
-                      height: MediaQuery.of(context).size.height / 20,
-                      child: CustomText(
-                          text: AppLocalizations.of(context)!
-                                  .signUpFirstPage_thirdBlock_marital +
-                              ':',
-                          size: 15.0,
-                          color: Palette.forthColor),
-                    ),
+                    // Container(
+                    //   height: MediaQuery.of(context).size.height / 20,
+                    //   child: CustomText(
+                    //       text: AppLocalizations.of(context)!
+                    //               .signUpFirstPage_thirdBlock_marital +
+                    //           ':',
+                    //       size: 15.0,
+                    //       color: Palette.forthColor),
+                    // ),
                   ])),
           Container(
             height: MediaQuery.of(context).size.height / 3,
             width: MediaQuery.of(context).size.width / 2.5,
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // TextBox(
-                  //     message: 'Enter Your Address',
-                  //     width: MediaQuery.of(context).size.width / 2.5,
-                  //     height: MediaQuery.of(context).size.width / 25,
-                  //     obscureText: false,
-                  //     keyboardType: TextInputType.name),
                   Container(
                     width: MediaQuery.of(context).size.width / 2.5,
                     height: MediaQuery.of(context).size.height / 45,
@@ -163,34 +157,34 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                           )
                         ],
                       )),
-                  Container(
-                    // width: MediaQuery.of(context).size.width / 2.5,
-                    height: MediaQuery.of(context).size.height / 20,
-                    child: DropdownButton<String>(
-                      value: martialStatusDD,
-                      icon: const Icon(Icons.arrow_drop_down_sharp),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Palette.primaryColor),
-                      underline: Container(
-                        height: 1,
-                        color: Palette.primaryColor,
-                      ),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          martialStatusDD = newValue!;
-                          signUpModel.setMaritalStatus = martialStatusDD;
-                        });
-                      },
-                      items: <String>['Single', 'Married', 'Divorced']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  )
+                  // Container(
+                  //   // width: MediaQuery.of(context).size.width / 2.5,
+                  //   height: MediaQuery.of(context).size.height / 20,
+                  //   child: DropdownButton<String>(
+                  //     value: martialStatusDD,
+                  //     icon: const Icon(Icons.arrow_drop_down_sharp),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Palette.primaryColor),
+                  //     underline: Container(
+                  //       height: 1,
+                  //       color: Palette.primaryColor,
+                  //     ),
+                  //     onChanged: (String? newValue) {
+                  //       setState(() {
+                  //         martialStatusDD = newValue!;
+                  //         signUpModel.setMaritalStatus = martialStatusDD;
+                  //       });
+                  //     },
+                  //     items: <String>['Single', 'Married', 'Divorced']
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // )
                 ]),
           )
         ]));

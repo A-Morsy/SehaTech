@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/signInModel.dart';
+import 'package:seha_tech/models/userModel.dart';
 import 'package:seha_tech/services/signInService.dart';
 import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import 'package:seha_tech/views/signIn/mainPageButton.dart';
@@ -48,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 SignInModel signInModel = SignInModel();
+UserModel userModel = UserModel();
 
 class _MyHomePageState extends State<MyHomePage> {
   void initState() {
@@ -123,23 +125,32 @@ class LandingScreen extends StatelessWidget {
                                 signInModel.setPassword = signInModel.getTemp),
                       );
                     }),
-                    Container(
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        child: CustomButton(
-                            message: AppLocalizations.of(context)!.signInText,
-                            color: Palette.primaryColor,
-                            callBackMethod: () async {
-                              var response = await signIn(
-                                  signInModel.getEmail,
-                                  signInModel.getPassword,
-                                  "payer1.sehatech.org:3000");
-                              //var responesList = response.values.toList() ;
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => UserProfile()),
-                              );
-                            })),
+                    ScopedModel(
+                        model: userModel,
+                        child: Container(
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            child: CustomButton(
+                                message:
+                                    AppLocalizations.of(context)!.signInText,
+                                color: Palette.primaryColor,
+                                callBackMethod: () async {
+                                  var response = await signIn(
+                                      signInModel.getEmail,
+                                      signInModel.getPassword,
+                                      "payer1.sehatech.org:3000");
+                                  if (response["result"] == null) {
+                                    userModel.setUserMap = response;
+                                    userModel.setToken = response["token"];
+
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        settings: RouteSettings(name: "/Page1"),
+                                        builder: (context) => UserProfile(),
+                                      ),
+                                    );
+                                  }
+                                }))),
 
                     Padding(
                         padding: EdgeInsets.fromLTRB(0, 10, 0, 0),

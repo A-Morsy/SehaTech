@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import 'package:seha_tech/views/signup/widgets/insuranceEntryWidget.dart';
 import 'package:seha_tech/views/signup/widgets/mainSignUpContainer.dart';
+import 'package:seha_tech/views/signup/widgets/termsAndConditionsWidget.dart';
 
 class SignUpThree extends StatelessWidget {
   const SignUpThree({Key? key}) : super(key: key);
@@ -27,9 +28,7 @@ class SignUpThree extends StatelessWidget {
         ),
         body: SignUpContainer(
           signUpStep: 3,
-          widgetsList: [
-          InsuranceEntryWidget()
-          ],
+          widgetsList: [InsuranceEntryWidget()],
         ),
         floatingActionButton: Container(
           padding: EdgeInsets.only(left: 40, right: 10),
@@ -48,10 +47,10 @@ class SignUpThree extends StatelessWidget {
               ),
               FloatingActionButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => UserProfile()),
-                  );
+                  showDialog(
+                      context: context,
+                      builder: (_) => TermsWidget(),
+                      barrierDismissible: true);
                 },
                 child: const Icon(
                   Icons.keyboard_arrow_right_rounded,

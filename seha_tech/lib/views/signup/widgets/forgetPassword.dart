@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/views/rememberPassword/widgets/otpWidget.dart';
+import 'package:seha_tech/views/rememberPassword/widgets/requestResetWidget.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({Key? key}) : super(key: key);
@@ -11,7 +12,8 @@ class ForgetPassword extends StatelessWidget {
       onTap: () {
         showDialog(
           context: context,
-          builder: (_) => OTPWidget(),
+          // builder: (_) => OTPWidget(),
+          builder: (_) => ResetRequest(),
           barrierDismissible: true
         );
       },

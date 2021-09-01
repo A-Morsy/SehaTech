@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:seha_tech/services/signUpServices.dart';
 import 'package:seha_tech/views/medicalProfile/userProfile.dart';
+import 'package:seha_tech/views/signup/signUpOne.dart';
 import 'package:seha_tech/views/signup/signUpThree.dart';
 import './widgets/mainSignUpContainer.dart';
 import '../../Reusable/palette.dart';
@@ -60,7 +62,9 @@ class _SignUpTwoState extends State<SignUpTwo> {
                 backgroundColor: Palette.forthColor,
               ),
               FloatingActionButton(
-                onPressed: () {
+                onPressed: () async {
+                  var response = await getAllPayers();
+                  signUpModel.setPayers = response;
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SignUpThree()),
