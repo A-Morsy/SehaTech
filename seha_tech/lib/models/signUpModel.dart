@@ -27,24 +27,27 @@ class SignUpModel extends Model {
   String dateOfDataPrivacyAcceptance = ' ';
   String get getDateOfDataPrivacyAcceptance => this.dateOfDataPrivacyAcceptance;
 
-  set setDateOfDataPrivacyAcceptance(String dateOfDataPrivacyAcceptance) =>
-      this.dateOfDataPrivacyAcceptance = dateOfDataPrivacyAcceptance;
+  set setDateOfDataPrivacyAcceptance(String dateOfDataPrivacyAcceptance) => {
+        this.dateOfDataPrivacyAcceptance = dateOfDataPrivacyAcceptance,
+        notifyListeners()
+      };
 
   bool consentForResearch = false;
   bool get getConsentForResearch => this.consentForResearch;
 
   set setConsentForResearch(bool consentForResearch) =>
-      this.consentForResearch = consentForResearch;
+      {this.consentForResearch = consentForResearch, notifyListeners()};
 
   get getInsuranceCardId => this.insuranceCardId;
 
   set setInsuranceCardId(insuranceCardId) =>
-      this.insuranceCardId = insuranceCardId;
+      {this.insuranceCardId = insuranceCardId, notifyListeners()};
 
   var payers = [];
   get getPayers => this.payers;
 
-  set setPayers(List<dynamic> payers) => this.payers = payers;
+  set setPayers(List<dynamic> payers) =>
+      {this.payers = payers, notifyListeners()};
 
   String choosenPayer = "";
   get getChoosenPayer => this.choosenPayer;
@@ -53,82 +56,91 @@ class SignUpModel extends Model {
 
   get getMiddleName => this.middleName;
 
-  set setMiddleName(middleName) => this.middleName = middleName;
+  set setMiddleName(middleName) =>
+      {this.middleName = middleName, notifyListeners()};
 
   get getLastName => this.lastName;
 
-  set setLastName(lastName) => this.lastName = lastName;
+  set setLastName(lastName) => {this.lastName = lastName, notifyListeners()};
 
   get getPhoneNumber => this.phoneNumber;
 
-  set setPhoneNumber(phoneNumber) => this.phoneNumber = phoneNumber;
+  set setPhoneNumber(phoneNumber) =>
+      {this.phoneNumber = phoneNumber, notifyListeners()};
 
   get getStreetName => this.streetName;
 
-  set setStreetName(streetName) => this.streetName = streetName;
+  set setStreetName(streetName) =>
+      {this.streetName = streetName, notifyListeners()};
 
   get getCity => this.city;
 
-  set setCity(city) => this.city = city;
+  set setCity(city) => {this.city = city, notifyListeners()};
 
   get getProvince => this.province;
 
-  set setProvince(province) => this.province = province;
+  set setProvince(province) => {this.province = province, notifyListeners()};
 
   get getCountry => this.country;
 
-  set setCountry(country) => this.country = country;
+  set setCountry(country) => {this.country = country, notifyListeners()};
 
   get getFirstName => this.firstName;
 
-  set setFirstName(firstName) => this.firstName = firstName;
+  set setFirstName(firstName) =>
+      {this.firstName = firstName, notifyListeners()};
 
   get getPhotoUrl => this.photoUrl;
 
-  set setPhotoUrl(photoUrl) => this.photoUrl = photoUrl;
+  set setPhotoUrl(photoUrl) => {this.photoUrl = photoUrl, notifyListeners()};
 
   get getEmail => this.email;
 
-  set setEmail(email) => this.email = email;
+  set setEmail(email) => {this.email = email, notifyListeners()};
 
   get getPassword => this.password;
 
-  set setPassword(password) => this.password = password;
+  set setPassword(password) => {this.password = password, notifyListeners()};
 
   get getConfirmPassword => this.confirmPassword;
 
   set setConfirmPassword(confirmPassword) =>
-      this.confirmPassword = confirmPassword;
+      {this.confirmPassword = confirmPassword, notifyListeners()};
 
   get getDateOfBirth => this.dateOfBirth;
 
-  set setDateOfBirth(dateOfBirth) => this.dateOfBirth = dateOfBirth;
+  set setDateOfBirth(dateOfBirth) =>
+      {this.dateOfBirth = dateOfBirth, notifyListeners()};
 
   get getGender => this.gender;
 
-  set setGender(gender) => this.gender = gender;
+  set setGender(gender) => {this.gender = gender, notifyListeners()};
 
   get getMaritalStatus => this.maritalStatus;
 
-  set setMaritalStatus(maritalStatus) => this.maritalStatus = maritalStatus;
+  set setMaritalStatus(maritalStatus) =>
+      {this.maritalStatus = maritalStatus, notifyListeners()};
 
   get getIdType => this.idType;
 
-  set setIdType(idType) => this.idType = idType;
+  set setIdType(idType) => {this.idType = idType, notifyListeners()};
 
   get getIdNumber => this.idNumber;
 
-  set setIdNumber(idNumber) => this.idNumber = idNumber;
+  set setIdNumber(idNumber) => {this.idNumber = idNumber, notifyListeners()};
 
   get getNationality => this.nationality;
 
-  set setNationality(nationality) => this.nationality = nationality;
+  set setNationality(nationality) =>
+      {this.nationality = nationality, notifyListeners()};
 
   get getAttachement => this.attachement;
 
-  set setAttachement(attachement) => this.attachement = attachement;
+  set setAttachement(attachement) =>
+      {this.attachement = attachement, notifyListeners()};
 
   get getStringValue => this.stringValue;
 
-  set setStringValue(stringValue) => this.stringValue = stringValue;
+  set setStringValue(stringValue) =>
+      {this.stringValue = stringValue, notifyListeners()};
 }

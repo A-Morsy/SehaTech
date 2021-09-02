@@ -19,6 +19,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'views/signup/widgets/customDivider.dart';
 import './services/getAllPayers.dart';
 import './Reusable/dialog.dart';
+import './services/validation/userValidation.dart';
 
 void main() {
   runApp(MyApp());
@@ -79,6 +80,7 @@ class LandingScreen extends StatelessWidget {
 
   final textController1 = TextEditingController();
   final textController2 = TextEditingController();
+  static bool signinBtnPressed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,11 +90,11 @@ class LandingScreen extends StatelessWidget {
         child: FutureBuilder<List<List<String>>>(
             future: getPayers(),
             builder: (context, snapshot) {
-              List<String> tete = snapshot.data![0];
               return ListView(
                 children: [
-                  Center(
-                    child: Container(
+                  Center(child: ScopedModelDescendant<SignInModel>(
+                      builder: (context, child, model) {
+                    return Container(
                       width: MediaQuery.of(context).size.width * 0.7,
                       child: Column(
                         // mainAxisAlignment: MainAxisAlignment.center,
@@ -107,6 +109,9 @@ class LandingScreen extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.6,
                             height: 40,
                             child: CustomField(
+                                isSubmited: signinBtnPressed,
+                                isValid: validateEmail(signInModel.getTemp),
+                                errorText: 'Must be a vaild Email',
                                 textController: textController1,
                                 textColor: Palette.forthColor,
                                 fillColor: Colors.white,
@@ -115,69 +120,84 @@ class LandingScreen extends StatelessWidget {
                                 callBackMethod: () =>
                                     signInModel.setEmail = signInModel.getTemp),
                           ),
-                          ScopedModelDescendant<SignInModel>(
-                              builder: (context, child, model) {
-                            return Container(
-                              margin: EdgeInsets.only(bottom: 10),
-                              width: MediaQuery.of(context).size.width * 0.6,
-                              height: 40,
-                              child: CustomField(
-                                  textController: textController2,
-                                  textColor: Palette.forthColor,
-                                  fillColor: Colors.white,
-                                  text: AppLocalizations.of(context)!
-                                      .passwordSignIn,
-                                  obscureText: true,
-                                  callBackMethod: () => signInModel
-                                      .setPassword = signInModel.getTemp),
-                            );
-                          }),
+                          Container(
+                            margin: EdgeInsets.only(bottom: 10),
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            height: 40,
+                            child: CustomField(
+                                isSubmited: signinBtnPressed,
+                                isValid: validatePassword(signInModel.getTemp),
+                                errorText: 'Must be a vaild password',
+                                textController: textController2,
+                                textColor: Palette.forthColor,
+                                fillColor: Colors.white,
+                                text: AppLocalizations.of(context)!
+                                    .passwordSignIn,
+                                obscureText: true,
+                                callBackMethod: () => signInModel.setPassword =
+                                    signInModel.getTemp),
+                          ),
                           Container(
                               width: MediaQuery.of(context).size.width * 0.6,
                               child: CustomButton(
-                                message: 'open',
+                                message: model.getPayerName == ''
+                                    ? 'Choose your policy owner'
+                                    : model.getPayerName,
                                 color: Palette.primaryColor,
                                 callBackMethod: () {
                                   showDialog(
                                       context: context,
                                       builder: (BuildContext context) =>
-                                          TempletDialog('Choose the provider',
-                                              snapshot.data![0]));
+                                          TempletDialog(
+                                              title:
+                                                  'Choose one of the policy owner',
+                                              payers: snapshot.data![0],
+                                              payerUrl: snapshot.data![1]));
                                 },
                               )),
                           ScopedModel(
                               model: userModel,
-                              child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.6,
-                                  child: CustomButton(
-                                      message: AppLocalizations.of(context)!
-                                          .signInText,
-                                      color: Palette.primaryColor,
-                                      // callBackMethod: () async {
-                                      //   var response = await signIn(
-                                      //       signInModel.getEmail,
-                                      //       signInModel.getPassword,
-                                      //       "payer1.sehatech.org:3000");
-                                      //   if (response["result"] == null) {
-                                      //     userModel.setUserMap = response;
-                                      //     userModel.setToken =
-                                      //         response["token"];
+                              child: ScopedModelDescendant<UserModel>(
+                                  builder: (context, child, modell) {
+                                return Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.6,
+                                    child: CustomButton(
+                                        message: AppLocalizations.of(context)!
+                                            .signInText,
+                                        color: Palette.primaryColor,
+                                        callBackMethod: () async {
+                                          signinBtnPressed = true;
+                                          var response = await signIn(
+                                              model.getEmail,
+                                              model.getPassword,
+                                              model.getUrl);
+                                          print(response);
+                                          if (response == 401 ||
+                                              response == 422) {
+                                            print(response);
+                                            final snackBar = SnackBar(
+                                              content: const Text(
+                                                  'Email or Password is incorrect'),
+                                            );
 
-                                      //     Navigator.push(
-                                      //       context,
-                                      //       MaterialPageRoute(
-                                      //         settings:
-                                      //             RouteSettings(name: "/Page1"),
-                                      //         builder: (context) =>
-                                      //             UserProfile(),
-                                      //       ),
-                                      //     );
-                                      // }
-                                      // }
-                                      callBackMethod: () {
-                                        print(signInModel.getPayerName);
-                                      }))),
+                                            // Find the ScaffoldMessenger in the widget tree
+                                            // and use it to show a SnackBar.
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(snackBar);
+                                          } else if (response == 403) {
+                                          } else {
+                                            print(response);
+                                            // modell.setUserMap = response;
+                                            modell.setToken = response;
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        UserProfile()));
+                                          }
+                                        }));
+                              })),
                           Container(
                             padding: EdgeInsets.only(top: 10),
                             width: MediaQuery.of(context).size.width * 0.8,
@@ -230,8 +250,8 @@ class LandingScreen extends StatelessWidget {
                               child: ForgetPassword())
                         ],
                       ),
-                    ),
-                  )
+                    );
+                  }))
                 ],
               );
             }),

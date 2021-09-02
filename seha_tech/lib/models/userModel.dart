@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:scoped_model/scoped_model.dart';
 
 class UserModel extends Model {
@@ -13,96 +14,70 @@ class UserModel extends Model {
       gender = "",
       insuranceCardId = '',
       phoneNumber = "",
-      passwordResetCode = '',
-      passwordResetCodeExpiryDate = '',
-      approvalOtp = '',
-      approvalOtpExpiryDate = '',
-      createdAt = '',
-      updatedAt = '',
       token = '';
 
   get getUserMap => this.userMap;
 
-  set setUserMap(userMap) => this.userMap = userMap;
+  set setUserMap(userMap) => {this.userMap = userMap, notifyListeners()};
 
   get getId => this.id;
 
-  set setId(id) => this.id = id;
+  set setId(id) => {this.id = id, notifyListeners()};
   get getPatientId => this.patientId;
 
-  set setPatientId(patientId) => this.patientId = patientId;
+  set setPatientId(patientId) =>
+      {this.patientId = patientId, notifyListeners()};
 
   get getEmail => this.email;
 
-  set setEmail(email) => this.email = email;
+  set setEmail(email) => {this.email = email, notifyListeners()};
 
   get getConsentForResearch => this.consentForResearch;
 
   set setConsentForResearch(consentForResearch) =>
-      this.consentForResearch = consentForResearch;
+      {this.consentForResearch = consentForResearch, notifyListeners()};
 
   get getDateOfDataPrivacyAcceptance => this.dateOfDataPrivacyAcceptance;
 
-  set setDateOfDataPrivacyAcceptance(dateOfDataPrivacyAcceptance) =>
-      this.dateOfDataPrivacyAcceptance = dateOfDataPrivacyAcceptance;
+  set setDateOfDataPrivacyAcceptance(dateOfDataPrivacyAcceptance) => {
+        this.dateOfDataPrivacyAcceptance = dateOfDataPrivacyAcceptance,
+        notifyListeners()
+      };
 
   get getFirstName => this.firstName;
 
-  set setFirstName(firstName) => this.firstName = firstName;
+  set setFirstName(firstName) =>
+      {this.firstName = firstName, notifyListeners()};
 
   get getMiddleName => this.middleName;
 
-  set setMiddleName(middleName) => this.middleName = middleName;
+  set setMiddleName(middleName) =>
+      {this.middleName = middleName, notifyListeners()};
 
   get getLastName => this.lastName;
 
-  set setLastName(lastName) => this.lastName = lastName;
+  set setLastName(lastName) => {this.lastName = lastName, notifyListeners()};
 
   get getDateOfBirth => this.dateOfBirth;
 
-  set setDateOfBirth(dateOfBirth) => this.dateOfBirth = dateOfBirth;
+  set setDateOfBirth(dateOfBirth) =>
+      {this.dateOfBirth = dateOfBirth, notifyListeners()};
 
   get getGender => this.gender;
 
-  set setGender(gender) => this.gender = gender;
+  set setGender(gender) => {this.gender = gender, notifyListeners()};
 
   get getInsuranceCardId => this.insuranceCardId;
 
   set setInsuranceCardId(insuranceCardId) =>
-      this.insuranceCardId = insuranceCardId;
+      {this.insuranceCardId = insuranceCardId, notifyListeners()};
 
   get getPhoneNumber => this.phoneNumber;
 
-  set setPhoneNumber(phoneNumber) => this.phoneNumber = phoneNumber;
-
-  get getPasswordResetCode => this.passwordResetCode;
-
-  set setPasswordResetCode(passwordResetCode) =>
-      this.passwordResetCode = passwordResetCode;
-
-  get getPasswordResetCodeExpiryDate => this.passwordResetCodeExpiryDate;
-
-  set setPasswordResetCodeExpiryDate(passwordResetCodeExpiryDate) =>
-      this.passwordResetCodeExpiryDate = passwordResetCodeExpiryDate;
-
-  get getApprovalOtp => this.approvalOtp;
-
-  set setApprovalOtp(approvalOtp) => this.approvalOtp = approvalOtp;
-
-  get getApprovalOtpExpiryDate => this.approvalOtpExpiryDate;
-
-  set setApprovalOtpExpiryDate(approvalOtpExpiryDate) =>
-      this.approvalOtpExpiryDate = approvalOtpExpiryDate;
-
-  get getCreatedAt => this.createdAt;
-
-  set setCreatedAt(createdAt) => this.createdAt = createdAt;
-
-  get getUpdatedAt => this.updatedAt;
-
-  set setUpdatedAt(updatedAt) => this.updatedAt = updatedAt;
+  set setPhoneNumber(phoneNumber) =>
+      {this.phoneNumber = phoneNumber, notifyListeners()};
 
   get getToken => this.token;
 
-  set setToken(token) => this.token = token;
+  set setToken(token) => {this.token = token, notifyListeners()};
 }

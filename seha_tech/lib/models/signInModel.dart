@@ -14,13 +14,14 @@ class SignInModel extends Model {
 
   get getTemp => this.temp;
 
-  set setEmail(email) => this.email = email;
+  set setEmail(email) => {this.email = email, notifyListeners()};
 
-  set setTemp(temp) => this.temp = temp;
+  set setTemp(temp) => {this.temp = temp, notifyListeners()};
 
-  set setPayerName(payerName) => this.payerName = payerName;
+  set setPayerName(payerName) =>
+      {this.payerName = payerName, notifyListeners()};
 
-  set setPassword(password) => this.password = password;
+  set setPassword(password) => {this.password = password, notifyListeners()};
 
-  set seturl(url) => this.url = url;
+  set seturl(url) => {this.url = url, notifyListeners()};
 }
