@@ -41,11 +41,15 @@ class _AppSkeletonState extends State<AppSkeleton> {
           icon: widget.icon,
           onPressed: () {
             if (widget.viewName == "Medical Profile") {
+              appModel.setPageNumber = 2;
               widget.callback(1);
             } else {
-              Navigator.pop(context);
+              Navigator.of(context).popUntil(ModalRoute.withName("/Page1"));
+              // Navigator.pop(context);
               setState(() {
-                _page = appModel.getPreviousPage;
+                _page = 2;
+                appModel.setPageNumber = _page;
+                print(_page);
               });
             }
           },
@@ -77,7 +81,7 @@ class _AppSkeletonState extends State<AppSkeleton> {
         ],
         onTap: (index) {
           setState(() {
-            appModel.setPreviousPage = _page;
+            //appModel.setPreviousPage = _page;
             appModel.setPageNumber = index;
             if (index == 2 && _page != 2) {
               Navigator.push(
@@ -96,6 +100,7 @@ class _AppSkeletonState extends State<AppSkeleton> {
               );
             }
             _page = index;
+            //print(appModel.getPreviousPage);
             print(_page);
           });
         },

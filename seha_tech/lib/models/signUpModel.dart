@@ -21,7 +21,35 @@ class SignUpModel extends Model {
       city = '',
       province = '',
       country = '',
-      stringValue = '';
+      stringValue = '',
+      insuranceCardId = '';
+
+  String dateOfDataPrivacyAcceptance = ' ';
+  String get getDateOfDataPrivacyAcceptance => this.dateOfDataPrivacyAcceptance;
+
+  set setDateOfDataPrivacyAcceptance(String dateOfDataPrivacyAcceptance) =>
+      this.dateOfDataPrivacyAcceptance = dateOfDataPrivacyAcceptance;
+
+  bool consentForResearch = false;
+  bool get getConsentForResearch => this.consentForResearch;
+
+  set setConsentForResearch(bool consentForResearch) =>
+      this.consentForResearch = consentForResearch;
+
+  get getInsuranceCardId => this.insuranceCardId;
+
+  set setInsuranceCardId(insuranceCardId) =>
+      this.insuranceCardId = insuranceCardId;
+
+  var payers = [];
+  get getPayers => this.payers;
+
+  set setPayers(List<dynamic> payers) => this.payers = payers;
+
+  String choosenPayer = "";
+  get getChoosenPayer => this.choosenPayer;
+
+  set setChoosenPayer(var choosenPayer) => this.choosenPayer = choosenPayer;
 
   get getMiddleName => this.middleName;
 

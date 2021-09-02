@@ -96,23 +96,34 @@ class _EmailBlockState extends State<EmailBlock> {
                         callBackMethod: () => signUpModel.setPassword =
                             signUpModel.getStringValue,
                       ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width / 2.5,
-                          height: MediaQuery.of(context).size.height / 25,
-                          child: TextField(
-                              controller: textController4,
-                              // onSubmitted: (var value) {
-                              // },
-                              keyboardType: TextInputType.name,
-                              obscureText: true,
-                              style: TextStyle(fontSize: 12),
-                              decoration: InputDecoration(
-                                border: UnderlineInputBorder(
-                                    borderSide:
-                                        new BorderSide(color: Colors.purple)),
-                                hintText: AppLocalizations.of(context)!
-                                    .signUpFirstPage_SecondBlock_confirmPasswordPH,
-                              )))
+                      TextBox(
+                        myController: textController4,
+                        message: AppLocalizations.of(context)!
+                            .signUpFirstPage_SecondBlock_confirmPasswordPH,
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        height: MediaQuery.of(context).size.height / 25,
+                        obscureText: true,
+                        keyboardType: TextInputType.name,
+                        callBackMethod: () => signUpModel.setConfirmPassword =
+                            signUpModel.getStringValue,
+                      ),
+                      // SizedBox(
+                      //     width: MediaQuery.of(context).size.width / 2.5,
+                      //     height: MediaQuery.of(context).size.height / 25,
+                      //     child: TextField(
+                      //         controller: textController4,
+                      //         onSubmitted: (var value) {
+                      //         },
+                      //         keyboardType: TextInputType.name,
+                      //         obscureText: true,
+                      //         style: TextStyle(fontSize: 12),
+                      //         decoration: InputDecoration(
+                      //           border: UnderlineInputBorder(
+                      //               borderSide:
+                      //                   new BorderSide(color: Colors.purple)),
+                      // hintText: AppLocalizations.of(context)!
+                      //     .signUpFirstPage_SecondBlock_confirmPasswordPH,
+                      //         )))
                     ]))
           ],
         ));

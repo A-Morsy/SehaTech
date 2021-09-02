@@ -23,12 +23,6 @@ class _IdentificationBolck extends State<IdentificationBolck> {
           10, MediaQuery.of(context).size.width / 15),
       child: Column(
         children: [
-          // Text('IDENTIFICATION',
-          //     style: TextStyle(
-          //         color: Palette.thirdColor,
-          //         fontFamily: 'serif',
-          //         fontSize: 20,
-          //         decoration: TextDecoration.none)),
           Container(
             height: MediaQuery.of(context).size.height / 4.2,
             child: Row(

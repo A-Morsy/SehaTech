@@ -30,7 +30,6 @@ class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
           Text(AppLocalizations.of(context)!.signUpSecondPage_Title,
               style: TextStyle(
                   color: Palette.thirdColor,
-                  // fontFamily: 'serif',
                   fontSize: 20,
                   decoration: TextDecoration.none)),
           Container(

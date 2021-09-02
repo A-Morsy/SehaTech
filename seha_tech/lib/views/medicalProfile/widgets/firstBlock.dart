@@ -7,7 +7,7 @@ class UserInfoBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String medicalProfile_firstBlock_age;
+    //String medicalProfile_firstBlock_age;
     return Container(
       child: Column(
         children: [
@@ -19,12 +19,10 @@ class UserInfoBlock extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                    // width: MediaQuery.of(context).size.width*0.2,
-                    // height: MediaQuery.of(context).size.height*0.2,
                     child: CircleAvatar(
                   radius: MediaQuery.of(context).size.width * 0.11,
                   backgroundImage: NetworkImage(
-                      "https://images.squarespace-cdn.com/content/v1/5528a968e4b02ed06b8e918e/1457461776220-3S9QKRBE7K7XFMG6LX0P/W_Dave.jpg?format=1000w"),
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPZw_tk6GapaxqlsN8-fGjSFMl0Ozv_cXxIA&usqp=CAU"),
                 )),
                 Padding(
                   padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
