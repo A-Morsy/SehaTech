@@ -5,12 +5,14 @@ class CustomButton extends StatelessWidget {
   final Color color;
   final VoidCallback callBackMethod;
   final GlobalKey<FormState> formGlobalKey;
+  final bool useValidation;
 
   const CustomButton(
       {Key? key,
       required this.message,
       required this.color,
       required this.callBackMethod,
+      required this.useValidation,
       required this.formGlobalKey})
       : super(key: key);
 
@@ -30,14 +32,15 @@ class CustomButton extends StatelessWidget {
         elevation: 2.0,
       ),
       onPressed: () {
-        if (formGlobalKey.currentState!.validate()) {
-          formGlobalKey.currentState!.save();
-          print("Valid") ;
-        }
-        else{
+        if (useValidation) {
+          if (formGlobalKey.currentState!.validate()) {
+            formGlobalKey.currentState!.save();
+            callBackMethod();
+          }
+        } else {
           print("not Valid data");
+          print(formGlobalKey.currentState!.validate());
         }
-        callBackMethod();
       },
       //onPressed: login() ,
     );

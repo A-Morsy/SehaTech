@@ -27,6 +27,7 @@ mixin InputValidationMixin {
   }
 
   bool validatePassword(String value) {
+        print(value);
     if (value.isEmpty) {
       return true;
     }

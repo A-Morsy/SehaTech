@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class LandingScreen extends StatelessWidget with InputValidationMixin {
   //gsioo
-  final formGlobalKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formGlobalKey = GlobalKey<FormState>();
   final tempKey = GlobalKey<FormState>();
   final TextEditingController textController1 = TextEditingController();
   final TextEditingController textController2 = TextEditingController();
@@ -107,25 +107,25 @@ class LandingScreen extends StatelessWidget with InputValidationMixin {
                                 child: Image.asset(
                                     'assets/images/SehaTech-Logo-Vertical-FullColor.png')),
                             Container(
-                                margin: EdgeInsets.only(bottom: 5),
-                                width: MediaQuery.of(context).size.width * 0.6,
-                                child: CustomField(
-                                  isSubmited: signinBtnPressed,
-                                  isValid: validateEmail(signInModel.getEmail),
-                                  errorText: 'Must be a vaild Email',
-                                  textController: textController1,
-                                  textColor: Palette.forthColor,
-                                  fillColor: Colors.white,
-                                  text:
-                                      AppLocalizations.of(context)!.emailSignIn,
-                                  obscureText: false,
-                                  callBackMethod: () => signInModel.setEmail =
-                                      signInModel.getTemp),),
+                              margin: EdgeInsets.only(bottom: 5),
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              child: CustomField(
+                                isValid: validateEmail(signInModel.getEmail),
+                                errorText: 'Must be a vaild Email',
+                                textController: textController1,
+                                textColor: Palette.forthColor,
+                                fillColor: Colors.white,
+                                text: AppLocalizations.of(context)!.emailSignIn,
+                                obscureText: false,
+                                callBackMethod: () =>
+                                    signInModel.setEmail = signInModel.getTemp,
+                                model: 'signIn',
+                              ),
+                            ),
                             Container(
                               margin: EdgeInsets.only(bottom: 10),
                               width: MediaQuery.of(context).size.width * 0.6,
                               child: CustomField(
-                                  isSubmited: signinBtnPressed,
                                   isValid:
                                       validatePassword(signInModel.getPassword),
                                   errorText: 'Must be a vaild password',
@@ -136,7 +136,8 @@ class LandingScreen extends StatelessWidget with InputValidationMixin {
                                       .passwordSignIn,
                                   obscureText: true,
                                   callBackMethod: () => signInModel
-                                      .setPassword = signInModel.getTemp),
+                                      .setPassword = signInModel.getTemp,
+                                  model: 'signIn'),
                             ),
                             Container(
                                 width: MediaQuery.of(context).size.width * 0.6,
@@ -145,6 +146,7 @@ class LandingScreen extends StatelessWidget with InputValidationMixin {
                                       ? 'Choose your policy owner'
                                       : model.getPayerName,
                                   color: Palette.primaryColor,
+                                  useValidation: false,
                                   callBackMethod: () {
                                     showDialog(
                                         context: context,
@@ -168,6 +170,7 @@ class LandingScreen extends StatelessWidget with InputValidationMixin {
                                         message: AppLocalizations.of(context)!
                                             .signInText,
                                         color: Palette.primaryColor,
+                                        useValidation: true,
                                         callBackMethod: () async {
                                           signinBtnPressed = true;
                                           var response = await signIn(

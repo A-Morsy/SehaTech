@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/main.dart';
+import 'package:seha_tech/views/signup/widgets/forgetPassword.dart';
 
 typedef void StringCallback(int val);
 
@@ -12,9 +13,8 @@ class CustomField extends StatefulWidget {
   final bool obscureText;
   final VoidCallback callBackMethod;
   final String errorText;
-  final bool isSubmited;
   final bool isValid;
-
+  final String model;
 
   CustomField(
       {Key? key,
@@ -24,11 +24,10 @@ class CustomField extends StatefulWidget {
       required this.text,
       required this.obscureText,
       required this.callBackMethod,
+      required this.model,
       errorText,
-      isSubmited,
       isValid})
       : this.errorText = errorText,
-        this.isSubmited = isSubmited,
         this.isValid = isValid,
         super(key: key);
 
@@ -42,12 +41,17 @@ class _CustomFieldState extends State<CustomField> {
     return TextFormField(
         controller: widget.textController,
         onChanged: (value) {
-          signInModel.setTemp = value;
+          if (widget.model == 'signIn') {
+            signInModel.setTemp = value;
+          } else if (widget.model == 'resetPassword') {
+            resetPasswordModel.setTemp = value;
+          }
           widget.callBackMethod();
         },
         obscureText: widget.obscureText,
         style: TextStyle(fontSize: 12),
         validator: (value) {
+          setState(() {});
           if (!widget.isValid) {
             return null;
           } else {
