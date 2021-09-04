@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/views/rememberPassword/widgets/otpWidget.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
+import 'package:seha_tech/views/signup/widgets/forgetPassword.dart';
 
 final textController1 = TextEditingController();
 
@@ -21,16 +22,17 @@ class ResetRequest extends StatelessWidget {
               Text(
                   "Please enter the email address you'd like your password reset  information sent to ",
                   style: TextStyle(fontSize: 12)),
-              Padding(
-                padding: const EdgeInsets.only(top: 25),
-                child: CustomField(
-                    textController: textController1,
-                    textColor: Palette.forthColor,
-                    fillColor: Colors.white,
-                    text: "Enter email address",
-                    obscureText: false,
-                    callBackMethod: () {}),
-              )
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 25),
+              //   child: CustomField(
+              //       textController: textController1,
+              //       textColor: Palette.forthColor,
+              //       fillColor: Colors.white,
+              //       text: "Enter email address",
+              //       obscureText: false,
+              //       callBackMethod: () =>
+              //                 resetPasswordModel.setEmail = resetPasswordModel.getTemp),
+              // )
             ],
           ),
         ),

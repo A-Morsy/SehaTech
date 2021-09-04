@@ -6,7 +6,6 @@ import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/signInModel.dart';
 import 'package:seha_tech/models/userModel.dart';
 import 'package:seha_tech/services/signInService.dart';
-import 'package:seha_tech/services/signUpServices.dart';
 import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import 'package:seha_tech/views/signIn/mainPageButton.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
@@ -75,11 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class LandingScreen extends StatelessWidget {
+class LandingScreen extends StatelessWidget with InputValidationMixin {
   //gsioo
-
-  final textController1 = TextEditingController();
-  final textController2 = TextEditingController();
+  final formGlobalKey = GlobalKey<FormState>();
+  final tempKey = GlobalKey<FormState>();
+  final TextEditingController textController1 = TextEditingController();
+  final TextEditingController textController2 = TextEditingController();
   static bool signinBtnPressed = false;
   @override
   Widget build(BuildContext context) {
@@ -87,82 +87,84 @@ class LandingScreen extends StatelessWidget {
       backgroundColor: Palette.fifthColor,
       body: ScopedModel<SignInModel>(
         model: signInModel,
-        child: FutureBuilder<List<List<String>>>(
-            future: getPayers(),
-            builder: (context, snapshot) {
-              return ListView(
-                children: [
-                  Center(child: ScopedModelDescendant<SignInModel>(
-                      builder: (context, child, model) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width * 0.7,
-                      child: Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                              //width: MediaQuery.of(context).size.width * 0.6,
-                              height: MediaQuery.of(context).size.height * 0.5,
-                              child: Image.asset(
-                                  'assets/images/SehaTech-Logo-Vertical-FullColor.png')),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 5),
-                            width: MediaQuery.of(context).size.width * 0.6,
-                            height: 40,
-                            child: CustomField(
-                                isSubmited: signinBtnPressed,
-                                isValid: validateEmail(signInModel.getTemp),
-                                errorText: 'Must be a vaild Email',
-                                textController: textController1,
-                                textColor: Palette.forthColor,
-                                fillColor: Colors.white,
-                                text: AppLocalizations.of(context)!.emailSignIn,
-                                obscureText: false,
-                                callBackMethod: () =>
-                                    signInModel.setEmail = signInModel.getTemp),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 10),
-                            width: MediaQuery.of(context).size.width * 0.6,
-                            height: 40,
-                            child: CustomField(
-                                isSubmited: signinBtnPressed,
-                                isValid: validatePassword(signInModel.getTemp),
-                                errorText: 'Must be a vaild password',
-                                textController: textController2,
-                                textColor: Palette.forthColor,
-                                fillColor: Colors.white,
-                                text: AppLocalizations.of(context)!
-                                    .passwordSignIn,
-                                obscureText: true,
-                                callBackMethod: () => signInModel.setPassword =
-                                    signInModel.getTemp),
-                          ),
-                          Container(
+        child: Form(
+          key: formGlobalKey,
+          child: FutureBuilder<List<List<String>>>(
+              future: getPayers(),
+              builder: (context, snapshot) {
+                return ListView(
+                  children: [
+                    Center(child: ScopedModelDescendant<SignInModel>(
+                        builder: (context, child, model) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        child: Column(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.5,
+                                child: Image.asset(
+                                    'assets/images/SehaTech-Logo-Vertical-FullColor.png')),
+                            Container(
+                                margin: EdgeInsets.only(bottom: 5),
+                                width: MediaQuery.of(context).size.width * 0.6,
+                                child: CustomField(
+                                  isSubmited: signinBtnPressed,
+                                  isValid: validateEmail(signInModel.getEmail),
+                                  errorText: 'Must be a vaild Email',
+                                  textController: textController1,
+                                  textColor: Palette.forthColor,
+                                  fillColor: Colors.white,
+                                  text:
+                                      AppLocalizations.of(context)!.emailSignIn,
+                                  obscureText: false,
+                                  callBackMethod: () => signInModel.setEmail =
+                                      signInModel.getTemp),),
+                            Container(
+                              margin: EdgeInsets.only(bottom: 10),
                               width: MediaQuery.of(context).size.width * 0.6,
-                              child: CustomButton(
-                                message: model.getPayerName == ''
-                                    ? 'Choose your policy owner'
-                                    : model.getPayerName,
-                                color: Palette.primaryColor,
-                                callBackMethod: () {
-                                  showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) =>
-                                          TempletDialog(
-                                              title:
-                                                  'Choose one of the policy owner',
-                                              payers: snapshot.data![0],
-                                              payerUrl: snapshot.data![1]));
-                                },
-                              )),
-                          ScopedModel(
-                              model: userModel,
-                              child: ScopedModelDescendant<UserModel>(
-                                  builder: (context, child, modell) {
-                                return Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.6,
-                                    child: CustomButton(
+                              child: CustomField(
+                                  isSubmited: signinBtnPressed,
+                                  isValid:
+                                      validatePassword(signInModel.getPassword),
+                                  errorText: 'Must be a vaild password',
+                                  textController: textController2,
+                                  textColor: Palette.forthColor,
+                                  fillColor: Colors.white,
+                                  text: AppLocalizations.of(context)!
+                                      .passwordSignIn,
+                                  obscureText: true,
+                                  callBackMethod: () => signInModel
+                                      .setPassword = signInModel.getTemp),
+                            ),
+                            Container(
+                                width: MediaQuery.of(context).size.width * 0.6,
+                                child: CustomButton(
+                                  message: model.getPayerName == ''
+                                      ? 'Choose your policy owner'
+                                      : model.getPayerName,
+                                  color: Palette.primaryColor,
+                                  callBackMethod: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) =>
+                                            TempletDialog(
+                                                title:
+                                                    'Choose one of the policy owner',
+                                                payers: snapshot.data![0],
+                                                payerUrl: snapshot.data![1]));
+                                  },
+                                  formGlobalKey: formGlobalKey,
+                                )),
+                            ScopedModel(
+                                model: userModel,
+                                child: ScopedModelDescendant<UserModel>(
+                                    builder: (context, child, modell) {
+                                  return Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.6,
+                                      child: CustomButton(
                                         message: AppLocalizations.of(context)!
                                             .signInText,
                                         color: Palette.primaryColor,
@@ -180,7 +182,6 @@ class LandingScreen extends StatelessWidget {
                                               content: const Text(
                                                   'Email or Password is incorrect'),
                                             );
-
                                             // Find the ScaffoldMessenger in the widget tree
                                             // and use it to show a SnackBar.
                                             ScaffoldMessenger.of(context)
@@ -196,65 +197,68 @@ class LandingScreen extends StatelessWidget {
                                                     builder: (context) =>
                                                         UserProfile()));
                                           }
-                                        }));
-                              })),
-                          Container(
-                            padding: EdgeInsets.only(top: 10),
-                            width: MediaQuery.of(context).size.width * 0.8,
-                            constraints: BoxConstraints(
-                                maxWidth: MediaQuery.of(context).size.width),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                MaterialButton(
-                                  onPressed: () {},
-                                  color: Colors.white,
-                                  child:
-                                      Image.asset('assets/images/google.png'),
-                                  // padding: EdgeInsets.all(10),
-                                  shape: CircleBorder(),
-                                ),
-                                MaterialButton(
-                                  onPressed: () {},
-                                  color: Colors.white,
-                                  child:
-                                      Image.asset('assets/images/facebook.png'),
-                                  // padding: EdgeInsets.all(10),
-                                  shape: CircleBorder(),
-                                ),
-                                MaterialButton(
-                                  onPressed: () {},
-                                  color: Colors.white,
-                                  child: Image.asset('assets/images/apple.png'),
-                                  // padding: EdgeInsets.all(10),
-                                  shape: CircleBorder(),
-                                ),
-                              ],
+                                        },
+                                        formGlobalKey: formGlobalKey,
+                                      ));
+                                })),
+                            // Container(
+                            //   padding: EdgeInsets.only(top: 10),
+                            //   width: MediaQuery.of(context).size.width * 0.8,
+                            //   constraints: BoxConstraints(
+                            //       maxWidth: MediaQuery.of(context).size.width),
+                            //   child: Row(
+                            //     mainAxisAlignment: MainAxisAlignment.center,
+                            //     children: [
+                            //       MaterialButton(
+                            //         onPressed: () {},
+                            //         color: Colors.white,
+                            //         child:
+                            //             Image.asset('assets/images/google.png'),
+                            //         // padding: EdgeInsets.all(10),
+                            //         shape: CircleBorder(),
+                            //       ),
+                            //       MaterialButton(
+                            //         onPressed: () {},
+                            //         color: Colors.white,
+                            //         child:
+                            //             Image.asset('assets/images/facebook.png'),
+                            //         // padding: EdgeInsets.all(10),
+                            //         shape: CircleBorder(),
+                            //       ),
+                            //       MaterialButton(
+                            //         onPressed: () {},
+                            //         color: Colors.white,
+                            //         child: Image.asset('assets/images/apple.png'),
+                            //         // padding: EdgeInsets.all(10),
+                            //         shape: CircleBorder(),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              child:
+                                  CustomDivider(dividerColor: Colors.grey[400]),
                             ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: 10),
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            child:
-                                CustomDivider(dividerColor: Colors.grey[400]),
-                          ),
-                          Container(
-                              alignment: Alignment.center,
-                              width: MediaQuery.of(context).size.width * 0.6,
-                              margin: EdgeInsets.only(top: 15),
-                              child: SignUpText()),
-                          Container(
-                              alignment: Alignment.center,
-                              width: MediaQuery.of(context).size.width * 0.6,
-                              margin: EdgeInsets.only(top: 15),
-                              child: ForgetPassword())
-                        ],
-                      ),
-                    );
-                  }))
-                ],
-              );
-            }),
+                            Container(
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width * 0.6,
+                                margin: EdgeInsets.only(top: 15),
+                                child: SignUpText()),
+                            Container(
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width * 0.6,
+                                margin: EdgeInsets.only(top: 15),
+                                child: ForgetPassword())
+                          ],
+                        ),
+                      );
+                    }))
+                  ],
+                );
+              }),
+        ),
       ),
     );
   }

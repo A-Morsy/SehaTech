@@ -60,32 +60,32 @@ class ForgetPassFirst extends StatelessWidget {
                     width: 50,
                     margin: EdgeInsets.only(top: 5, bottom: 15),
                     child: CustomDivider(dividerColor: Palette.thirdColor)),
-                Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    width: MediaQuery.of(context).size.width,
-                    height: 40,
-                    child: CustomField(
-                        textController: textController1,
-                        textColor: Palette.forthColor,
-                        fillColor: Colors.white,
-                        text: AppLocalizations.of(context)!.emailSignIn,
-                        obscureText: true,
-                        callBackMethod: () {})),
-                Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Container(
-                      // width: MediaQuery.of(context).size.width * 0.6,
-                      margin: EdgeInsets.only(right: 50, left: 50),
-                      child: CustomButton(
-                          message: 'Send',
-                          color: Palette.primaryColor,
-                          callBackMethod: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(builder: (context) => ),
-                            // );
-                          }),
-                    )),
+                // Container(
+                //     margin: EdgeInsets.only(bottom: 10),
+                //     width: MediaQuery.of(context).size.width,
+                //     height: 40,
+                //     child: CustomField(
+                //         textController: textController1,
+                //         textColor: Palette.forthColor,
+                //         fillColor: Colors.white,
+                //         text: AppLocalizations.of(context)!.emailSignIn,
+                //         obscureText: true,
+                //         callBackMethod: () {})),
+                // Container(
+                //     width: MediaQuery.of(context).size.width,
+                //     child: Container(
+                //       // width: MediaQuery.of(context).size.width * 0.6,
+                //       margin: EdgeInsets.only(right: 50, left: 50),
+                //       child: CustomButton(
+                //           message: 'Send',
+                //           color: Palette.primaryColor,
+                //           callBackMethod: () {
+                //             // Navigator.push(
+                //             //   context,
+                //             //   MaterialPageRoute(builder: (context) => ),
+                //             // );
+                //           }),
+                //     )),
               ],
             )));
   }

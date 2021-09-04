@@ -11,9 +11,10 @@ class CustomField extends StatefulWidget {
   final String text;
   final bool obscureText;
   final VoidCallback callBackMethod;
-  late String errorText;
-  late bool isSubmited;
-  late bool isValid;
+  final String errorText;
+  final bool isSubmited;
+  final bool isValid;
+
 
   CustomField(
       {Key? key,
@@ -38,24 +39,34 @@ class CustomField extends StatefulWidget {
 class _CustomFieldState extends State<CustomField> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
         controller: widget.textController,
-        onChanged: (var value) {
+        onChanged: (value) {
           signInModel.setTemp = value;
           widget.callBackMethod();
         },
         obscureText: widget.obscureText,
         style: TextStyle(fontSize: 12),
+        validator: (value) {
+          if (!widget.isValid) {
+            return null;
+          } else {
+            return widget.errorText;
+          }
+        },
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(10.0),
           filled: true,
           hintStyle: TextStyle(color: widget.textColor),
           hintText: widget.text,
-          errorText:
-              widget.isValid && widget.isSubmited ? widget.errorText : '',
-          //hintText:AppLocalizations.of(context)!.signInText,
+          // errorText:
+          //     widget.isValid && widget.isSubmited ? widget.errorText : '',
+          // hintText:AppLocalizations.of(context)!.signInText,
           fillColor: widget.fillColor,
           enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: const BorderSide(color: Colors.grey, width: 0.0)),
+          errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
               borderSide: const BorderSide(color: Colors.grey, width: 0.0)),
         ));
