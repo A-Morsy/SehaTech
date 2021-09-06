@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/Reusable/reusableWidgets.dart';
+import 'package:seha_tech/services/validation/userValidation.dart';
 import 'package:seha_tech/views/signup/signUpOne.dart';
 import 'package:seha_tech/views/signup/widgets/customtextbox.dart';
 
-class InsuranceEntryWidget extends StatefulWidget {
+class InsuranceEntryWidget extends StatefulWidget with InputValidationMixin {
   const InsuranceEntryWidget({Key? key}) : super(key: key);
 
   @override
@@ -28,8 +29,8 @@ class _InsuranceEntryWidgetState extends State<InsuranceEntryWidget> {
                   fontSize: 20,
                   decoration: TextDecoration.none)),
           Container(
-              padding: EdgeInsets.only(top: 20),
-              height: MediaQuery.of(context).size.height / 5,
+              padding: EdgeInsets.only(top: 40),
+              height: MediaQuery.of(context).size.height / 4,
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -51,15 +52,19 @@ class _InsuranceEntryWidgetState extends State<InsuranceEntryWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           TextBox(
-                              message: "",
-                              obscureText: false,
-                              width: MediaQuery.of(context).size.width / 2.5,
-                              height: 30,
-                              keyboardType: TextInputType.text,
-                              myController: textController2,
-                              callBackMethod: () =>
-                                  signUpModel.setInsuranceCardId =
-                                      signUpModel.getStringValue),
+                            message: "",
+                            obscureText: false,
+                            width: MediaQuery.of(context).size.width / 2.5,
+                            height: 30,
+                            keyboardType: TextInputType.text,
+                            myController: textController2,
+                            callBackMethod: () =>
+                                signUpModel.setInsuranceCardId =
+                                    signUpModel.getStringValue,
+                            errorText: 'Enter a valid card ID',
+                            isValid:
+                                widget.validateCardID(signUpModel.getInsuranceCardId),
+                          ),
                           Container(
                             width: MediaQuery.of(context).size.width / 2.4,
                             height: MediaQuery.of(context).size.height / 20,
@@ -78,6 +83,15 @@ class _InsuranceEntryWidgetState extends State<InsuranceEntryWidget> {
                                   insuranceCompany = newValue!;
                                   signUpModel.setChoosenPayer =
                                       insuranceCompany;
+                                  if (insuranceCompany ==
+                                      signUpModel.getPayers[0]["name"]) {
+                                    signUpModel.setassociatedBaseUrl =
+                                        "payer2.sehatech.org:3000";
+                                  } else if (insuranceCompany ==
+                                      signUpModel.getPayers[1]["name"]) {
+                                    signUpModel.setassociatedBaseUrl =
+                                        "payer1.sehatech.org:3000";
+                                  }
                                 });
                               },
                               items: <String>[

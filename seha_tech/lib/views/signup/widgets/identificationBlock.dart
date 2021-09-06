@@ -87,22 +87,22 @@ class _IdentificationBolck extends State<IdentificationBolck> {
                         }).toList(),
                       ),
                     ),
-                    TextBox(
-                        myController: myController1,
-                        message: 'Enter ID/Passport Number',
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        height: 30,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                          callBackMethod:() =>signUpModel.setIdNumber = signUpModel.getStringValue ,),
-                    TextBox(
-                        myController: myController2,
-                        message: 'Enter Your Nationality',
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        height: 30,
-                        obscureText: false,
-                        keyboardType: TextInputType.name,
-                        callBackMethod:() =>signUpModel.setNationality = signUpModel.getStringValue ,)
+                    // TextBox(
+                    //     myController: myController1,
+                    //     message: 'Enter ID/Passport Number',
+                    //     width: MediaQuery.of(context).size.width / 2.5,
+                    //     height: 30,
+                    //     obscureText: false,
+                    //     keyboardType: TextInputType.number,
+                    //       callBackMethod:() =>signUpModel.setIdNumber = signUpModel.getStringValue ,),
+                    // TextBox(
+                    //     myController: myController2,
+                    //     message: 'Enter Your Nationality',
+                    //     width: MediaQuery.of(context).size.width / 2.5,
+                    //     height: 30,
+                    //     obscureText: false,
+                    //     keyboardType: TextInputType.name,
+                    //     callBackMethod:() =>signUpModel.setNationality = signUpModel.getStringValue ,)
                   ],
                 )
               ],

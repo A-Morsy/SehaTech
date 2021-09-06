@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:scoped_model/scoped_model.dart';
+import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/models/signUpModel.dart';
 import 'package:seha_tech/services/signUpServices.dart';
-import 'package:seha_tech/views/medicalProfile/userProfile.dart';
+
+import 'package:seha_tech/views/rememberPassword/widgets/otpWidget.dart';
 import 'package:seha_tech/views/signup/signUpOne.dart';
 
 class TermsWidget extends StatefulWidget {
@@ -54,28 +59,41 @@ class _TermsWidgetState extends State<TermsWidget> {
             width: 300,
             child: TextButton(
                 onPressed: () async {
+                  String message = '';
                   if (signUpModel.getConsentForResearch) {
-                    // var response =await signUp(
-                    //     signUpModel.getEmail,
-                    //     signUpModel.getPassword,
-                    //     signUpModel.getConsentForResearch,
-                    //     signUpModel.getDateOfDataPrivacyAcceptance,
-                    //     signUpModel.getFirstName,
-                    //     signUpModel.getMiddleName,
-                    //     signUpModel.getLastName,
-                    //     signUpModel.getInsuranceCardId,
-                    //     signUpModel.getPhoneNumber,
-                    //     signUpModel.getDateOfBirth,
-                    //     signUpModel.getGender,
-                    //     "payer1.sehatech.org:3000");
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        settings: RouteSettings(name: "/Page1"),
-                        builder: (context) => UserProfile(),
-                      ),
-                      // MaterialPageRoute(builder: (context) => UserProfile()),
-                    );
+                    var response = await signUp(
+                        signUpModel.getEmail,
+                        signUpModel.getPassword,
+                        signUpModel.getConsentForResearch,
+                        signUpModel.getDateOfDataPrivacyAcceptance,
+                        signUpModel.getFirstName,
+                        signUpModel.getMiddleName,
+                        signUpModel.getLastName,
+                        signUpModel.getInsuranceCardId,
+                        signUpModel.getPhoneNumber,
+                        signUpModel.getDateOfBirth,
+                        signUpModel.getGender,
+                        signUpModel.getassociatedBaseUrl);
+                    print(response['message']);
+
+                    message = response['message'].toString();
+                    var response2 = await getOtpRequest(
+                        signUpModel.getEmail, signUpModel.getassociatedBaseUrl);
+                    print(response2);
+                    if (response2 != '200') {
+                      message = response2;
+                    } else {
+                      message = response['message'];
+                    }
+
+                    CustomSnackBar.buildErrorSnackbar(context, message);
+
+                    showDialog(
+                        context: context,
+                        builder: (_) => OTPWidget(
+                              type: 2,
+                            ),
+                        barrierDismissible: true);
                   }
                 },
                 child: Text(

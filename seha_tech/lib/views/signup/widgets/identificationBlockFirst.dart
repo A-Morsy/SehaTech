@@ -72,46 +72,46 @@ class _IdentificationFirstBolck extends State<IdentificationFirstBolck> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    TextBox(
-                      myController: textController2,
-                      message: '',
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      height: 30,
-                      obscureText: false,
-                      keyboardType: TextInputType.streetAddress,
-                      callBackMethod: () =>
-                          signUpModel.setCountry = signUpModel.getStringValue,
-                    ),
-                    TextBox(
-                      myController: textController3,
-                      message: '',
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      height: 30,
-                      obscureText: false,
-                      keyboardType: TextInputType.streetAddress,
-                      callBackMethod: () =>
-                          signUpModel.setProvince = signUpModel.getStringValue,
-                    ),
-                    TextBox(
-                      myController: textController4,
-                      message: '',
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      height: 30,
-                      obscureText: false,
-                      keyboardType: TextInputType.streetAddress,
-                      callBackMethod: () =>
-                          signUpModel.setCity = signUpModel.getStringValue,
-                    ),
-                    TextBox(
-                      myController: textController5,
-                      message: '',
-                      width: MediaQuery.of(context).size.width / 2.5,
-                      height: 30,
-                      obscureText: false,
-                      keyboardType: TextInputType.streetAddress,
-                      callBackMethod: () => signUpModel.setStreetName =
-                          signUpModel.getStringValue,
-                    ),
+                    // TextBox(
+                    //   myController: textController2,
+                    //   message: '',
+                    //   width: MediaQuery.of(context).size.width / 2.5,
+                    //   height: 30,
+                    //   obscureText: false,
+                    //   keyboardType: TextInputType.streetAddress,
+                    //   callBackMethod: () =>
+                    //       signUpModel.setCountry = signUpModel.getStringValue,
+                    // ),
+                    // TextBox(
+                    //   myController: textController3,
+                    //   message: '',
+                    //   width: MediaQuery.of(context).size.width / 2.5,
+                    //   height: 30,
+                    //   obscureText: false,
+                    //   keyboardType: TextInputType.streetAddress,
+                    //   callBackMethod: () =>
+                    //       signUpModel.setProvince = signUpModel.getStringValue,
+                    // ),
+                    // TextBox(
+                    //   myController: textController4,
+                    //   message: '',
+                    //   width: MediaQuery.of(context).size.width / 2.5,
+                    //   height: 30,
+                    //   obscureText: false,
+                    //   keyboardType: TextInputType.streetAddress,
+                    //   callBackMethod: () =>
+                    //       signUpModel.setCity = signUpModel.getStringValue,
+                    // ),
+                    // TextBox(
+                    //   myController: textController5,
+                    //   message: '',
+                    //   width: MediaQuery.of(context).size.width / 2.5,
+                    //   height: 30,
+                    //   obscureText: false,
+                    //   keyboardType: TextInputType.streetAddress,
+                    //   callBackMethod: () => signUpModel.setStreetName =
+                    //       signUpModel.getStringValue,
+                    // ),
                   ],
                 )
               ],

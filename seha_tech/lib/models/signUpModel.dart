@@ -22,8 +22,17 @@ class SignUpModel extends Model {
       province = '',
       country = '',
       stringValue = '',
-      insuranceCardId = '';
+      insuranceCardId = '',
+      associatedBaseUrl = '';
+  get getassociatedBaseUrl => this.associatedBaseUrl;
 
+  set setassociatedBaseUrl(associatedBaseUrl) =>
+      this.associatedBaseUrl = associatedBaseUrl;
+
+  var response = new Map<String, dynamic>();
+  get getResponse => this.response;
+
+  set setResponse(var response) => this.response = response;
   String dateOfDataPrivacyAcceptance = ' ';
   String get getDateOfDataPrivacyAcceptance => this.dateOfDataPrivacyAcceptance;
 
@@ -52,7 +61,9 @@ class SignUpModel extends Model {
   String choosenPayer = "";
   get getChoosenPayer => this.choosenPayer;
 
-  set setChoosenPayer(var choosenPayer) => this.choosenPayer = choosenPayer;
+  set setChoosenPayer(var choosenPayer) {
+    this.choosenPayer = choosenPayer;
+  }
 
   get getMiddleName => this.middleName;
 

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:seha_tech/services/validation/userValidation.dart';
 import '../../../Reusable/reusableWidgets.dart';
 import '../../../Reusable/palette.dart';
 import '../signUpOne.dart';
 import 'customtextbox.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class EmailBlock extends StatefulWidget {
-  const EmailBlock({Key? key}) : super(key: key);
+class EmailBlock extends StatefulWidget with InputValidationMixin {
+  final GlobalKey<FormState> globalKey;
+  const EmailBlock({Key? key, required this.globalKey}) : super(key: key);
 
   @override
   _EmailBlockState createState() => _EmailBlockState();
@@ -67,45 +69,55 @@ class _EmailBlockState extends State<EmailBlock> {
                         myController: textController1,
                         message: AppLocalizations.of(context)!
                             .signUpFirstPage_SecondBlock_EmailPH,
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.height / 25,
+                        width: MediaQuery.of(context).size.width / 2,
+                        height: 20,
                         obscureText: false,
                         keyboardType: TextInputType.name,
                         callBackMethod: () =>
                             signUpModel.setEmail = signUpModel.getStringValue,
+                        errorText: 'Enter a valid email',
+                        isValid: widget.validateEmail(signUpModel.getEmail),
                       ),
                       TextBox(
                         myController: textController2,
                         message: AppLocalizations.of(context)!
                             .signUpFirstPage_SecondBlock_phoneNumberPH,
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.height / 25,
+                        width: MediaQuery.of(context).size.width / 2,
+                        height: 20,
                         obscureText: false,
                         keyboardType: TextInputType.number,
                         callBackMethod: () => signUpModel.setPhoneNumber =
                             signUpModel.getStringValue,
+                        errorText: 'Enter a valid phone number',
+                        isValid:
+                            widget.validatePhone(signUpModel.getPhoneNumber),
                       ),
                       TextBox(
                         myController: textController3,
                         message: AppLocalizations.of(context)!
                             .signUpFirstPage_SecondBlock_passwordPH,
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.height / 25,
+                        width: MediaQuery.of(context).size.width / 2,
+                        height: 20,
                         obscureText: true,
                         keyboardType: TextInputType.name,
                         callBackMethod: () => signUpModel.setPassword =
                             signUpModel.getStringValue,
+                        errorText: 'Enter a valid password',
+                        isValid:
+                            widget.validatePassword(signUpModel.getPassword),
                       ),
                       TextBox(
                         myController: textController4,
                         message: AppLocalizations.of(context)!
                             .signUpFirstPage_SecondBlock_confirmPasswordPH,
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.height / 25,
+                        width: MediaQuery.of(context).size.width / 2,
+                        height: 20,
                         obscureText: true,
                         keyboardType: TextInputType.name,
                         callBackMethod: () => signUpModel.setConfirmPassword =
                             signUpModel.getStringValue,
+                        errorText: 'Enter a valid password',
+                        isValid: widget.validatePassword(signUpModel.getConfirmPassword),
                       ),
                       // SizedBox(
                       //     width: MediaQuery.of(context).size.width / 2.5,

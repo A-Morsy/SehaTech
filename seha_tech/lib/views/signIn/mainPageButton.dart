@@ -33,14 +33,15 @@ class CustomButton extends StatelessWidget {
       ),
       onPressed: () {
         if (useValidation) {
+          // callBackMethod();
           if (formGlobalKey.currentState!.validate()) {
             formGlobalKey.currentState!.save();
-            callBackMethod();
           }
         } else {
           print("not Valid data");
           print(formGlobalKey.currentState!.validate());
         }
+        callBackMethod();
       },
       //onPressed: login() ,
     );

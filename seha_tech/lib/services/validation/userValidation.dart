@@ -7,6 +7,15 @@ mixin InputValidationMixin {
     }
   }
 
+  bool validateCardID(String value) {
+    print(value);
+    if (value.length < 6) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   bool validateEmail(String value) {
     if (value.isEmpty) {
       return true;
@@ -27,7 +36,6 @@ mixin InputValidationMixin {
   }
 
   bool validatePassword(String value) {
-        print(value);
     if (value.isEmpty) {
       return true;
     }

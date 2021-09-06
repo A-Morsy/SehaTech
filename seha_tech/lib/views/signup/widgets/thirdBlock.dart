@@ -89,7 +89,6 @@ class _OtherInfoBlock extends State<OtherInfoBlock> {
                         if (value.isNotEmpty) {
                           setState(() {
                             signUpModel.setDateOfBirth = value;
-                            print(signUpModel.getDateOfBirth);
                           });
                         }
                       },

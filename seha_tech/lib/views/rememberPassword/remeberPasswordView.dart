@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/services/remeberPassword.dart';
 import 'package:seha_tech/services/validation/userValidation.dart';
+import 'package:seha_tech/views/rememberPassword/widgets/requestResetWidget.dart';
 import 'package:seha_tech/views/signIn/mainPageButton.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
 import 'package:seha_tech/views/signup/widgets/forgetPassword.dart';
@@ -65,14 +68,25 @@ class _RemberPasswordViewState extends State<RemberPasswordView> {
                       CustomButton(
                         message: "Reset Password",
                         color: Palette.primaryColor,
-                        callBackMethod: () {
-                          print(resetPasswordModel.getPassword +
-                              ' +' +
-                              resetPasswordModel.getNewPassword);
+                        callBackMethod: () async {
                           if (resetPasswordModel.getPassword ==
                               resetPasswordModel.getNewPassword) {
-                            Navigator.of(context)
-                                .popUntil((route) => route.isFirst);
+                            var response = await resetPassword(
+                                resetPasswordModel.getOtpCode,
+                                resetPasswordModel.getPassword,
+                                resetPasswordModel.getEmail);
+                            String message = ' ';
+                            if (response["code"] == 200) {
+                              message = response["message"];
+                              print(message);
+                              Navigator.of(context)
+                                  .popUntil((route) => route.isFirst);
+                            } else {
+                              message =  response["error"];
+                              print(message);
+                            }
+
+                            CustomSnackBar.buildErrorSnackbar(context, message);
                           }
                         },
                         formGlobalKey: formGlobalKey,

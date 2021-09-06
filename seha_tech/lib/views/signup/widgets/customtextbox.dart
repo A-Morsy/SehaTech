@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:seha_tech/services/validation/userValidation.dart';
 import 'package:seha_tech/views/signup/signUpOne.dart';
 
 // ignore: must_be_immutable
-class TextBox extends StatefulWidget {
+class TextBox extends StatefulWidget with InputValidationMixin {
   String message;
   bool obscureText;
   double width;
@@ -11,18 +12,23 @@ class TextBox extends StatefulWidget {
   TextInputType keyboardType;
   TextEditingController myController;
 
-  VoidCallback callBackMethod ;
+  final String errorText;
+  final bool isValid;
 
-TextBox({
-    Key? key,
-    required this.message,
-    required this.obscureText,
-    required this.width,
-    required this.height,
-    required this.keyboardType,
-    required this.myController,
-    required this.callBackMethod
-  }) : super(key: key);
+  VoidCallback callBackMethod;
+
+  TextBox(
+      {Key? key,
+      required this.message,
+      required this.obscureText,
+      required this.width,
+      required this.height,
+      required this.keyboardType,
+      required this.myController,
+      required this.callBackMethod,
+      required this.isValid,
+      required this.errorText})
+      : super(key: key);
 
   @override
   _TextBoxState createState() => _TextBoxState();
@@ -31,23 +37,36 @@ TextBox({
 class _TextBoxState extends State<TextBox> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        width: widget.width,
-        height: widget.height,
-        child: TextField(
-            controller: widget.myController,
-            onChanged: (var value) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5 , bottom: 5),
+      child: SizedBox(
+          width: widget.width,
+          height: widget.height,
+          child: TextFormField(
+              controller: widget.myController,
+              onChanged: (var value) {
+                signUpModel.setStringValue = value;
+                widget.callBackMethod();
+              },
+              validator: (value) {
+                setState(() {});
+                if (!widget.isValid) {
+                  return null;
+                } else {
+                  return widget.errorText;
+                }
+              },
+              keyboardType: widget.keyboardType,
+              obscureText: widget.obscureText,
+              style: TextStyle(fontSize: 12),
+              decoration: InputDecoration(
 
-              signUpModel.setStringValue = value ;
-              widget.callBackMethod ();
-            },
-            keyboardType: widget.keyboardType,
-            obscureText: widget.obscureText,
-            style: TextStyle(fontSize: 12),
-            decoration: InputDecoration(
-              border: UnderlineInputBorder(
-                  borderSide: new BorderSide(color: Colors.purple)),
-              hintText: widget.message,
-            )));
+                enabledBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.blue)),
+                hintText: widget.isValid ? widget.message : widget.errorText,
+                errorBorder: UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.red)),
+              ))),
+    );
   }
 }

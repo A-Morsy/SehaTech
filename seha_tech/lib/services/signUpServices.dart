@@ -55,18 +55,65 @@ Future<Map<String, dynamic>> signUp(
     };
     var response = await http.post("http://$url/patient/auth",
         headers: headers, body: jsonEncode(data));
+    // print(response.statusCode);
+    // print(response.body);
     if (response.statusCode == 200) {
       var responseBody = response.body;
       Map<String, dynamic> resBody = await jsonDecode(responseBody);
-      print(resBody);
+
       return resBody;
     } else {
-      Map<String, dynamic> dataa = {"result": response.statusCode};
+      Map<String, dynamic> dataa = {"result": response.statusCode,"message" : response.body};
 
       return dataa;
     }
   } catch (e) {
     return Future.error(
         "An error has occurred, sorry for any inconvenience. Please try again later");
+  }
+}
+
+
+Future<dynamic> getOtpRequest(String email,String url) async {
+  try {
+    Map<String, String> headers = {"email": email};
+
+    var response = await http.get("http://$url/otp/user",
+        headers: headers);
+    // print(jsonDecode(response.body));
+    print(response);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> resbody = jsonDecode(response.body);
+      return resbody['message'];
+    } else {
+      return response.statusCode.toString();
+    }
+  } catch (error) {
+    return Future.error(
+        'Unfortunatly an error has occurred, sorry for the inconveniance. Please try again later.');
+  }
+}
+
+
+
+Future<dynamic> approveUserBytOtp(String email,String otp,String url) async {
+  try {
+    Map<String, String> headers = {"email": email,"otp" : otp};
+    var response = await http.put("http://$url/otp/user",
+        headers: headers);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> resbody = jsonDecode(response.body);
+      print(response.statusCode);
+      print (resbody) ;
+      Map<String, dynamic> dataa = {"result": response.statusCode,"message" : jsonDecode(response.body)};
+      return dataa;
+    } else {
+      Map<String, dynamic> dataa = {"result": response.statusCode,"message" : jsonDecode(response.body)};
+
+      return dataa;
+    }
+  } catch (error) {
+    return Future.error(
+        'Unfortunatly an error has occurred, sorry for the inconveniance. Please try again later.');
   }
 }

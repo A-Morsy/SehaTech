@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/services/validation/userValidation.dart';
 import 'package:seha_tech/views/signup/signUpOne.dart';
 import 'customtextbox.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class NamePhotoBlock extends StatefulWidget {
-  const NamePhotoBlock({Key? key}) : super(key: key);
+class NamePhotoBlock extends StatefulWidget with InputValidationMixin {
+  final GlobalKey<FormState> globalKey ;
+  const NamePhotoBlock({Key? key,required this.globalKey}) : super(key: key);
 
   @override
   _NamePhotoBlockState createState() => _NamePhotoBlockState();
@@ -15,6 +17,7 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
   final textController1 = TextEditingController();
   final textController2 = TextEditingController();
   final textController3 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,7 +50,7 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                   ),
                   child: Icon(
                     Icons.add,
-                    size: MediaQuery.of(context).size.width*0.25,
+                    size: MediaQuery.of(context).size.width * 0.25,
                   ),
                 ),
                 Padding(
@@ -60,10 +63,13 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                             .signUpFirstPage_firstBlock_namePH,
                         obscureText: false,
                         width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.height / 20,
+                        height: 40,
                         keyboardType: TextInputType.name,
                         callBackMethod: () => signUpModel.setFirstName =
                             signUpModel.getStringValue,
+                        errorText: 'Enter a valid name',
+                        isValid:
+                            widget.validateName(signUpModel.getFirstName),
                       ),
                       TextBox(
                         myController: textController2,
@@ -71,10 +77,13 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                             .signUpFirstPage_firstBlock_secondNamePH,
                         obscureText: false,
                         width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.height / 20,
+                        height: 40,
                         keyboardType: TextInputType.name,
                         callBackMethod: () => signUpModel.setMiddleName =
                             signUpModel.getStringValue,
+                        errorText: 'Enter a valid name',
+                        isValid:
+                            widget.validateName(signUpModel.getMiddleName),
                       ),
                       TextBox(
                         myController: textController3,
@@ -82,10 +91,13 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
                             .signUpFirstPage_firstBlock_thirdNamePH,
                         obscureText: false,
                         width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.height / 20,
+                        height: 40,
                         keyboardType: TextInputType.name,
                         callBackMethod: () => signUpModel.setLastName =
                             signUpModel.getStringValue,
+                        errorText: 'Enter a valid name',
+                        isValid:
+                            widget.validateName(signUpModel.getLastName),
                       ),
                     ],
                   ),

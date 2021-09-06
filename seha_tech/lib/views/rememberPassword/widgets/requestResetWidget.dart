@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/services/remeberPassword.dart';
 import 'package:seha_tech/views/rememberPassword/widgets/otpWidget.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
 import 'package:seha_tech/views/signup/widgets/customDivider.dart';
@@ -31,7 +33,7 @@ class _ResetRequestState extends State<ResetRequest> {
                 Text("Forgot Your Password ",
                     style: TextStyle(color: Palette.primaryColor)),
                 Container(
-                  width: 80,
+                    width: 80,
                     child: CustomDivider(dividerColor: Palette.thirdColor))
               ],
             ),
@@ -57,7 +59,7 @@ class _ResetRequestState extends State<ResetRequest> {
                         resetPasswordModel.getTemp,
                     model: 'resetPassword',
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -66,13 +68,24 @@ class _ResetRequestState extends State<ResetRequest> {
               child: Container(
                 width: 300,
                 child: TextButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (formGlobalKey.currentState!.validate()) {
                         formGlobalKey.currentState!.save();
-                        showDialog(
-                            context: context,
-                            builder: (_) => OTPWidget(),
-                            barrierDismissible: true);
+
+                        var response = await requestPasswordReset(
+                            resetPasswordModel.getEmail);
+
+                        if (response["result"] == 200) {
+                          showDialog(
+                              context: context,
+                              builder: (_) => OTPWidget(
+                                    type: 1,
+                                  ),
+                              barrierDismissible: true);
+                        } else {
+                          CustomSnackBar.buildErrorSnackbar(context,"Error" +  response["result"]);
+                        }
+
                         print("Valid");
                       } else {
                         print("not Valid data");

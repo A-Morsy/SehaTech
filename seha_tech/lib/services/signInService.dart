@@ -4,10 +4,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<dynamic> signIn(String email, String password, String url) async {
+  print(url) ;
   try {
     Map<String, String> headers = {"Content-type": "application/json"};
     Map data = {'email': email, 'password': password};
-    var response = await http.post("http://${url}/patient/auth/login",
+    var response = await http.post("http://$url/patient/auth/login",
         headers: headers, body: jsonEncode(data));
     // print(jsonDecode(response.body));
     if (response.statusCode == 200) {
@@ -21,3 +22,5 @@ Future<dynamic> signIn(String email, String password, String url) async {
         'Unfortunatly an error has occurred, sorry for the inconveniance. Please try again later.');
   }
 }
+
+

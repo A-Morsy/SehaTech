@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/signInModel.dart';
 import 'package:seha_tech/models/userModel.dart';
@@ -77,10 +78,9 @@ class _MyHomePageState extends State<MyHomePage> {
 class LandingScreen extends StatelessWidget with InputValidationMixin {
   //gsioo
   final GlobalKey<FormState> formGlobalKey = GlobalKey<FormState>();
-  final tempKey = GlobalKey<FormState>();
   final TextEditingController textController1 = TextEditingController();
   final TextEditingController textController2 = TextEditingController();
-  static bool signinBtnPressed = false;
+  // static bool signinBtnPressed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -172,33 +172,36 @@ class LandingScreen extends StatelessWidget with InputValidationMixin {
                                         color: Palette.primaryColor,
                                         useValidation: true,
                                         callBackMethod: () async {
-                                          signinBtnPressed = true;
-                                          var response = await signIn(
-                                              model.getEmail,
-                                              model.getPassword,
-                                              model.getUrl);
-                                          print(response);
-                                          if (response == 401 ||
-                                              response == 422) {
-                                            print(response);
-                                            final snackBar = SnackBar(
-                                              content: const Text(
-                                                  'Email or Password is incorrect'),
-                                            );
-                                            // Find the ScaffoldMessenger in the widget tree
-                                            // and use it to show a SnackBar.
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(snackBar);
-                                          } else if (response == 403) {
+                                          if (signInModel.getUrl.length==0) {
+                                          CustomSnackBar.buildErrorSnackbar(context, "Please Choose Your Policy Owner") ;
                                           } else {
-                                            print(response);
-                                            // modell.setUserMap = response;
-                                            modell.setToken = response;
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        UserProfile()));
+                                            var response = await signIn(
+                                                model.getEmail,
+                                                model.getPassword,
+                                                model.getUrl);
+
+                                            if (response == 401 ||
+                                                response == 422) {
+                                              print(response);
+                                              final snackBar = SnackBar(
+                                                content: const Text(
+                                                    'Email or Password is incorrect'),
+                                              );
+                                              // Find the ScaffoldMessenger in the widget tree
+                                              // and use it to show a SnackBar.
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(snackBar);
+                                            } else if (response == 403) {
+                                            } else {
+                                              print(response);
+                                              // modell.setUserMap = response;
+                                              modell.setToken = response;
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          UserProfile()));
+                                            }
                                           }
                                         },
                                         formGlobalKey: formGlobalKey,
