@@ -1,6 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/main.dart';
+import 'package:seha_tech/models/appModel.dart';
+import 'package:seha_tech/services/TreatmentServices/treatments.dart';
 import 'package:seha_tech/views/MedicalProfile/userProfileMainWidget.dart';
 import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import 'package:seha_tech/views/myRequests/requestsPage.dart';
@@ -30,81 +34,104 @@ class _AppSkeletonState extends State<AppSkeleton> {
   @override
   Widget build(BuildContext context) {
     int _page = appModel.getPageNumber;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        centerTitle: true,
-        //this part need to render defferently in each lang
-        // the arrow doesnt want to change direction
-        // AppLocalizations.of(context)!.localeName == 'en'
-        leading: IconButton(
-          icon: widget.icon,
-          onPressed: () {
-            if (widget.viewName == "Medical Profile") {
-              appModel.setPageNumber = 2;
-              widget.callback(1);
-            } else {
-              Navigator.of(context).popUntil(ModalRoute.withName("/Page1"));
-              // Navigator.pop(context);
-              setState(() {
-                _page = 2;
-                appModel.setPageNumber = _page;
-                print(_page);
-              });
-            }
-          },
-        ),
-        backgroundColor: Palette.secondaryColor,
-        elevation: 0.0,
-      ),
-      body: widget.body, //Body of the view
-      bottomNavigationBar: CurvedNavigationBar(
-        index: _page,
-        animationCurve: Curves.bounceInOut,
-        //key:_bottomNavigationKey,
+    return ScopedModel<AppModel>(
+        model: appModel,
+        child: ScopedModelDescendant<AppModel>(
+          builder: (context, child, model) {
+            return WillPopScope(
+              onWillPop: () async {
+                return false;
+              },
+              child: Scaffold(
+                appBar: AppBar(
+                  title: Text(widget.title),
+                  centerTitle: true,
+                  //this part need to render defferently in each lang
+                  // the arrow doesnt want to change direction
+                  // AppLocalizations.of(context)!.localeName == 'en'
+                  leading: (widget.viewName == "Medical Profile" ||
+                          widget.viewName == "Policy")
+                      ? IconButton(
+                          icon: widget.icon,
+                          onPressed: () {
+                            if (widget.viewName == "Medical Profile") {
+                              widget.callback(1);
+                            } else if (widget.viewName == "Policy") {
+                              Navigator.pop(context);
+                            }
+                          },
+                        )
+                      : Container(),
+                  backgroundColor: Palette.secondaryColor,
+                  elevation: 0.0,
+                ),
+                body: widget.body, //Body of the view
+                bottomNavigationBar: CurvedNavigationBar(
+                  index: model.currentPage,
+                  animationCurve: Curves.bounceInOut,
+                  //key:_bottomNavigationKey,
 
-        backgroundColor: Palette.thirdColor,
-        color: Colors.white,
-        height: MediaQuery.of(context).size.height * 0.07,
-        items: <Widget>[
-          Icon(
-            Icons.event_available,
-            size: 30,
-            color: (_page == 0) ? Palette.thirdColor : Palette.primaryColor,
-          ),
-          Icon(Icons.add,
-              size: 30,
-              color: (_page == 1) ? Palette.thirdColor : Palette.primaryColor),
-          Icon(Icons.account_circle,
-              size: 30,
-              color: (_page == 2) ? Palette.thirdColor : Palette.primaryColor),
-        ],
-        onTap: (index) {
-          setState(() {
-            //appModel.setPreviousPage = _page;
-            appModel.setPageNumber = index;
-            if (index == 2 && _page != 2) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => UserProfile()),
-              );
-            } else if (index == 1) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TreatmentView()),
-              );
-            } else if (index == 0) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyRequests()),
-              );
-            }
-            _page = index;
-            //print(appModel.getPreviousPage);
-            print(_page);
-          });
-        },
-      ),
-    );
+                  backgroundColor: Palette.thirdColor,
+                  color: Colors.white,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  items: <Widget>[
+                    Icon(
+                      Icons.event_available,
+                      size: 30,
+                      color: (model.currentPage == 0)
+                          ? Palette.thirdColor
+                          : Palette.primaryColor,
+                    ),
+                    Icon(Icons.add,
+                        size: 30,
+                        color: (model.currentPage == 1)
+                            ? Palette.thirdColor
+                            : Palette.primaryColor),
+                    Icon(Icons.account_circle,
+                        size: 30,
+                        color: (model.currentPage == 2)
+                            ? Palette.thirdColor
+                            : Palette.primaryColor),
+                  ],
+                  onTap: (index) async {
+                    model.setPageNumber = index;
+                    if (index == 1) {
+                      var response = await getAllTreatments(
+                          userModel.getToken, userModel.getUrl);
+                      userModel.setProvidersLength = response.length;
+                      print("API Call");
+                    }
+
+                    if (index == 2 && _page != 2) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => UserProfile()),
+                      );
+                    } else if (index == 1 && _page != 1) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TreatmentView()),
+                      );
+                    } else if (index == 0 && _page != 0) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyRequests(
+                                  false,
+                                )),
+                      );
+                    } else {
+                      setState(() {
+                        _page = index;
+                      });
+                    }
+                    //print(appModel.getPreviousPage);
+                  },
+                ),
+              ),
+            );
+          },
+        ));
   }
 }

@@ -1,9 +1,14 @@
 import 'package:scoped_model/scoped_model.dart';
 
 class ResetPasswordModel extends Model {
-  String password = ' ', newPassword = '', otpCode = '', email = '';
+  String password = ' ', newPassword = '', otpCode = '', email = '', url = '';
 
   String temp = '';
+
+  var payers = [];
+
+  String choosenPayer = "";
+
   get getTemp => this.temp;
 
   set setTemp(temp) => this.temp = temp;
@@ -21,4 +26,19 @@ class ResetPasswordModel extends Model {
   String get getNewPassword => this.newPassword;
 
   set setNewPassword(String newPassword) => this.newPassword = newPassword;
+
+  get getUrl => this.url;
+
+  set setUrl(url) => this.url = url;
+
+  get getChoosenPayer => this.choosenPayer;
+
+  set setChoosenPayer(var choosenPayer) {
+    this.choosenPayer = choosenPayer;
+  }
+
+  get getPayers => this.payers;
+
+  set setPayers(List<dynamic> payers) =>
+      {this.payers = payers, notifyListeners()};
 }

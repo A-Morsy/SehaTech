@@ -28,6 +28,7 @@ class _TempletDialog extends State<TempletDialog> {
     for (int i = 0; i < widget.payers.length; i++) {
       children.add(GestureDetector(
         onTap: () {
+          print(widget.payers[i]);
           signInModel.setPayerName = widget.payers[i];
           signInModel.seturl = widget.payerUrl[i];
           Navigator.pop(context);

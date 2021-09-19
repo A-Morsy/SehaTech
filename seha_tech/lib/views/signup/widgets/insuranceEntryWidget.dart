@@ -62,8 +62,8 @@ class _InsuranceEntryWidgetState extends State<InsuranceEntryWidget> {
                                 signUpModel.setInsuranceCardId =
                                     signUpModel.getStringValue,
                             errorText: 'Enter a valid card ID',
-                            isValid:
-                                widget.validateCardID(signUpModel.getInsuranceCardId),
+                            isValid: widget
+                                .validateCardID(signUpModel.getInsuranceCardId),
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width / 2.4,
@@ -90,7 +90,7 @@ class _InsuranceEntryWidgetState extends State<InsuranceEntryWidget> {
                                   } else if (insuranceCompany ==
                                       signUpModel.getPayers[1]["name"]) {
                                     signUpModel.setassociatedBaseUrl =
-                                        "payer1.sehatech.org:3000";
+                                        "http://ec2-3-69-50-95.eu-central-1.compute.amazonaws.com:3000";
                                   }
                                 });
                               },

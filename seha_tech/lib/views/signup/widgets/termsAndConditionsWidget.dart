@@ -5,7 +5,8 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/signUpModel.dart';
-import 'package:seha_tech/services/signUpServices.dart';
+import 'package:seha_tech/services/Authentication%20Services/signUpServices.dart';
+
 
 import 'package:seha_tech/views/rememberPassword/widgets/otpWidget.dart';
 import 'package:seha_tech/views/signup/signUpOne.dart';

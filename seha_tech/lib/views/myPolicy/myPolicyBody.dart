@@ -8,11 +8,12 @@ class MyPolicyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.fromLTRB(20, 50, 20, 0),
-        color: Palette.fifthColor,
-        child: ListView(
-          children: [FirstPolicyCard(), SecondPolicyCard(), ThirdPolicyCard()],
-        ),
-      );
+      padding: EdgeInsets.fromLTRB(20, 50, 20, 0),
+      color: Palette.fifthColor,
+      child: ListView(
+        children: [FirstPolicyCard(), ThirdPolicyCard()],
+        // children: [FirstPolicyCard(), SecondPolicyCard(), ThirdPolicyCard()],
+      ),
+    );
   }
 }

@@ -3,8 +3,8 @@ import 'dart:convert';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:http/http.dart' as http;
 
-Future<dynamic> requestPasswordReset(String email) async {
-  String url = 'payer1.sehatech.org:3000';
+Future<dynamic> requestPasswordReset(String email,String url) async {
+  print (email + url);
   try {
     Map<String, String> headers = {"email": email};
     var response =
@@ -28,9 +28,8 @@ Future<dynamic> requestPasswordReset(String email) async {
   }
 }
 
-Future<dynamic> resetPassword(String code, String newPassword,String email) async {
+Future<dynamic> resetPassword(String code, String newPassword,String email,String url) async {
   try {
-    String url = 'payer1.sehatech.org:3000';
     Map<String, String> headers = {
       "Content-type": "application/json",
       "email": email

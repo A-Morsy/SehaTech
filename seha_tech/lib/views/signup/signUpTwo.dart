@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seha_tech/services/signUpServices.dart';
+import 'package:seha_tech/services/Authentication%20Services/signUpServices.dart';
 import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import 'package:seha_tech/views/signup/signUpOne.dart';
 import 'package:seha_tech/views/signup/signUpThree.dart';

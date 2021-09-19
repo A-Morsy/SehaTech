@@ -5,7 +5,7 @@ import 'dart:convert';
 Future<List<List<String>>> getPayers() async {
   var client = http.Client();
 
-  final response = await client.get('http://dev.sehatech.org:3000/payer');
+  final response = await client.get('http://ec2-35-156-27-11.eu-central-1.compute.amazonaws.com:3000/payer');
 
   if (response.statusCode == 200) {
     var resBody = await jsonDecode(response.body);
@@ -17,7 +17,6 @@ Future<List<List<String>>> getPayers() async {
       payerName.add(u["name"]);
       payerUrl.add(u["associatedBaseUrl"]);
     }
-    ;
     data.add(payerName);
     data.add(payerUrl);
     print(data);

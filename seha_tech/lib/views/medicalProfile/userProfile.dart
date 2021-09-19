@@ -4,6 +4,7 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/appSkeleton.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/appModel.dart';
+import 'package:seha_tech/models/userModel.dart';
 import 'package:seha_tech/views/medicalProfile/widgets/firstBlock.dart';
 import 'package:seha_tech/views/medicalProfile/widgets/secondBlock.dart';
 import 'package:seha_tech/views/medicalProfile/widgets/userMainSubContainer.dart';
@@ -17,6 +18,7 @@ class UserProfile extends StatefulWidget {
 }
 
 AppModel appModel = AppModel();
+
 
 class _UserProfile extends State<UserProfile> {
   int _viewChange = 1;

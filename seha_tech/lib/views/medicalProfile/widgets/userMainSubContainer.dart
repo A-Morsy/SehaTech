@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/main.dart';
+import 'package:seha_tech/services/Basic%20User%20Services/policy.dart';
+import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import '../../signup/widgets/customDivider.dart';
 import '../../myPolicy/myPolicyView.dart';
 
@@ -15,9 +19,13 @@ class userMainSubContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return _buildContent(context);
+  }
+
+  Widget _buildContent(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: MediaQuery.of(context).size.height * 0.55,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -27,8 +35,8 @@ class userMainSubContainer extends StatelessWidget {
                   callback(2);
                 },
                 child: Container(
-                  width: 120,
-                  height: 120,
+                  width: 150,
+                  height: 150,
                   alignment: Alignment.centerLeft,
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
@@ -56,8 +64,8 @@ class userMainSubContainer extends StatelessWidget {
             GestureDetector(
                 onTap: () {},
                 child: Container(
-                  width: 120,
-                  height: 120,
+                  width: 150,
+                  height: 150,
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.centerLeft,
                   decoration: BoxDecoration(
@@ -87,15 +95,23 @@ class userMainSubContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => MyPolicyView()));
+                  onTap: () async {
+                    var response = await getUserPolicy(
+                        userModel.getToken, userModel.getUrl);
+                    if (response["result"] == 200) {
+                      userModel.setPolicy = response["body"];
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyPolicyView()));
+                    } else {
+                      CustomSnackBar.buildErrorSnackbar(
+                          context, response["result"]);
+                    }
                   },
                   child: Container(
-                    width: 120,
-                    height: 120,
+                    width: 150,
+                    height: 150,
                     alignment: Alignment.centerLeft,
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
@@ -123,8 +139,8 @@ class userMainSubContainer extends StatelessWidget {
               GestureDetector(
                   onTap: () {},
                   child: Container(
-                    width: 120,
-                    height: 120,
+                    width: 150,
+                    height: 150,
                     alignment: Alignment.centerLeft,
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(

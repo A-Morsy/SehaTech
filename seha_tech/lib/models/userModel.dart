@@ -2,7 +2,6 @@
 import 'package:scoped_model/scoped_model.dart';
 
 class UserModel extends Model {
-  Map userMap = new Map();
   int id = 0, patientId = 0;
   String email = '',
       consentForResearch = '',
@@ -14,11 +13,26 @@ class UserModel extends Model {
       gender = "",
       insuranceCardId = '',
       phoneNumber = "",
-      token = '';
+      token = '',
+      url = '';
 
-  get getUserMap => this.userMap;
+  int providersLength = 0;
+  get getProvidersLength => this.providersLength;
 
-  set setUserMap(userMap) => {this.userMap = userMap, notifyListeners()};
+  set setProvidersLength(providersLength) =>
+      this.providersLength = providersLength;
+
+  List<dynamic> providersList = [];
+
+  List<dynamic> get getProvidersList => this.providersList;
+
+  set setProvidersList(List<dynamic> providersList) =>
+      this.providersList = providersList;
+
+  Map<String, dynamic> policy = Map<String, dynamic>();
+  get getPolicy => this.policy;
+
+  set setPolicy(policy) => this.policy = policy;
 
   get getId => this.id;
 
@@ -80,4 +94,8 @@ class UserModel extends Model {
   get getToken => this.token;
 
   set setToken(token) => {this.token = token, notifyListeners()};
+
+  get getUrl => this.url;
+
+  set setUrl(url) => {this.url = url, notifyListeners()};
 }

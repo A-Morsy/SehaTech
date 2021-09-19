@@ -6,7 +6,7 @@ import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/resetpassword.dart';
 import 'package:seha_tech/models/signUpModel.dart';
-import 'package:seha_tech/services/signUpServices.dart';
+import 'package:seha_tech/services/Authentication%20Services/signUpServices.dart';
 import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import 'package:seha_tech/views/rememberPassword/remeberPasswordView.dart';
 import 'package:seha_tech/views/rememberPassword/widgets/requestResetWidget.dart';

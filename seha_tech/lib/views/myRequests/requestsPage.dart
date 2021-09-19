@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/appSkeleton.dart';
 import 'package:seha_tech/Reusable/palette.dart';
+import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import 'package:seha_tech/views/medicalProfile/userProfileMainWidget.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 import 'package:seha_tech/views/myRequests/widgets/requestList.dart';
 
+// ignore: must_be_immutable
 class MyRequests extends StatefulWidget {
-  MyRequests({Key? key}) : super(key: key);
+  late bool isRequestSumbitted;
+  MyRequests(isRequestSumbitted) {
+    this.isRequestSumbitted = isRequestSumbitted;
+  }
 
   @override
   _MyRequestsState createState() => _MyRequestsState();
@@ -15,12 +20,18 @@ class MyRequests extends StatefulWidget {
 class _MyRequestsState extends State<MyRequests> {
   @override
   Widget build(BuildContext context) {
-    return AppSkeleton(
-        title: "My Requests",
-        callback: (val) => setState(() => {}),
-        body: body(),
-        icon: Icon(Icons.menu, color: Colors.white),
-        viewName: "My Requests");
+    appModel.setPageNumber = 0;
+    return WillPopScope(
+      onWillPop: () async {
+        return widget.isRequestSumbitted;
+      },
+      child: AppSkeleton(
+          title: "My Requests",
+          callback: (val) => setState(() => {}),
+          body: body(),
+          icon: Icon(Icons.menu, color: Colors.white),
+          viewName: "My Requests"),
+    );
   }
 
   Widget body() {

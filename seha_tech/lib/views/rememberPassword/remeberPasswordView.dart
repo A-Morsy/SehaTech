@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
-import 'package:seha_tech/services/remeberPassword.dart';
+import 'package:seha_tech/services/Authentication Services/remeberPassword.dart';
 import 'package:seha_tech/services/validation/userValidation.dart';
 import 'package:seha_tech/views/rememberPassword/widgets/requestResetWidget.dart';
 import 'package:seha_tech/views/signIn/mainPageButton.dart';
@@ -74,7 +74,8 @@ class _RemberPasswordViewState extends State<RemberPasswordView> {
                             var response = await resetPassword(
                                 resetPasswordModel.getOtpCode,
                                 resetPasswordModel.getPassword,
-                                resetPasswordModel.getEmail);
+                                resetPasswordModel.getEmail,
+                                resetPasswordModel.getUrl);
                             String message = ' ';
                             if (response["code"] == 200) {
                               message = response["message"];

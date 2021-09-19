@@ -1,19 +1,18 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/signInModel.dart';
 import 'package:seha_tech/models/userModel.dart';
-import 'package:seha_tech/services/signInService.dart';
+import 'package:seha_tech/services/Authentication%20Services/signInService.dart';
 import 'package:seha_tech/views/medicalProfile/userProfile.dart';
 import 'package:seha_tech/views/signIn/mainPageButton.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
 import 'package:seha_tech/views/signup/widgets/forgetPassword.dart';
 import 'package:seha_tech/views/signup/widgets/signUpText.dart';
-// import 'package:scoped_model/scoped_model.dart';
-// import 'models/userModel.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'views/signup/widgets/customDivider.dart';
@@ -25,7 +24,6 @@ void main() {
   runApp(MyApp());
 }
 
-// UserModel userModel = UserModel ();
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
 
@@ -172,8 +170,10 @@ class LandingScreen extends StatelessWidget with InputValidationMixin {
                                         color: Palette.primaryColor,
                                         useValidation: true,
                                         callBackMethod: () async {
-                                          if (signInModel.getUrl.length==0) {
-                                          CustomSnackBar.buildErrorSnackbar(context, "Please Choose Your Policy Owner") ;
+                                          if (signInModel.getUrl.length == 0) {
+                                            CustomSnackBar.buildErrorSnackbar(
+                                                context,
+                                                "Please Choose Your Policy Owner");
                                           } else {
                                             var response = await signIn(
                                                 model.getEmail,
@@ -193,14 +193,41 @@ class LandingScreen extends StatelessWidget with InputValidationMixin {
                                                   .showSnackBar(snackBar);
                                             } else if (response == 403) {
                                             } else {
-                                              print(response);
                                               // modell.setUserMap = response;
-                                              modell.setToken = response;
+
+                                              modell.setUrl = model.getUrl;
+                                              modell.setToken =
+                                                  response["token"];
+                                              modell.setEmail =
+                                                  response["patientUserInfo"]
+                                                      ["email"];
+                                              modell.setFirstName =
+                                                  response["patientUserInfo"]
+                                                      ["firstName"];
+                                              modell.setMiddleName =
+                                                  response["patientUserInfo"]
+                                                      ["middleName"];
+                                              modell.setLastName =
+                                                  response["patientUserInfo"]
+                                                      ["lastName"];
+                                              modell.setDateOfBirth =
+                                                  response["patientUserInfo"]
+                                                      ["dateOfBirth"];
+                                              modell.setInsuranceCardId =
+                                                  response["patientUserInfo"]
+                                                      ["insuranceCardId"];
+                                              modell.setPhoneNumber =
+                                                  response["patientUserInfo"]
+                                                      ["phoneNumber"];
                                               Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          UserProfile()));
+                                                context,
+                                                MaterialPageRoute(
+                                                  settings: RouteSettings(
+                                                      name: "/Main"),
+                                                  builder: (context) =>
+                                                      UserProfile(),
+                                                ),
+                                              );
                                             }
                                           }
                                         },

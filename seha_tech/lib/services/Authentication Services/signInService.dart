@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<dynamic> signIn(String email, String password, String url) async {
-  print(url) ;
   try {
     Map<String, String> headers = {"Content-type": "application/json"};
     Map data = {'email': email, 'password': password};
@@ -13,7 +12,7 @@ Future<dynamic> signIn(String email, String password, String url) async {
     // print(jsonDecode(response.body));
     if (response.statusCode == 200) {
       Map<String, dynamic> resbody = jsonDecode(response.body);
-      return resbody['token'];
+      return resbody;
     } else {
       return response.statusCode;
     }

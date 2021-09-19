@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
-import 'package:seha_tech/services/remeberPassword.dart';
+import 'package:seha_tech/services/Authentication%20Services/remeberPassword.dart';
 import 'package:seha_tech/views/rememberPassword/widgets/otpWidget.dart';
 import 'package:seha_tech/views/signIn/mainPageTextField.dart';
 import 'package:seha_tech/views/signup/widgets/customDivider.dart';
@@ -17,13 +17,15 @@ class ResetRequest extends StatefulWidget with InputValidationMixin {
   _ResetRequestState createState() => _ResetRequestState();
 }
 
-final GlobalKey<FormState> formGlobalKey = GlobalKey<FormState>();
+final GlobalKey<FormState> formGlobalKey1 = GlobalKey<FormState>();
 
 class _ResetRequestState extends State<ResetRequest> {
+  String insuranceCompany = "AXA Medical Insurance";
+
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formGlobalKey,
+      key: formGlobalKey1,
       child: Container(
         child: AlertDialog(
           title: Container(
@@ -39,7 +41,7 @@ class _ResetRequestState extends State<ResetRequest> {
             ),
           ),
           content: Container(
-            height: MediaQuery.of(context).size.height * 0.18,
+            height: MediaQuery.of(context).size.height * 0.25,
             child: Column(
               children: [
                 Text(
@@ -60,6 +62,46 @@ class _ResetRequestState extends State<ResetRequest> {
                     model: 'resetPassword',
                   ),
                 ),
+                Container(
+                  width: MediaQuery.of(context).size.width / 2.4,
+                  //height: MediaQuery.of(context).size.height / 20,
+                  padding: EdgeInsets.only(top: 9),
+                  child: DropdownButton<String>(
+                    value: insuranceCompany,
+                    icon: const Icon(Icons.arrow_drop_down_sharp),
+                    iconSize: 24,
+                    elevation: 16,
+                    style: TextStyle(color: Palette.primaryColor),
+                    underline: Container(
+                      height: 1,
+                      color: Palette.primaryColor,
+                    ),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        insuranceCompany = newValue!;
+                        resetPasswordModel.setChoosenPayer = insuranceCompany;
+                        if (insuranceCompany ==
+                            resetPasswordModel.getPayers[0]["name"]) {
+                          resetPasswordModel.setUrl =
+                              "payer2.sehatech.org:3000";
+                        } else if (insuranceCompany ==
+                            resetPasswordModel.getPayers[1]["name"]) {
+                          resetPasswordModel.setUrl =
+                              "http://ec2-3-69-50-95.eu-central-1.compute.amazonaws.com:3000";
+                        }
+                      });
+                    },
+                    items: <String>[
+                      resetPasswordModel.getPayers[0]["name"],
+                      resetPasswordModel.getPayers[1]["name"],
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
+                )
               ],
             ),
           ),
@@ -69,11 +111,12 @@ class _ResetRequestState extends State<ResetRequest> {
                 width: 300,
                 child: TextButton(
                     onPressed: () async {
-                      if (formGlobalKey.currentState!.validate()) {
-                        formGlobalKey.currentState!.save();
+                      if (formGlobalKey1.currentState!.validate()) {
+                        formGlobalKey1.currentState!.save();
 
                         var response = await requestPasswordReset(
-                            resetPasswordModel.getEmail);
+                            resetPasswordModel.getEmail,
+                            resetPasswordModel.getUrl);
 
                         if (response["result"] == 200) {
                           showDialog(
@@ -83,7 +126,8 @@ class _ResetRequestState extends State<ResetRequest> {
                                   ),
                               barrierDismissible: true);
                         } else {
-                          CustomSnackBar.buildErrorSnackbar(context,"Error" +  response["result"]);
+                          CustomSnackBar.buildErrorSnackbar(
+                              context, "Error" + response["result"]);
                         }
 
                         print("Valid");
