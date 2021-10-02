@@ -19,7 +19,6 @@ class UserProfile extends StatefulWidget {
 
 AppModel appModel = AppModel();
 
-
 class _UserProfile extends State<UserProfile> {
   int _viewChange = 1;
   set string(int value) => setState(() => _viewChange = value);
@@ -37,14 +36,13 @@ class _UserProfile extends State<UserProfile> {
       callback: (val) => setState(() => _viewChange = val),
       body: UserProfileMainWidget(widgetsList: [
         UserInfoBlock(),
-        CustomDivider(dividerColor: Palette.thirdColor),
         _viewChange == 1
             ? userMainSubContainer(
                 callback: (val) => setState(() => _viewChange = val),
               )
             : MedicalList()
       ]),
-      icon: Icon(Icons.menu, color: Colors.white),
+      icon: Icon(Icons.menu, color: Palette.secondaryColor),
       viewName: "Medical Profile",
     ));
   }

@@ -22,15 +22,22 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
         width: MediaQuery.of(context).size.width,
         height: double.infinity,
         child: Container(
-          margin: EdgeInsets.fromLTRB(20, 50, 20, 0),
+          margin: EdgeInsets.fromLTRB(20, 15, 20, 0),
           height: double.infinity,
           decoration: BoxDecoration(
-            borderRadius: const BorderRadius.vertical(
-              top: const Radius.circular(20),
-            ),
-            color: Colors.white,
+                borderRadius: const BorderRadius.all(
+                  const Radius.circular(20),
+                ),
+                image: DecorationImage(
+                  colorFilter: new ColorFilter.mode(
+                      Colors.white.withOpacity(0.5), BlendMode.colorBurn),
+                  image: AssetImage("assets/images/bg.jpg"),
+                  fit: BoxFit.cover,
+                )),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Column(children: widget.widgetsList),
           ),
-          child: Column(children: widget.widgetsList),
         ),
       );
   }

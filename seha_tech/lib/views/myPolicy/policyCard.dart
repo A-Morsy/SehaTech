@@ -14,10 +14,10 @@ class FirstPolicyCard extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10)),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 10,
-              offset: Offset(2, 4), // changes position of shadow
+              color: Colors.grey.withOpacity(0.15),
+              spreadRadius: 1,
+              blurRadius: 1,
+              offset: Offset(1, 3), // changes position of shadow
             ),
           ]),
       padding: EdgeInsets.all(20),
@@ -64,7 +64,7 @@ class FirstPolicyCard extends StatelessWidget {
                           'DATE OF RENEWAL',
                           style: TextStyle(color: Palette.thirdColor),
                         ),
-                        Text(userModel.getPolicy["expiryDate"]),
+                        Text(userModel.getPolicy["expiryDate"].substring(0, 10)),
                       ],
                     ),
                   )

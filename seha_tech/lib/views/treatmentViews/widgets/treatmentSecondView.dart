@@ -24,16 +24,20 @@ class _TreatmentSecondViewState extends State<TreatmentSecondView> {
       child: Stack(
         children: [
           Container(
+            decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(
+                  const Radius.circular(20),
+                ),
+                image: DecorationImage(
+                  colorFilter: new ColorFilter.mode(
+                      Colors.white.withOpacity(0.5), BlendMode.colorBurn),
+                  image: AssetImage("assets/images/bg.jpg"),
+                  fit: BoxFit.cover,
+                )),
             margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
             padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
-                const Radius.circular(20),
-              ),
-              color: Colors.white,
-            ),
             child: ListView(
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -79,7 +83,10 @@ class _TreatmentSecondViewState extends State<TreatmentSecondView> {
                             onTap: () {
                               showDialog(
                                   context: context,
-                                  builder: (_) => ProviderInfo(branch: userModel.getProvidersList[index] ,),
+                                  builder: (_) => ProviderInfo(
+                                        branch:
+                                            userModel.getProvidersList[index],
+                                      ),
                                   barrierDismissible: true);
                               // widget.callBack(3);
                             },

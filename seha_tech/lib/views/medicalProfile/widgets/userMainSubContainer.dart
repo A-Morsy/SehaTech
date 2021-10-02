@@ -50,8 +50,8 @@ class userMainSubContainer extends StatelessWidget {
                       Image.asset(
                         'assets/images/medicalReport.png',
                         color: Palette.primaryColor,
-                        width: 60,
-                        height: 60,
+                        width: 50,
+                        height: 50,
                       ),
                       Container(
                           width: 30,
@@ -79,8 +79,8 @@ class userMainSubContainer extends StatelessWidget {
                       Image.asset(
                         'assets/images/family.png',
                         color: Palette.primaryColor,
-                        width: 60,
-                        height: 60,
+                        width: 50,
+                        height: 50,
                       ),
                       Container(
                           width: 30,
@@ -125,8 +125,8 @@ class userMainSubContainer extends StatelessWidget {
                         Image.asset(
                           'assets/images/policy.png',
                           color: Palette.primaryColor,
-                          width: 60,
-                          height: 60,
+                          width: 50,
+                          height: 50,
                         ),
                         Container(
                             width: 30,
@@ -154,8 +154,8 @@ class userMainSubContainer extends StatelessWidget {
                         Image.asset(
                           'assets/images/wallet.png',
                           color: Palette.primaryColor,
-                          width: 60,
-                          height: 60,
+                          width: 50,
+                          height: 50,
                         ),
                         Container(
                             width: 30,

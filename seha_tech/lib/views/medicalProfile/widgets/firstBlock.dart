@@ -16,73 +16,62 @@ class UserInfoBlock extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
             child: Container(
                 child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
                     padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.4,
-                              margin: EdgeInsets.only(bottom: 20),
-                              child: Text(
-                                "User Name: ",
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Palette.primaryColor,
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15),
+                          child: Center(
+                            child: Column(
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 20),
+                                  child: Text(
+                                    userModel.getFirstName +
+                                        " " +
+                                        userModel.getMiddleName +
+                                        " " +
+                                        userModel.getLastName,
+                                    style: TextStyle(
+                                      fontSize: 25.0,
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(bottom: 10),
+                                      child: Text(
+                                        "Insurance ID    ",
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          color: Palette.thirdColor,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(bottom: 10),
+                                      child: Text(
+                                        userModel.getInsuranceCardId,
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.4,
-                              margin: EdgeInsets.only(bottom: 20),
-                              child: Text(
-                                "Insurance Card ID: ",
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Palette.primaryColor,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: <Widget>[
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.4,
-                              margin: EdgeInsets.only(bottom: 20),
-                              child: Text(
-                                userModel.getFirstName +
-                                    " " +
-                                    userModel.getMiddleName +
-                                    " " +
-                                    userModel.getLastName,
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Palette.forthColor,
-                                  decoration: TextDecoration.underline,
-                                  decorationStyle: TextDecorationStyle.dotted,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.4,
-                              margin: EdgeInsets.only(bottom: 20),
-                              child: Text(
-                                userModel.getInsuranceCardId,
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Palette.forthColor,
-                                  decoration: TextDecoration.underline,
-                                  decorationStyle: TextDecorationStyle.dotted,
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ],
                     )),

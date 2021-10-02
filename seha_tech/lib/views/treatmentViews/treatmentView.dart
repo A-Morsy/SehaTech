@@ -23,14 +23,14 @@ class _TreatmentView extends State<TreatmentView> {
         title: 'Treatment',
         callback: (val) => setState(() => {}),
         body: body(),
-        icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+        icon: Icon(Icons.double_arrow_outlined, color: Palette.secondaryColor),
         viewName: "Treatment");
   }
 
   Widget body() {
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
+      // width: MediaQuery.of(context).size.width,
+      // height: MediaQuery.of(context).size.height,
       color: Palette.fifthColor,
       padding: EdgeInsets.only(top: 25),
       child: Column(

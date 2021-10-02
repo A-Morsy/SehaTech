@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/customSnackBar.dart';
@@ -21,6 +22,9 @@ import './Reusable/dialog.dart';
 import './services/validation/userValidation.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
   runApp(MyApp());
 }
 
@@ -29,15 +33,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(localizationsDelegates: [
-      AppLocalizations.delegate, // Add this line
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-      GlobalCupertinoLocalizations.delegate,
-    ], supportedLocales: [
-      Locale('en', ''), // English, no country code
-      Locale('ar', ''), // Spanish, no country code
-    ], home: MyHomePage(title: ''));
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: [
+          AppLocalizations.delegate, // Add this line
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('en', ''), // English, no country code
+          Locale('ar', ''), // Spanish, no country code
+        ],
+        home: MyHomePage(title: ''));
   }
 }
 

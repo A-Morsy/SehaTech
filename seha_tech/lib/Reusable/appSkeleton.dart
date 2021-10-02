@@ -44,8 +44,18 @@ class _AppSkeletonState extends State<AppSkeleton> {
               },
               child: Scaffold(
                 appBar: AppBar(
-                  title: Text(widget.title),
-                  centerTitle: true,
+                  bottom: PreferredSize(
+                    preferredSize: Size.fromHeight(1.0),
+                    child: Container(
+                      color: Palette.secondaryColor,
+                      height: 1.0,
+                    ),
+                  ),
+                  title: Text(
+                    widget.title,
+                    style: TextStyle(color: Palette.primaryColor),
+                  ),
+                  centerTitle: false,
                   //this part need to render defferently in each lang
                   // the arrow doesnt want to change direction
                   // AppLocalizations.of(context)!.localeName == 'en'
@@ -61,11 +71,13 @@ class _AppSkeletonState extends State<AppSkeleton> {
                             }
                           },
                         )
-                      : Container(),
-                  backgroundColor: Palette.secondaryColor,
+                      : widget.icon,
+                  backgroundColor: Colors.white,
                   elevation: 0.0,
                 ),
-                body: widget.body, //Body of the view
+                body: Container(
+                    child: widget.body,
+                    ), //Body of the view
                 bottomNavigationBar: CurvedNavigationBar(
                   index: model.currentPage,
                   animationCurve: Curves.bounceInOut,
@@ -117,9 +129,7 @@ class _AppSkeletonState extends State<AppSkeleton> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => MyRequests(
-                                  false,
-                                )),
+                            builder: (context) => MyRequests(false, 0)),
                       );
                     } else {
                       setState(() {

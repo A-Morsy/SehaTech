@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/appSkeleton.dart';
+import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/appModel.dart';
 import 'package:seha_tech/views/myPolicy/myPolicyBody.dart';
 
@@ -22,15 +23,15 @@ class _MyPolicyView extends State<MyPolicyView> {
   }
 
   Widget _buildContent() {
-
-      return Container(
-        child: AppSkeleton(
-          icon: Icon(Icons.menu, color: Colors.white),
-          title: 'My Policy',
-          callback: (val) => setState(() => _viewChange = val),
-          body: MyPolicyBody(),
-          viewName: "Policy",
-        ),
-      );
+    return Container(
+      child: AppSkeleton(
+        icon: Icon(Icons.arrow_back_ios_new_outlined,
+            color: Palette.secondaryColor),
+        title: 'My Policy',
+        callback: (val) => setState(() => _viewChange = val),
+        body: MyPolicyBody(),
+        viewName: "Policy",
+      ),
+    );
   }
 }

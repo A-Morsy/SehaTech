@@ -52,3 +52,23 @@ Future<dynamic> requestTreatment(String token, int branchId, String url) async {
   }
   return dataa;
 }
+
+Future<List<dynamic>> getClaims(
+    String token, String url, int? index) async {
+  var response;
+  if (index == 0) {
+    response = await http.get("http://$url/preauth/patient",
+        headers: {HttpHeaders.authorizationHeader: "Bearer $token"});
+  } else {
+    response = await http.get("http://$url/patientclaim",
+        headers: {HttpHeaders.authorizationHeader: "Bearer $token"});
+  }
+
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  } else {
+    throw Exception('Failed to get pre authorizated claims');
+  }
+}
+
+
