@@ -43,13 +43,24 @@ class _OTPWidgetState extends State<OTPWidget> {
         content: TextFormField(
           controller: textController2,
           onFieldSubmitted: (pin) async {
-            resetPasswordModel.setOtpCode = pin;
             if (widget.type == 1) {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => RemberPasswordView()));
-              print("Completed: " + resetPasswordModel.getOtpCode);
+              var response = await approveUserBytOtp(
+                resetPasswordModel.getEmail,
+                pin,
+                resetPasswordModel.getUrl,
+              );
+              if (response['result'] == 200) {
+                resetPasswordModel.setOtpCode = pin;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => RemberPasswordView()));
+                print("Completed: " + resetPasswordModel.getOtpCode);
+              }else{
+                CustomSnackBar.buildErrorSnackbar(
+                                                context,
+                                                "Incorrect OTP, Please try again!");
+              }
             } else if (widget.type == 2) {
               var response = await approveUserBytOtp(
                   signUpModel.getEmail, pin, signUpModel.getassociatedBaseUrl);

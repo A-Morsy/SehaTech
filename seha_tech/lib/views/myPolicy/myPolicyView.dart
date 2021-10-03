@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/Reusable/appSkeleton.dart';
 import 'package:seha_tech/Reusable/palette.dart';
-import 'package:seha_tech/models/appModel.dart';
+import 'package:seha_tech/models/userModel.dart';
 import 'package:seha_tech/views/myPolicy/myPolicyBody.dart';
 
 class MyPolicyView extends StatefulWidget {
@@ -11,15 +11,13 @@ class MyPolicyView extends StatefulWidget {
   _MyPolicyView createState() => _MyPolicyView();
 }
 
-AppModel appModel = AppModel();
-
 class _MyPolicyView extends State<MyPolicyView> {
   // ignore: unused_field
   int _viewChange = 2;
   set string(int value) => setState(() => _viewChange = value);
   @override
   Widget build(BuildContext context) {
-    return ScopedModel<AppModel>(model: appModel, child: _buildContent());
+    return _buildContent();
   }
 
   Widget _buildContent() {

@@ -31,7 +31,7 @@ class SignUpThree extends StatelessWidget {
             elevation: 0.0,
           ),
           body: SignUpContainer(
-            signUpStep: 3,
+            signUpStep: 2,
             widgetsList: [InsuranceEntryWidget()],
           ),
           floatingActionButton: Container(
@@ -50,6 +50,7 @@ class SignUpThree extends StatelessWidget {
                   backgroundColor: Palette.forthColor,
                 ),
                 FloatingActionButton(
+                  heroTag: "btn2",
                   onPressed: () {
                     if (globalKey3.currentState!.validate()) {
                       globalKey3.currentState!.save();

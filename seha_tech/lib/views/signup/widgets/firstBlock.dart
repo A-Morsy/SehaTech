@@ -40,19 +40,19 @@ class _NamePhotoBlockState extends State<NamePhotoBlock> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  // width: 90,
-                  // height: 90,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        const BorderRadius.all(const Radius.circular(50)),
-                    color: Colors.grey[400],
-                  ),
-                  child: Icon(
-                    Icons.add,
-                    size: MediaQuery.of(context).size.width * 0.25,
-                  ),
-                ),
+                // Container(
+                //   // width: 90,
+                //   // height: 90,
+                //   decoration: BoxDecoration(
+                //     borderRadius:
+                //         const BorderRadius.all(const Radius.circular(50)),
+                //     color: Colors.grey[400],
+                //   ),
+                //   child: Icon(
+                //     Icons.add,
+                //     size: MediaQuery.of(context).size.width * 0.25,
+                //   ),
+                // ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
                   child: new Column(

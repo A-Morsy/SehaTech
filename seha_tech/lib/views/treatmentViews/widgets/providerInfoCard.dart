@@ -3,6 +3,8 @@ import 'package:seha_tech/Reusable/customSnackBar.dart';
 import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/main.dart';
 import 'package:seha_tech/services/TreatmentServices/treatments.dart';
+import 'package:seha_tech/views/medicalProfile/userProfile.dart';
+import 'package:seha_tech/views/myPolicy/myPolicyView.dart';
 import 'package:seha_tech/views/myRequests/requestsPage.dart';
 import 'package:seha_tech/views/signup/widgets/customDivider.dart';
 
@@ -13,8 +15,7 @@ class ProviderInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final address =
-        branch["street"] + ", " + branch["city"] + ", " + branch["province"];
+    final address = branch["street"] + ", " + branch["city"];
     return Container(
       height: 450,
       child: AlertDialog(
@@ -43,7 +44,15 @@ class ProviderInfo extends StatelessWidget {
                     // Text("address",
                     //     style:
                     //         TextStyle(fontSize: 16, color: Palette.primaryColor)),
-                    Text(address, style: TextStyle(fontSize: 16)),
+                    Column(
+                      children: [
+                        Text(address, style: TextStyle(fontSize: 16)),
+                        Center(
+                          child: Text(branch["province"],
+                              style: TextStyle(fontSize: 16)),
+                        )
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -84,6 +93,7 @@ class ProviderInfo extends StatelessWidget {
                         userModel.getToken, branch["id"], userModel.getUrl);
                     print(response);
                     if (response['result'] == 200) {
+                      appModel.pageNumber = 0;
                       int count = 0;
                       Navigator.popUntil(context, (route) {
                         return count++ == 2;

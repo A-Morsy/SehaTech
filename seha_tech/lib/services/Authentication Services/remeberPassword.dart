@@ -3,12 +3,12 @@ import 'dart:convert';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:http/http.dart' as http;
 
-Future<dynamic> requestPasswordReset(String email,String url) async {
-  print (email + url);
+Future<dynamic> requestPasswordReset(String email, String url) async {
+print(url);
   try {
     Map<String, String> headers = {"email": email};
     var response =
-        await http.get("http://$url/patient/auth/reset", headers: headers);
+        await http.get("$url/patient/auth/reset", headers: headers);
     print(response.statusCode);
     if (response.statusCode == 200) {
       Map<String, dynamic> resbody = {
@@ -23,12 +23,14 @@ Future<dynamic> requestPasswordReset(String email,String url) async {
       return dataa;
     }
   } catch (error) {
+    print(error);
     return Future.error(
         'Unfortunatly an error has occurred, sorry for the inconveniance. Please try again later.');
   }
 }
 
-Future<dynamic> resetPassword(String code, String newPassword,String email,String url) async {
+Future<dynamic> resetPassword(
+    String code, String newPassword, String email, String url) async {
   try {
     Map<String, String> headers = {
       "Content-type": "application/json",
@@ -46,7 +48,7 @@ Future<dynamic> resetPassword(String code, String newPassword,String email,Strin
       };
       return resbody;
     } else {
-      Map<String, dynamic> resbody =  jsonDecode(response.body);
+      Map<String, dynamic> resbody = jsonDecode(response.body);
       return resbody;
     }
   } catch (error) {

@@ -63,7 +63,7 @@ class _ResetRequestState extends State<ResetRequest> {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width / 2.4,
+                  width: 170,
                   //height: MediaQuery.of(context).size.height / 20,
                   padding: EdgeInsets.only(top: 9),
                   child: DropdownButton<String>(

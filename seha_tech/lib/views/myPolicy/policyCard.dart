@@ -27,7 +27,7 @@ class FirstPolicyCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            constraints: BoxConstraints(maxWidth: 180),
+            constraints: BoxConstraints(maxWidth: 150),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,8 +44,11 @@ class FirstPolicyCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomDivider(
-                          dividerColor: Palette.forthColor,
+                        Container(
+                          width: 150,
+                          child: CustomDivider(
+                            dividerColor: Palette.forthColor,
+                          ),
                         ),
                         Text(
                           'POLICY NUMBER',
@@ -64,7 +67,8 @@ class FirstPolicyCard extends StatelessWidget {
                           'DATE OF RENEWAL',
                           style: TextStyle(color: Palette.thirdColor),
                         ),
-                        Text(userModel.getPolicy["expiryDate"].substring(0, 10)),
+                        Text(
+                            userModel.getPolicy["expiryDate"].substring(0, 10)),
                       ],
                     ),
                   )
@@ -93,13 +97,17 @@ class FirstPolicyCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  'POLICY STATUS',
-                  style: TextStyle(color: Palette.thirdColor),
-                ),
-                Text(userModel.getPolicy["status"]),
-              ]),
+              Container(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'POLICY STATUS',
+                        style: TextStyle(color: Palette.thirdColor),
+                      ),
+                      Text(userModel.getPolicy["status"]),
+                    ]),
+              ),
             ],
           ),
         ],

@@ -53,10 +53,10 @@ Future<Map<String, dynamic>> signUp(
       "dateOfBirth": dateOfBirth,
       "gender": gender
     };
-    var response = await http.post("http://$url/patient/auth",
+    var response = await http.post("$url/patient/auth",
         headers: headers, body: jsonEncode(data));
-    // print(response.statusCode);
     // print(response.body);
+
     if (response.statusCode == 200) {
       var responseBody = response.body;
       Map<String, dynamic> resBody = await jsonDecode(responseBody);
@@ -68,6 +68,7 @@ Future<Map<String, dynamic>> signUp(
       return dataa;
     }
   } catch (e) {
+    print(e);
     return Future.error(
         "An error has occurred, sorry for any inconvenience. Please try again later");
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:seha_tech/models/signUpModel.dart';
+import 'package:seha_tech/services/Authentication%20Services/signUpServices.dart';
+import 'package:seha_tech/views/signup/signUpThree.dart';
 import 'package:seha_tech/views/signup/signUpTwo.dart';
 import 'widgets/customDivider.dart';
 import 'widgets/firstBlock.dart';
@@ -73,19 +75,21 @@ class _SignUpOneState extends State<SignUpOne> {
             // padding: EdgeInsets.only(right: 20,top: 20),
             padding: EdgeInsets.only(right: 10),
             child: FloatingActionButton(
-              onPressed: () {
+              heroTag: "btn1",
+              onPressed: () async {
                 if (globalKey.currentState!.validate()) {
                   globalKey.currentState!.save();
-
                   if (signUpModel.getPassword ==
                       signUpModel.getConfirmPassword) {
+                    var response = await getAllPayers();
+                    signUpModel.setPayers = response;
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SignUpTwo()),
+                      MaterialPageRoute(builder: (context) => SignUpThree()),
                     );
                   }
                 } else {
-                  print(globalKey.currentState!.validate());
+                  print(globalKey.currentState?.validate());
                 }
               },
               child: const Icon(

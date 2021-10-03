@@ -30,10 +30,10 @@ class AppSkeleton extends StatefulWidget {
 }
 
 class _AppSkeletonState extends State<AppSkeleton> {
-  //final List<Widget> _tabItems = [MyRequests(),TreatmentView(),UserProfile()];
   @override
   Widget build(BuildContext context) {
     int _page = appModel.getPageNumber;
+    print(appModel.pageNumber);
     return ScopedModel<AppModel>(
         model: appModel,
         child: ScopedModelDescendant<AppModel>(
@@ -76,10 +76,10 @@ class _AppSkeletonState extends State<AppSkeleton> {
                   elevation: 0.0,
                 ),
                 body: Container(
-                    child: widget.body,
-                    ), //Body of the view
+                  child: widget.body,
+                ), //Body of the view
                 bottomNavigationBar: CurvedNavigationBar(
-                  index: model.currentPage,
+                  index: model.pageNumber,
                   animationCurve: Curves.bounceInOut,
                   //key:_bottomNavigationKey,
 
@@ -90,18 +90,18 @@ class _AppSkeletonState extends State<AppSkeleton> {
                     Icon(
                       Icons.event_available,
                       size: 30,
-                      color: (model.currentPage == 0)
+                      color: (model.pageNumber == 0)
                           ? Palette.thirdColor
                           : Palette.primaryColor,
                     ),
                     Icon(Icons.add,
                         size: 30,
-                        color: (model.currentPage == 1)
+                        color: (model.pageNumber == 1)
                             ? Palette.thirdColor
                             : Palette.primaryColor),
                     Icon(Icons.account_circle,
                         size: 30,
-                        color: (model.currentPage == 2)
+                        color: (model.pageNumber == 2)
                             ? Palette.thirdColor
                             : Palette.primaryColor),
                   ],

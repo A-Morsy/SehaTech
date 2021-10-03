@@ -19,7 +19,7 @@ class SignUpContainer extends StatelessWidget {
             children: [
               SignUpStepsWidget(
                 step: signUpStep,
-                size: 3,
+                size: 2,
                 bgColor: Palette.primaryColor,
               ),
             ],

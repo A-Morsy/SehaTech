@@ -69,7 +69,7 @@ class _EmailBlockState extends State<EmailBlock> {
                         myController: textController1,
                         message: AppLocalizations.of(context)!
                             .signUpFirstPage_SecondBlock_EmailPH,
-                        width: MediaQuery.of(context).size.width / 2,
+                        width: 150,
                         height: 20,
                         obscureText: false,
                         keyboardType: TextInputType.name,
@@ -82,7 +82,7 @@ class _EmailBlockState extends State<EmailBlock> {
                         myController: textController2,
                         message: AppLocalizations.of(context)!
                             .signUpFirstPage_SecondBlock_phoneNumberPH,
-                        width: MediaQuery.of(context).size.width / 2,
+                        width: 150,
                         height: 20,
                         obscureText: false,
                         keyboardType: TextInputType.number,
@@ -96,7 +96,7 @@ class _EmailBlockState extends State<EmailBlock> {
                         myController: textController3,
                         message: AppLocalizations.of(context)!
                             .signUpFirstPage_SecondBlock_passwordPH,
-                        width: MediaQuery.of(context).size.width / 2,
+                        width: 150,
                         height: 20,
                         obscureText: true,
                         keyboardType: TextInputType.name,
@@ -110,7 +110,7 @@ class _EmailBlockState extends State<EmailBlock> {
                         myController: textController4,
                         message: AppLocalizations.of(context)!
                             .signUpFirstPage_SecondBlock_confirmPasswordPH,
-                        width: MediaQuery.of(context).size.width / 2,
+                        width: 150,
                         height: 20,
                         obscureText: true,
                         keyboardType: TextInputType.name,
