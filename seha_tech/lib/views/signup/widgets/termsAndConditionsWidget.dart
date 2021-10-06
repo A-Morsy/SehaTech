@@ -7,7 +7,6 @@ import 'package:seha_tech/Reusable/palette.dart';
 import 'package:seha_tech/models/signUpModel.dart';
 import 'package:seha_tech/services/Authentication%20Services/signUpServices.dart';
 
-
 import 'package:seha_tech/views/rememberPassword/widgets/otpWidget.dart';
 import 'package:seha_tech/views/signup/signUpOne.dart';
 
@@ -82,19 +81,19 @@ class _TermsWidgetState extends State<TermsWidget> {
                         signUpModel.getEmail, signUpModel.getassociatedBaseUrl);
                     print(response2);
                     if (response2 != '200') {
+                      showDialog(
+                          context: context,
+                          builder: (_) => OTPWidget(
+                                type: 2,
+                              ),
+                          barrierDismissible: true);
+
                       message = response2;
                     } else {
                       message = response['message'];
                     }
 
                     CustomSnackBar.buildErrorSnackbar(context, message);
-
-                    showDialog(
-                        context: context,
-                        builder: (_) => OTPWidget(
-                              type: 2,
-                            ),
-                        barrierDismissible: true);
                   }
                 },
                 child: Text(

@@ -38,6 +38,7 @@ Future<Map<String, dynamic>> signUp(
     String dateOfBirth,
     String gender,
     String url) async {
+  print(url);
   try {
     Map<String, String> headers = {"Content-type": "application/json"};
     Map data = {
@@ -63,7 +64,10 @@ Future<Map<String, dynamic>> signUp(
 
       return resBody;
     } else {
-      Map<String, dynamic> dataa = {"result": response.statusCode,"message" : response.body};
+      Map<String, dynamic> dataa = {
+        "result": response.statusCode,
+        "message": response.body
+      };
 
       return dataa;
     }
@@ -74,13 +78,11 @@ Future<Map<String, dynamic>> signUp(
   }
 }
 
-
-Future<dynamic> getOtpRequest(String email,String url) async {
+Future<dynamic> getOtpRequest(String email, String url) async {
   try {
     Map<String, String> headers = {"email": email};
 
-    var response = await http.get("http://$url/otp/user",
-        headers: headers);
+    var response = await http.get("$url/otp/user", headers: headers);
     // print(jsonDecode(response.body));
     print(response);
     if (response.statusCode == 200) {
@@ -95,21 +97,24 @@ Future<dynamic> getOtpRequest(String email,String url) async {
   }
 }
 
-
-
-Future<dynamic> approveUserBytOtp(String email,String otp,String url) async {
+Future<dynamic> approveUserBytOtp(String email, String otp, String url) async {
   try {
-    Map<String, String> headers = {"email": email,"otp" : otp};
-    var response = await http.put("http://$url/otp/user",
-        headers: headers);
+    Map<String, String> headers = {"email": email, "otp": otp};
+    var response = await http.put("$url/otp/user", headers: headers);
     if (response.statusCode == 200) {
       Map<String, dynamic> resbody = jsonDecode(response.body);
       print(response.statusCode);
-      print (resbody) ;
-      Map<String, dynamic> dataa = {"result": response.statusCode,"message" : jsonDecode(response.body)};
+      print(resbody);
+      Map<String, dynamic> dataa = {
+        "result": response.statusCode,
+        "message": jsonDecode(response.body)
+      };
       return dataa;
     } else {
-      Map<String, dynamic> dataa = {"result": response.statusCode,"message" : jsonDecode(response.body)};
+      Map<String, dynamic> dataa = {
+        "result": response.statusCode,
+        "message": jsonDecode(response.body)
+      };
 
       return dataa;
     }

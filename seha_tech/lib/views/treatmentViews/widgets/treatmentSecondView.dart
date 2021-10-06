@@ -34,7 +34,7 @@ class _TreatmentSecondViewState extends State<TreatmentSecondView> {
                   image: AssetImage("assets/images/bg.jpg"),
                   fit: BoxFit.cover,
                 )),
-            margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
             padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,

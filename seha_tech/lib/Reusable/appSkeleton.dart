@@ -76,6 +76,7 @@ class _AppSkeletonState extends State<AppSkeleton> {
                   elevation: 0.0,
                 ),
                 body: Container(
+                  color: Palette.fifthColor,
                   child: widget.body,
                 ), //Body of the view
                 bottomNavigationBar: CurvedNavigationBar(
@@ -83,9 +84,9 @@ class _AppSkeletonState extends State<AppSkeleton> {
                   animationCurve: Curves.bounceInOut,
                   //key:_bottomNavigationKey,
 
-                  backgroundColor: Palette.thirdColor,
+                  backgroundColor: Palette.fifthColor,
                   color: Colors.white,
-                  height: MediaQuery.of(context).size.height * 0.07,
+                  height:50,
                   items: <Widget>[
                     Icon(
                       Icons.event_available,

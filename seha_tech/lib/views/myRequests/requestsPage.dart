@@ -49,7 +49,7 @@ class _MyRequestsState extends State<MyRequests> {
                   image: AssetImage("assets/images/bg.jpg"),
                   fit: BoxFit.cover,
                 )),
-        margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
+        margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
         // padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -83,7 +83,7 @@ class _MyRequestsState extends State<MyRequests> {
                                   color: Colors.white,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w400),
-                              labels: ["Pending", "Approved"],
+                              labels: ["Requests", "Claims"],
                               selectedLabelIndex: (index) {
                                 if (widget.index != index) {
                                   setState(() {

@@ -18,11 +18,11 @@ class _UserProfileMainWidgetState extends State<UserProfileMainWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Palette.fifthColor,
+        //color: Palette.fifthColor,
         width: MediaQuery.of(context).size.width,
         height: double.infinity,
         child: Container(
-          margin: EdgeInsets.fromLTRB(20, 15, 20, 0),
+          margin: EdgeInsets.fromLTRB(20, 15, 20, 20),
           height: double.infinity,
           decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(

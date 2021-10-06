@@ -31,7 +31,7 @@ class _TreatmentView extends State<TreatmentView> {
     return Container(
       // width: MediaQuery.of(context).size.width,
       // height: MediaQuery.of(context).size.height,
-      color: Palette.fifthColor,
+      //color: Palette.fifthColor,
       padding: EdgeInsets.only(top: 25),
       child: Column(
         children: [

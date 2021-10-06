@@ -39,7 +39,7 @@ class _TreatmentFirstViewState extends State<TreatmentFirstView> {
 
                   fit: BoxFit.cover,
                 )),
-            margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
             padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -69,7 +69,7 @@ class _TreatmentFirstViewState extends State<TreatmentFirstView> {
                     child: CustomDivider(dividerColor: Palette.thirdColor)),
 
                 Container(
-                  height: 300,
+                  height: 280,
                   child: FutureBuilder<List<dynamic>>(
                       future: getAllTreatments(
                           userModel.getToken, userModel.getUrl),

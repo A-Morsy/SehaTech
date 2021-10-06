@@ -37,10 +37,16 @@ class _OTPWidgetState extends State<OTPWidget> {
                 style: TextStyle(color: Palette.primaryColor)),
             Container(
                 width: 80,
-                child: CustomDivider(dividerColor: Palette.thirdColor))
+                child: CustomDivider(dividerColor: Palette.thirdColor)),
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: Text("Please enter the OTP sent to you.",
+                  style: TextStyle(color: Colors.black, fontSize: 12)),
+            ),
           ],
         )),
         content: TextFormField(
+          //decoration: new InputDecoration.collapsed(hintText: 'Please enter the OTP sent to you'),
           controller: textController2,
           onFieldSubmitted: (pin) async {
             if (widget.type == 1) {
@@ -51,15 +57,11 @@ class _OTPWidgetState extends State<OTPWidget> {
               );
               if (response['result'] == 200) {
                 resetPasswordModel.setOtpCode = pin;
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => RemberPasswordView()));
+                Navigator.of(context).popUntil((route) => route.isFirst);
                 print("Completed: " + resetPasswordModel.getOtpCode);
-              }else{
+              } else {
                 CustomSnackBar.buildErrorSnackbar(
-                                                context,
-                                                "Incorrect OTP, Please try again!");
+                    context, "Incorrect OTP, Please try again!");
               }
             } else if (widget.type == 2) {
               var response = await approveUserBytOtp(

@@ -16,6 +16,7 @@ import 'package:seha_tech/views/signup/widgets/forgetPassword.dart';
 import 'package:seha_tech/views/signup/widgets/signUpText.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'views/signup/widgets/customDivider.dart';
 import './services/getAllPayers.dart';
 import './Reusable/dialog.dart';
@@ -60,6 +61,7 @@ class MyHomePage extends StatefulWidget {
 
 SignInModel signInModel = SignInModel();
 UserModel userModel = UserModel();
+bool _isChecked = false;
 
 class _MyHomePageState extends State<MyHomePage> {
   void initState() {
@@ -89,6 +91,21 @@ class LandingScreen extends StatelessWidget with InputValidationMixin {
   // static bool signinBtnPressed = false;
   @override
   Widget build(BuildContext context) {
+    // void _handleRemeberme(bool value) {
+    //   _isChecked = value;
+    //   SharedPreferences.getInstance().then(
+    //     (prefs) {
+    //       prefs.setBool("remember_me", value);
+    //       prefs.setString('email', textController1.text);
+    //       prefs.setString('password', textController2.text);
+    //       prefs.setString('policyOwnerUrl', signInModel.getUrl);
+    //     },
+    //   );
+    //   setState(() {
+    //     _isChecked = value;
+    //   });
+    // }
+
     return Scaffold(
       backgroundColor: Palette.fifthColor,
       body: ScopedModel<SignInModel>(
@@ -276,6 +293,30 @@ class LandingScreen extends StatelessWidget with InputValidationMixin {
                             //     ],
                             //   ),
                             // ),
+                            // Expanded(
+                            //     child: Row(
+                            //         mainAxisAlignment: MainAxisAlignment.start,
+                            //         children: [
+                            //       SizedBox(
+                            //           height: 24.0,
+                            //           width: 24.0,
+                            //           child: Theme(
+                            //             data: ThemeData(
+                            //                 unselectedWidgetColor:
+                            //                     Color(0xff00C8E8) // Your color
+                            //                 ),
+                            //             child: Checkbox(
+                            //                 activeColor: Color(0xff00C8E8),
+                            //                 value: _isChecked,
+                            //                 onChanged: _handleRemeberme),
+                            //           )),
+                            //       SizedBox(width: 10.0),
+                            //       Text("Remember Me",
+                            //           style: TextStyle(
+                            //               color: Color(0xff646464),
+                            //               fontSize: 12,
+                            //               fontFamily: 'Rubic'))
+                            //     ])),
                             Container(
                               margin: EdgeInsets.only(top: 10),
                               width: MediaQuery.of(context).size.width * 0.7,
